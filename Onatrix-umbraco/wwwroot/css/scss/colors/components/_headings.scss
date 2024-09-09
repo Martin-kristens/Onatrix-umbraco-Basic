@@ -1,0 +1,73 @@
+// sätter färgen på rubriker här baserat på parameterlistan från _mixin-color
+// dark => vilken rubrik man vill styla baserat på bakgrundsfärgen 
+// och så fortsätter man sätta färgkombinationer på samtliga knappar baserat på vilken bakgrundsfärg 
+
+@include heading-colors(
+    --color-primary,
+    --color-primary,
+    --color-secondary,
+    --color-primary,
+    --color-primary,
+    --color-secondary
+);
+
+// baserat på vilket färgtema man har sätts rubrik färgen här
+@include theme-headings(
+    'dark',
+    --color-primary,
+    --color-primary,
+    --color-secondary,
+    --color-primary,
+    --color-primary,
+    --color-secondary
+);
+
+@include theme-headings(
+    'primary',
+    --color-light,
+    --color-light,
+    --color-secondary,
+    --color-light,
+    --color-light,
+    --color-secondary
+);
+
+@include theme-headings(
+    'secondary',
+    --color-primary,
+    --color-primary,
+    --color-accent,
+    --color-primary,
+    --color-primary,
+    --color-accent
+);
+
+@include theme-headings(
+    'accent',
+    --color-primary,
+    --color-primary,
+    --color-secondary,
+    --color-primary,
+    --color-primary,
+    --color-secondary
+);
+
+@include theme-headings(
+    'gray',
+    --color-primary,
+    --color-primary,
+    --color-secondary,
+    --color-primary,
+    --color-primary,
+    --color-secondary
+);
+
+@include theme-headings(
+    'light',
+    --color-primary,
+    --color-primary,
+    --color-secondary,
+    --color-primary,
+    --color-primary,
+    --color-secondary
+);

@@ -1,0 +1,211 @@
+.contact-info {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    .container {
+        text-align: center;
+
+        .location {
+
+            .office {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+            }
+        }
+
+        .phone-number {
+
+            .phone {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+            }
+        }
+
+        .email-address {
+            margin-bottom: 1rem;
+            .email {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+            }
+        }
+
+       .contact-image {
+            display: none;          
+       } 
+    }
+
+    @include tablet {
+
+        padding-bottom: 0;
+        .container {
+            display: flex;
+            flex-direction: row-reverse;
+
+            .right {
+                margin-top: 7rem;
+                margin-left: 5rem;
+                h2 {
+                    font-size: 22px;
+                    text-align: left;
+                }
+
+                .location {
+                    line-height: 5px;
+    
+                    .office {
+                        display: flex;
+                        justify-content: flex-start;
+                        gap: 0.5rem;
+                    }
+
+                    p {
+                        font-size: 12px;
+                        text-align: left;
+                        margin-left: 20px;
+                    }
+                }
+        
+                .phone-number {
+                    line-height: 5px;
+        
+                    .phone {
+                        display: flex;
+                        justify-content: flex-start;
+                        gap: 0.5rem;
+                    }
+
+                    p {
+                        font-size: 12px;
+                        text-align: left;
+                        margin-left: 20px;
+                    }
+                }
+        
+                .email-address {
+                    line-height: 5px;
+
+                    .email {
+                        display: flex;
+                        justify-content: flex-start;
+                        gap: 0.5rem;
+                    }
+
+                    p {
+                        font-size: 12px;
+                        text-align: left;
+                        margin-left: 20px;
+                    }
+                }
+            }
+    
+           .contact-image {
+                position: relative;
+                display: flex;
+                img {
+                    width: 100%;
+                    height: auto;
+                    object-fit: contain; 
+                    z-index: 1000; 
+                    position: relative;
+                }
+
+                .component1 {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+
+                    img {
+                        z-index: 1;
+                        height: 100%;
+                        width: 120%;
+                        overflow: hidden;
+                        overflow-x: hidden;
+                    }
+                }
+           } 
+        }
+    }
+
+    @include desktop {
+
+        .container {
+
+            .right, .contact-image  {
+                flex: 1;
+            }
+
+            .right {
+
+                h2 {
+                    font-size: 40px;
+                    text-align: left;
+                }
+
+                .location {
+                    line-height: 5px;
+    
+                    .office {
+                        display: flex;
+                        justify-content: flex-start;
+                        gap: 0.5rem;
+                    }
+
+                    p {
+                        font-size: 14px;
+                        text-align: left;
+                        margin-left: 20px;
+                    }
+                }
+        
+                .phone-number {
+                    line-height: 5px;
+        
+                    .phone {
+                        display: flex;
+                        justify-content: flex-start;
+                        gap: 0.5rem;
+                    }
+
+                    p {
+                        font-size: 14px;
+                        text-align: left;
+                        margin-left: 20px;
+                    }
+                }
+        
+                .email-address {
+                    line-height: 5px;
+
+                    .email {
+                        display: flex;
+                        justify-content: flex-start;
+                        gap: 0.5rem;
+                    }
+
+                    p {
+                        font-size: 14px;
+                        text-align: left;
+                        margin-left: 20px;
+                    }
+                }
+            }
+    
+           .contact-image {
+                
+                img {
+                    width: 80%;
+                }
+
+                .component1 {
+                    left: 52px;
+
+                    img {
+                        width: 108%;
+                    }
+                }
+           } 
+        }
+    }
+}

@@ -1,0 +1,16 @@
+// vill man ändra färg på body elementet gör man här
+body {
+    color: var(--color-default);
+}
+
+// ändra färg på alla span element här
+span {
+    color: var(--color-secondary);
+    font-weight: 600;
+}
+
+.bg-secondary {
+    span {
+        color: var(--color-primary);
+    }
+}

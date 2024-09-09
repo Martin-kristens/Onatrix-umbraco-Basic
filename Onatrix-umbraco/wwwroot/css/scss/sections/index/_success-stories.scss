@@ -1,0 +1,146 @@
+#success-stories {
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background-image: url("../../../images/dot-map\ 1.svg");
+    background-size: contain;        /* Gör att bilden täcker hela ytan */
+    background-position: center 55px;   /* Centrerar bakgrunden */
+    background-repeat: no-repeat; 
+    position: relative;
+    
+    .container {
+
+        .success-stories-customer-served {
+            p:nth-child(1) {
+                font-size: 2rem;
+                font-weight: 600;
+                color: #c0ac94;
+            }
+
+            p:nth-child(2){
+                font-size: 0.8rem;
+            }
+        }
+
+        .success-stories-projects-completed {
+            p:nth-child(1) {
+                font-size: 2rem;
+                font-weight: 600;
+                color: #c0ac94;
+            }
+            p:nth-child(2){
+                font-size: 0.8rem;
+            }
+        }
+
+        .success-stories-branches-established {
+            p:nth-child(1) {
+                font-size: 2rem;
+                font-weight: 600;
+                color: #c0ac94;
+            }
+            p:nth-child(2){
+                font-size: 0.8rem;
+            }
+        }
+
+        img {
+            height: auto;
+            width: 100%;
+            object-fit: contain;
+        }
+    }
+
+    @include tablet {
+        .container {
+
+            .success-stories {
+
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               padding-bottom: 2rem;
+               gap: 1rem;
+
+                .success-stories-customer-served {
+                    max-width: 30%;
+                    p:nth-child(1) {
+                        font-size: 3rem;
+                    }
+                }
+        
+                .success-stories-projects-completed {
+                    max-width: 30%;
+                    p:nth-child(1) {
+                        font-size: 3rem;
+                    }
+                }
+        
+                .success-stories-branches-established {
+                    max-width: 33%;
+                    p:nth-child(1) {
+                        font-size: 3rem;
+                    }
+                }
+            }          
+    
+            img {
+                height: auto;
+                width: 80%;
+                object-fit: contain;
+                
+            }
+        }
+    }
+
+    @include desktop {
+        position: relative;
+        padding-bottom: 20rem;
+        padding-top: 5rem;
+        .container {
+          
+            .success-stories {
+
+                .success-stories-customer-served {
+
+                    p:nth-child(1) {
+                        font-size: 5rem;
+                    }
+
+                    p:nth-child(2) {
+                        font-size: 18px;
+                    }
+                }
+        
+                .success-stories-projects-completed {
+                    p:nth-child(1) {
+                        font-size: 5rem;
+                    }
+
+                    p:nth-child(2) {
+                        font-size: 18px;
+                    }
+                }
+        
+                .success-stories-branches-established {
+
+                    p:nth-child(1) {
+                        font-size: 5rem;
+                    }
+
+                    p:nth-child(2) {
+                        font-size: 18px;
+                    }
+                }
+            }          
+    
+            img {
+                object-fit: contain;
+                position: absolute;
+                top: 330px;
+                left: 120px;
+                
+            }
+        }
+    }
+}

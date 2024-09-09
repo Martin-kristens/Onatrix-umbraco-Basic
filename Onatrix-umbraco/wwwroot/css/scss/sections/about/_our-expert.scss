@@ -1,0 +1,94 @@
+#our-expert {
+    padding-top: 3rem;
+    .container {
+        text-align: center;
+
+        .our-expert-large-cards {
+            
+           .our-expert-large-card {
+                border: 1px solid rgba(206, 204, 204, 0.39);
+                margin-bottom: 0.5rem;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    object-fit: contain;  
+                }
+
+                h6 {
+                    color: var(--color-dark);
+                    padding-top: 1rem;
+                }
+           } 
+        }
+
+        .our-expert-small-cards {
+           
+            .our-expert-small-card {
+                border: 1px solid rgba(206, 204, 204, 0.39);
+                margin-bottom: 0.5rem;
+                
+                img {
+                    width: 100%;
+                    height: auto;
+                    object-fit: contain;  
+                }
+
+                h6 {
+                    color: var(--color-dark);
+                    padding-top: 1rem;
+                }
+            }
+        }
+    }
+
+    @include tablet {
+        padding-bottom: 2rem;
+
+        .container {
+
+            h2 {
+                font-size: 22px;
+                max-width: 80%;
+                margin: 0 auto;  
+                margin-bottom: 1rem;           
+            }
+            .our-expert-large-cards {
+                display: flex;
+                gap: 0.8rem;
+                padding-bottom: 1rem;
+                
+               .our-expert-large-card {
+                    text-align: left;
+    
+                    h6 {
+                        padding-left: 0.5rem;
+                    }
+
+                    p {
+                        font-size: 12px;
+                        padding-left: 0.5rem;
+                    }
+               } 
+            }
+    
+            .our-expert-small-cards {
+                display: flex;
+                gap: 0.8rem;
+                text-align: left;
+               
+                .our-expert-small-card {
+    
+                    h6 {
+                        padding-left: 0.5rem;
+                    }
+
+                    p {
+                        font-size: 12px;
+                        padding-left: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+}

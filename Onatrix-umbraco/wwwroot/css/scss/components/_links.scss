@@ -1,0 +1,32 @@
+a {
+    display: inline-block;
+    @include text;
+    font-size: 1em;
+    text-decoration: underline;
+
+    &:hover {
+        text-decoration: none;
+    }
+    
+    i {
+        // content: '\f08e';
+        // font-family: "Font Awsome 6 Pro";
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 0.8em;
+        margin-left: 0.3em;
+        margin-top: -0.7em;
+    }
+    // &[target="_blank"] {
+        
+    //     &::after {
+    //         content: '\f08e';
+    //         font-family: "Font Awsome 6 Pro";
+    //         display: inline-block;
+    //         vertical-align: middle;
+    //         font-size: 0.8em;
+    //         margin-left: 0.3em;
+                margin-top: -0.9em;
+    //     }
+    // }
+}

@@ -1,0 +1,34 @@
+header {
+    width: 100%;
+
+    .container {
+       text-align: center;
+       
+    }
+    
+    @include tablet {
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: strech;
+            padding-top: 0.5rem;
+            
+             p {
+                font-size: 12px;
+             }
+             .social-media {      
+                display: flex;
+                align-items: strech;
+                
+                a {
+                    border: 1px solid rgba(205, 208, 223, 0.315);
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    padding: 1rem 1rem 0 1rem;
+                }
+             }           
+         }       
+    }  
+}

@@ -1,0 +1,88 @@
+.nav {
+    padding-bottom: 0.1rem;
+    padding-top: 1rem;
+
+    .container {
+        
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+        // a {
+        //     width: 50%;
+        //     height: auto;
+        //     img {
+        //         width: 100%;
+        //         height: auto;
+        //         object-fit: contain;
+        //         margin-bottom: 1rem;
+        //     }
+        // }
+           
+        a {
+            display: flex;
+            align-items: center;
+            width: auto;
+            height: auto;
+
+            img {
+                width: 100%; /* Justera storleken på logotypen */
+                height: auto;
+                object-fit: contain;
+                margin-bottom: 1rem;
+            }
+        }
+       
+    
+        nav {
+            display: flex;
+            flex-direction: row;
+            gap: 0.3rem;
+            margin-right: 0.4rem;
+
+            a {
+                color: var(--color-default);
+                text-decoration: none;
+                font-weight: 600;
+            }
+        }
+    }
+
+    @include tablet {
+        .container {
+        
+            img {
+                width: 15%;
+                height: auto;
+            }
+        
+            nav {
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+            }
+
+            i {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+    @include desktop {
+        .container {
+        
+            img {
+                width: 10%;
+            }
+        
+            nav {
+                gap: 4rem;
+            }
+
+           
+        }
+    }
+ 
+}
+
+

@@ -1,0 +1,70 @@
+#breadcrumbs {
+    
+    .container {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        text-align: center;
+        
+        .about-us-navigation {
+           
+            a {
+                text-decoration: none;
+            }
+            
+            i {
+                color: #D9C3A9;
+                margin-left: 0.8rem;
+                margin-right: 0.8rem;
+            }
+        }
+    }   
+
+    @include tablet {
+
+        .container {
+            
+           h2 {
+            font-size: 22px;
+           }
+            
+            .about-us-navigation {
+               
+                a {
+                    text-decoration: none;
+                    font-size: 10px;
+                }
+                
+                i {
+                    color: #D9C3A9;
+                    margin-left: 0.5rem;
+                    margin-right: 0.5rem;
+                    font-size: 10px;
+                }
+            }
+        } 
+    }
+
+    @include desktop {
+        .container {
+            
+            h2 {
+             font-size: 40px;
+            }
+             
+             .about-us-navigation {
+                
+                 a {
+                     text-decoration: none;
+                     font-size: 14px;
+                 }
+                 
+                 i {
+                     color: #D9C3A9;
+                     margin-left: 0.5rem;
+                     margin-right: 0.5rem;
+                     font-size: 10px;
+                 }
+             }
+         } 
+    }
+}

@@ -1,0 +1,18 @@
+.container, container-fluid {
+    position: relative;
+    width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin-right: auto;
+    margin-left: auto; 
+}
+
+.container {
+    @include tablet {
+        max-width: 720px;
+    }
+
+    @include desktop {
+        max-width: 1120px;
+    }
+}

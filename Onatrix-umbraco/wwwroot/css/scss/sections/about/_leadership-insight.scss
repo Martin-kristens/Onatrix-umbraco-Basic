@@ -1,0 +1,100 @@
+#leadership-insight {
+    padding-top: 2rem;
+
+    .container {
+        text-align: left;
+       
+        p:nth-child(1) {
+            font-style: italic;
+            text-align: center;
+        }
+
+        .tina-image {
+            
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;  
+            }
+
+            p {
+                font-style: italic;
+            }
+        }
+    }
+
+    @include tablet {
+        .container {
+            display: flex;
+            flex-direction: row-reverse;
+
+            .right {
+                max-width: 60%;
+
+                p:nth-child(1) {
+                    font-style: italic;
+                    text-align: center;
+                }
+
+                p {
+                    font-size: 12px;
+                }
+            }
+   
+            .tina-image {
+                
+                img {
+                    width: 50%;
+                    height: auto;
+                    object-fit: contain;  
+                }
+    
+                p {
+                    font-style: italic;
+                    font-size: 12px;
+                    margin-top: 1rem;
+                }
+            }
+        }
+    }
+
+    @include desktop {
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 1rem;
+
+            .right, .tina-image {
+                flex: 1;
+            }
+
+            .right {
+
+                p:nth-child(1) {
+                    font-style: italic;
+                    text-align: left;
+                }
+
+                p {
+                    font-size: 15px;
+                }
+            }
+   
+            .tina-image {
+                
+                img {
+                    width: 94%;
+                    height: auto;  
+                }
+    
+                p {
+                    font-style: italic;
+                    font-size: 16px;
+                    margin-top: 1rem;
+                }
+            }
+        }
+    }
+}

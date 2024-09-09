@@ -1,0 +1,380 @@
+#services-details {
+
+    .container {
+
+        .left-side {
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+           padding-top: 1rem;
+           padding-bottom: 2rem;
+
+           h4 {
+            font-size: 28px;
+           }
+
+            .service-details-card {
+                width: 100%;
+               
+                img {
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                }
+                p {
+                    width: 100%;
+                    font-size: 14px;
+                    padding-top: 1rem;
+                }
+            }
+
+            .service-details-online-support {
+                text-align: left;
+                width: 100%;
+                padding: 1rem;
+                padding-bottom: 2rem;
+                // position: relative;
+                border-radius: 4px;
+                position: relative;
+                h4 {
+                    font-size: 22px;
+                }
+
+                p {
+                    font-size: 18px;
+                }
+
+                input {
+                    width: 100%;
+                    padding: 1rem;
+                    margin-top: 1rem;
+                    font-size: 18px;
+                    font-style: italic;
+                    border-radius: 4px;
+                    
+                }
+
+                i {
+                    position: absolute;
+                    bottom: 52px;
+                    right: 35px;
+                    color: var(--color-default);
+                    font-size: 26px;
+                }
+
+                // img {
+                //     position: absolute;
+                //     bottom: -55px;
+                //     right: 0;
+                //     width: 50%;
+                //     height: auto;
+                //     object-fit: cover;
+                //     overflow: hidden;
+                // }
+            }
+        }
+
+        .right-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 2rem;
+
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+
+            h4 {
+                padding-top: 2rem;
+
+            }
+
+            .bullet-point {
+                p {
+                    text-align: left;
+                    font-size: 18px;
+                    position: relative;
+                    padding-left: 20px; 
+                    margin-bottom: 10px; 
+
+                    &::before {
+                        content: '•'; 
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        font-size: 18px; 
+                        line-height: 1; 
+                        color: var(--color-dark); /* Ändra färg här */
+                    }
+                }
+            }
+
+            h4 {
+                font-size: 22px;
+            }
+
+            p {
+                font-size: 18px;
+            }
+            
+        }
+    } 
+
+    @include tablet {
+
+        .container {
+            display: flex;
+            gap: 2rem;
+
+            .left-side {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: start;
+                padding-top: 0;
+                width: 100%;
+                padding-top: 1rem;
+    
+               h4 {
+                font-size: 18px;
+               }
+    
+                .service-details-card {
+                   position: relative;
+                    img {
+                        width: 100%;
+                        height: auto;
+                        object-fit: cover;
+                    }
+                    p {
+                        font-size: 10px;
+                    }
+                }
+    
+                .service-details-online-support {
+                    h4 {
+                        font-size: 18px;
+                    }
+    
+                    p {
+                        font-size: 10px;
+                    }
+    
+                    input {
+                        font-size: 10px;
+                        padding: 0.5rem;
+                    }
+
+                    i {
+                        font-size: 14px;
+                        position: absolute;
+                        bottom: 40px;
+                        right: 28px;
+                    }
+                }
+            }
+
+          
+    
+            .right-side {
+                
+                h4 {
+                    font-size: 18px;
+                    text-align: left; //denna fungerar inte, FIXA 
+                }
+    
+                .bullet-point {
+
+                    p {
+                        font-size: 12px;
+    
+                        &::before {
+                            font-size: 12px; 
+                        }
+                    }
+                }
+    
+                h4 {
+                    font-size: 18px;
+                }
+    
+                p {
+                    font-size: 12px;
+                }
+                
+            }
+        } 
+    }
+
+    @include desktop {
+        padding-top: 2rem;
+        .container {
+
+            .left-side {
+    
+               h4 {
+                font-size: 22px;
+               }
+    
+                .service-details-card {
+
+                    p {
+                        font-size: 14px;
+                    }
+                }
+    
+                .service-details-online-support {
+                    position: relative;
+                    h4 {
+                        font-size: 22px;
+                    }
+    
+                    p {
+                        font-size: 14px;
+                    }
+    
+                    input {
+                        padding: 1rem;
+                        font-size: 13px;
+                    }
+
+                    i {
+                        font-size: 20px;
+                        position: absolute;
+                        bottom: 48px;
+                        right: 40px;
+                    }
+                }
+            }
+    
+            .right-side {
+                    
+                h4 {
+                    font-size: 22px;
+                }
+    
+                .bullet-point {
+                    p {
+                        font-size: 14px;
+                    }
+                }
+    
+                p {
+                    font-size: 14px;
+                }
+                
+            }
+        } 
+    }
+}
+
+hr {
+    border: 1px solid #ececee;
+}
+
+.services-details-form {
+       padding-bottom: 2rem;
+    form {
+       
+        .container {
+            display: flex;
+            flex-direction: column;
+            
+            h4 {
+              font-size: 22px;
+            }
+
+            .services-details-form-input {
+                display: flex;
+                flex-direction: column;
+                
+
+               input {
+                margin-bottom: 1rem;
+                padding: 2rem;
+                font-style: italic;
+                font-size: 14px;
+                border-radius: 4px;
+                border: 1px solid #ececee;
+               }
+            }
+
+            textarea {
+                margin-bottom: 1rem;
+                padding: 2rem;
+                font-size: 14px;
+                font-style: italic;
+                border-radius: 4px;
+                border: 1px solid #ececee;
+            }
+        }
+    }
+
+    @include tablet {
+        padding-top: 2rem;
+        form {
+
+            .container {
+                              
+                h4 {
+                  font-size: 18px;
+                }
+    
+                .services-details-form-input {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 1rem;
+    
+                   input {
+                    width: 100%;
+                    padding: 0.7rem;
+                    // font-size: 12px;
+                   }
+                }
+    
+                textarea {
+                    padding: 0.7rem;
+                    // font-size: 12px;
+                }
+                button {
+                    width: 20%;
+                }
+            }
+        }
+    }
+
+    @include desktop {
+        form {
+
+            .container {
+                h4 {
+                    font-size: 25px;
+                  }
+                .services-details-form-input {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 1rem;
+    
+                   input {
+                    width: 100%;
+                    padding: 1rem;
+                    // font-size: 12px;
+                   }
+                }
+    
+                textarea {
+                    padding: 0.7rem;
+                    // font-size: 12px;
+                }
+
+                button {
+                    width: 15%;
+                }
+            }
+        }
+    }
+}

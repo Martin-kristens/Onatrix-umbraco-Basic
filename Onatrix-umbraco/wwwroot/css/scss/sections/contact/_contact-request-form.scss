@@ -1,0 +1,147 @@
+.contact-request-form {
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    .container {
+        form {
+            text-align: center;
+            p {
+                font-style: italic;
+            }
+
+            .request-form-input {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                margin-bottom: 1rem;
+                z-index: 100;
+
+                input {
+                    border-radius: 4px;
+                    border: 1px solid #ececee;
+                    padding: 1rem;
+                    font-style: italic;
+                }
+
+                select {
+                    border-radius: 4px;
+                    border: 1px solid #ececee;
+                    padding: 1rem;
+                    
+                }
+            }
+
+            button {
+                margin-bottom: 3rem;
+            }
+        }
+
+        .our-projects-partners {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            padding-bottom: 2rem;
+
+            img {
+                width: 20%;
+                height: auto;
+            }
+        }
+    }
+
+    @include tablet {
+        img {
+            margin-bottom: 4rem;
+        }
+        .container {
+            position: relative;
+
+            form {
+                position: absolute;
+                bottom: 117px;
+                left: 0;
+                // margin-bottom: 5rem;
+                padding: 1rem;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+                h2 {
+                    font-size: 22px;
+                }
+
+                p {
+                    font-size: 14px;
+                }
+
+                .request-form-input {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                }
+
+                button {
+                    margin-bottom: 1rem;
+                }
+            }
+
+            .our-projects-partners {
+                padding-bottom: 0;
+                margin-top: 2rem;
+    
+                img {
+                    width: 10%;
+                    height: auto;
+                }
+            }
+           
+        }
+    }
+
+    @include desktop {
+        .container {
+            position: relative;
+            form {
+                position: absolute;
+                bottom: 180px;
+                left: 0;
+                width: 100%;
+                padding: 4rem 3rem;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+
+                h2 {
+                    font-size: 40px;
+                    text-align: center;
+                }
+
+                .request-form-input {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    
+                    input, select {
+                        width: 100%;
+                        padding: 1rem;
+                        font-size: 14px;
+                    }
+                }
+
+                button {
+                    margin-bottom: 1rem;
+                }
+            }
+
+            .our-projects-partners {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 1rem;
+                padding-bottom: 2rem;
+    
+                img {
+                    width: 10%;
+                    height: auto;
+                }
+            }
+        }
+    }
+}

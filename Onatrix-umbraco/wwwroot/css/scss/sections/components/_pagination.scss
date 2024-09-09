@@ -1,0 +1,53 @@
+nav {
+    display: none;
+
+}
+
+@include tablet {
+    nav {
+
+        display: flex;
+        justify-content: center;
+    
+        ul {
+           list-style-type: none;
+           display: flex;
+           justify-content: center;
+           align-items: baseline;
+           gap: 2rem;
+
+           li {
+            font-weight: 600;
+            color: var(--color-dark);
+            position: relative; // Gör det möjligt att placera cirkeln runt li
+
+            &.active { // Klass för aktivt element
+                color: var(--color-primary); // Ändrar färg för det aktiva elementet, om du vill
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 2rem; // Ställ in storlek på cirkeln
+                    height: 2rem;
+                    border: 2px solid var(--color-primary); // Cirkeln färg
+                    border-radius: 50%;
+                }
+            }
+            
+            
+            }
+
+           a {
+                text-decoration: none;
+                cursor: pointer;
+                li {
+                    font-weight: 600;
+                    color: var(--color-dark);
+                }
+           }           
+        }
+    }
+}

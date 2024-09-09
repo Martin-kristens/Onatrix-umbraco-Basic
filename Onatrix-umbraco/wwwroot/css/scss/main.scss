@@ -1,0 +1,41 @@
+@import "./mixins/mixins";
+
+@import "./misc/base";
+
+@import "./components/wrapper";
+@import "./components/container";
+@import "./components/links";
+@import "./components/buttons";
+@import "./components/typography";
+
+@import "./sections/components/header";
+@import "./sections/components/navigation";
+@import "./sections/components/footer";
+@import "./sections/components/pagination";
+@import "./sections/components/service-online-support";
+
+//index
+@import "./sections/index/hero";
+@import "./sections/index/our-projects";
+@import "./sections/index/about-us";
+@import "./sections/index/our-services";
+@import "./sections/index/success-stories";
+@import "./sections/index/our-story";
+
+//about us 
+@import "./sections/about/breadcrumbs";
+@import "./sections/about/contact-info";
+@import "./sections/about/leadership-insight";
+@import "./sections/about/our-expert";
+@import "./sections/about/reviews-for-service";
+
+//service details
+// @import "./sections/services-details/services-details";
+@import "./sections/services-details/services-details";
+
+//projects 
+@import "./sections/projects/projects";
+@import "./sections/projects/projects-details";
+
+//contact
+@import "./sections/contact/contact-request-form";
