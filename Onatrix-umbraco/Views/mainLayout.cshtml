@@ -4,13 +4,6 @@
 @{
     Layout = null;
 
-    // Hämta root content och försök att hitta 'settings' dokumentet
-    var rootContent = UmbracoHelper.ContentAtRoot();
-    var settings = rootContent?.FirstOrDefault(x => x.ContentType.Alias == "settings");
-
-    // Säkerställ att du hämtar rätt fält från 'settings'
-    var officeLocation = settings?.Value<string>("officeLocation") ?? "Default Office Location";
-
     // Hantera andra variabler och värden som behövs
     var pageTitle = !string.IsNullOrEmpty(ViewBag.Title) ? $"{ViewBag.Title} | Onatrix - Financial Solution for Your Business" : "Onatrix - Financial Solution for Your Business";
     var keywordsList = Model.Value<IEnumerable<string>>("pageKeywords");

@@ -303,13 +303,13 @@ nav {
   }
 }
 #hero {
-  /* background-image: url("scss/~/images/home/sl-home2.svg");*/
+  /*   background-image: url("scss/~/images/home/sl-home2.svg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  /* padding-top: 1rem;*/
-  padding-bottom: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 2rem;*/
 }
 #hero .container {
   text-align: center;
@@ -331,11 +331,25 @@ nav {
   }
 }
 @media (min-width: 1200px) {
+  #hero .hero-background {
+    position: absolute;
+    top: 105px;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    width: 100%;
+    height: auto;
+    background-size: cover;
+  }
   #hero .container {
     padding-top: 4rem;
     padding-bottom: 4rem;
     text-align: left;
     width: 100%;
+    position: relative;
+    /*top: 130px;
+    left: 308px;*/
+    z-index: 10;
   }
   #hero .container h1 {
     font-size: 70px;

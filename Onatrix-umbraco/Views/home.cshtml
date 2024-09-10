@@ -1,0 +1,173 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@{
+	Layout = "mainLayout.cshtml";
+	ViewBag.Title = Model?.Value("pageTitle") ?? null;
+
+	var backgroundImage = Model?.Value<IPublishedContent>("heroBackgroundImage")?.Url() ?? "";
+	var signatureImage = Model?.Value<IPublishedContent>("aboutUsSignatureImage")?.Url() ?? "";
+	var ourStoryImage = Model?.Value<IPublishedContent>("ourStoryImage")?.Url() ?? "";
+	
+}
+
+ <section id="hero" class="hero">
+	<img class="hero-background" src="@backgroundImage" alt="" />
+	<div class="container">
+		<h1>@Model?.Value("heroHeadline")</h1>
+		<p>@Model?.Value("heroText")</p>
+		<button class="btn-primary" href="@Model?.Value("heroButtonUrl")">@Model?.Value("heroButtonText")</button>
+	</div>
+</section>
+
+<section id="about-us">
+	<div class="container">
+		<div class="left-side">
+			<h6>@Model.Value("aboutUsSectionTitle")</h6>
+			<h2>@Model.Value("aboutUsHeadline")</h2>
+			<p>@Model.Value("aboutUsQuotes")</p>
+			<p>@Model.Value("aboutUsText")</p>
+			<img src="@signatureImage" alt="@Model.Value("aboutUsSignature")">
+			<p>@Model.Value("aboutUsSignature")</p>
+		</div>
+		<form class="right-side">
+			<h5 class="bg-primary">Request a call back</h5>
+			<p>Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat</p>
+			<input type="text" placeholder="Name">
+			<input type="text" placeholder="Email address">
+			<input type="text" placeholder="Phone">
+			<select name="" id="">
+				<option value="">Financial consulting</option>
+				<option value="">2</option>
+				<option value="">3</option>
+			</select>
+			<button class="btn-accent">Submit</button>
+		</form>	
+	</div>
+</section>
+
+ <section id="our-services" class="bg-gray">
+	<div class="container">
+		<h6>@Model.Value("ourServicesSectionTitle")</h6>
+		<h2>@Model.Value("ourServicesHeadline")</h2>
+
+		<div class="our-services-cards">
+			<div class="our-services-card">
+				<h4 class="bg-light">Risk Management</h4>
+				<img src="./images/card-1.svg" alt="">
+				<p class="bg-light">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+			</div>
+			<div class="our-services-card">
+				<h4 class="bg-light">Bonds & Commodities</h4>
+				<img src="./images/card-2.svg" alt="">
+				<p class="bg-light">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+			</div>
+			<div class="our-services-card"> 
+				<h4 class="bg-light">Assurance & Audits</h4>
+				<img src="./images/card-3.svg" alt="">
+				<p class="bg-light">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+			</div>
+			<div class="our-services-card">
+				<h4 class="bg-light">Tax and Trusts</h4>
+				<img src="./images/card-4.svg" alt="">
+				<p class="bg-light">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+			</div>
+			<div class="our-services-card">
+				<h4 class="bg-light">Financial Advisor</h4>
+				<img src="./images/card-5.svg" alt="">
+				<p class="bg-light">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+			</div>
+			<div class="our-services-card">
+				<h4 class="bg-light">Statistic Advisors</h4>
+				<img src="./images/card-6.svg" alt="">
+				<p class="bg-light">Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
+			</div>
+		</div>	
+	</div>           
+</section>
+
+<section id="our-story">
+	<div class="container">
+		<h2>@Model.Value("ourStoryHeadline")</h2>
+		<p>@Model.Value("ourStoryText")</p>
+		<button class="btn-primary" href="@Model.Value("ourStoryButtonUrl")">@Model.Value("ourStoryButtonName")</button>
+		<img src="@ourStoryImage" alt="">
+	</div>          
+</section>
+
+<section id="success-stories" class="bg-primary">
+	<div class="container">
+		<h6>@Model.Value("successStoriesSectionTitle")</h6>
+		<h2>@Model.Value("successStoriesHeadline")</h2>
+
+		<div class="success-stories">
+			<div class="success-stories-customer-served">
+				<p>689</p>
+				<p>More than 100 customers has been served</p>
+			</div>
+			<div class="success-stories-projects-completed">
+				<p>370</p>
+				<p>More than 370 projects has been completed</p>
+			</div>
+			<div class="success-stories-branches-established">
+				<p>125</p>
+				<p>More than 125 branches has been established in Europe and America</p>
+			</div>
+		</div>
+	
+	<div>
+		<img src="./images/Video 1.svg" alt="">
+	</div>                
+	</div>           
+</section>
+
+<section id="our-projects">
+	<div class="container">
+		<h6>@Model.Value("ourProjectsSectionTitle")</h6>
+		<h2>@Model.Value("ourProjectsHeadline")</h2>
+	</div>
+
+	<div class="our-projects-cards">
+		<div class="our-projects-card">
+			<img src="./images/project-1.svg" alt="">
+			<div class="our-projects-text">
+				<p>Annual Report for Juva Inc.</p>
+				<p>Financial Services</p>
+			</div>                   
+		</div>
+		<div class="our-projects-card">
+			<img src="./images/project-2.svg" alt="">
+			<div class="our-projects-text">
+				<p>Business Insights for SP Group Inc.</p>
+				<p>Financial Services</p>
+			</div>                    
+		</div>
+		<div class="our-projects-card">
+			<img src="./images/project-3.svg" alt="">
+			<div class="our-projects-text">
+				<p>Financial Advisors to Irra Corp Inc.</p>
+				<p>Financial Services</p>
+			</div>                    
+		</div>
+		<div class="our-projects-card">
+			<img src="./images/project-4.svg" alt="">
+			<div class="our-projects-text">
+				<p>Budget Planning for Buccura Inc.</p>
+				<p>Financial Services</p>
+			</div>                   
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="our-projects-partners">
+		<div class="container">
+			<img src="~/images/home/partner-1.svg" alt="">
+			<img src="~/images/home/partner-2.svg" alt="">
+			<img src="~/images/home/partner-3.svg" alt="">
+			<img src="~/images/home/partner-4.svg" alt="">
+			<img src="~/images/home/partner-5.svg" alt="">
+			<img src="~/images/home/partner-6.svg" alt="">
+		</div>		
+	</div>				
+</section>
+
