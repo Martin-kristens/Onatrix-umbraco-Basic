@@ -2,25 +2,35 @@ header {
     width: 100%;
 
     .container {
-       text-align: center;
-       
+        text-align: center;
+        display: flex;
     }
-    
+
     @include tablet {
 
         .container {
             display: flex;
             justify-content: space-between;
-            align-items: strech;
+            align-items: stretch;
             padding-top: 0.5rem;
-            
-             p {
-                font-size: 12px;
-             }
-             .social-media {      
+
+            .topbar {
                 display: flex;
-                align-items: strech;
-                
+
+                i {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            p {
+                font-size: 12px;
+            }
+
+            .social-media {
+                display: flex;
+                align-items: stretch;
+
                 a {
                     border: 1px solid rgba(205, 208, 223, 0.315);
                     align-items: center;
@@ -28,7 +38,7 @@ header {
                     text-align: center;
                     padding: 1rem 1rem 0 1rem;
                 }
-             }           
-         }       
-    }  
+            }
+        }
+    }
 }

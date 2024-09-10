@@ -161,20 +161,28 @@ header {
 }
 header .container {
   text-align: center;
+  display: flex;
 }
 @media (min-width: 768px) {
   header .container {
     display: flex;
     justify-content: space-between;
-    align-items: strech;
+    align-items: stretch;
     padding-top: 0.5rem;
+  }
+  header .container .topbar {
+    display: flex;
+  }
+  header .container .topbar i {
+    width: 100%;
+    height: auto;
   }
   header .container p {
     font-size: 12px;
   }
   header .container .social-media {
     display: flex;
-    align-items: strech;
+    align-items: stretch;
   }
   header .container .social-media a {
     border: 1px solid rgba(205, 208, 223, 0.315);
@@ -295,14 +303,13 @@ nav {
   }
 }
 #hero {
-  /*background-image: url("../../images/sl-home2.svg");
-  background-size: cover; 
-  background-position: center;  
-  background-repeat: no-repeat; 
+  /* background-image: url("scss/~/images/home/sl-home2.svg");*/
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   position: relative;
-  padding-top: 1rem;
+  /* padding-top: 1rem;*/
   padding-bottom: 2rem;
-  */
 }
 #hero .container {
   text-align: center;

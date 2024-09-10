@@ -1,8 +1,20 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
 @{
-	Layout = null;
-    var pageTitle = !string.IsNullOrEmpty(ViewBag.Title) ? $"(ViewBag.Title) | Onatrix - Financial Solution for Your Business" : "Onatrix - Financial Solution for Your Business";
+    Layout = null;
+
+    // Hämta root content och försök att hitta 'settings' dokumentet
+    var rootContent = UmbracoHelper.ContentAtRoot();
+    var settings = rootContent?.FirstOrDefault(x => x.ContentType.Alias == "settings");
+
+    // Säkerställ att du hämtar rätt fält från 'settings'
+    var officeLocation = settings?.Value<string>("officeLocation") ?? "Default Office Location";
+
+    // Hantera andra variabler och värden som behövs
+    var pageTitle = !string.IsNullOrEmpty(ViewBag.Title) ? $"{ViewBag.Title} | Onatrix - Financial Solution for Your Business" : "Onatrix - Financial Solution for Your Business";
+    var keywordsList = Model.Value<IEnumerable<string>>("pageKeywords");
+    var keywords = keywordsList != null ? string.Join(", ", keywordsList) : "";
 }
 
 <!DOCTYPE html>
@@ -10,6 +22,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="@Model.Value("pageDescription")">
+    <meta name="keywords" content="@keywords">
     <link rel="stylesheet" href="https://kit.fontawesome.com/a576612222.css" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/theme.css">
@@ -22,19 +36,18 @@
             <div class="container">
                 <p>Klarabergsviadukten 90, 111 64 Stockholm</p>
                 <div class="social-media">
-                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
                     <a href="#"><i class="fa-brands fa-twitter"></i></a>
                     <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                </div> 
-            </div>                    
+                </div>
+            </div>
         </header>
 
         <section class="nav bg-light">
             <div class="container">
-                <a href="/index.html"><img src="~/Brand.svg" alt="Ontarix logo"></a>
+                <a href="/index.html"><img src="~/images/home/Brand.svg" alt="Ontarix logo"></a>
           
                 <div>
-                    <!-- <i class="fa-solid fa-bars"></i> -->
                     <nav>
                         <a href="/about.html">About</a> 
                         <a href="/services.html">Services</a> 
