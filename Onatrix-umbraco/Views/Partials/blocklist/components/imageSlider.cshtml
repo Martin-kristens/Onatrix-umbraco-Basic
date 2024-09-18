@@ -1,0 +1,16 @@
+﻿@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockListItem>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var content = Model.Content as ContentModels.ImageSliderItem; // Säkerställ att ImageSliderItem är rätt elementtyp
+    var selectedImage = content.Value<IPublishedContent>("selectedImage")?.Url() ?? "";
+}
+
+@if (!string.IsNullOrEmpty(selectedImage))
+{
+    <img src="@selectedImage" alt="Image Slider Item" />
+}
+else
+{
+    <p>No image found for this item.</p>
+}

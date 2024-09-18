@@ -1,0 +1,51 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+
+@{
+
+	// var ourStoryImage = Model?.Value<IPublishedContent>("ourStoryImage")?.Url() ?? "";
+
+	var projectsCards = Model?.Value<IEnumerable<BlockListItem>>("ourProjectsCards");
+	// bool hasProjectsServices = projectsCards != null && projectsCards.Any();
+}
+
+<div class="container">
+	<h6>@Model?.Value("ourProjectsSectionTitle")</h6>
+	<h2>@Model?.Value("ourProjectsHeadline")</h2>
+</div>
+<div class="our-projects-cards">
+	@if (projectsCards != null && projectsCards.Any())
+	{
+		foreach (var card in projectsCards)
+		{
+			var service = (ContentModels.OurProjectsCards)card.Content; // Kontrollera alias och innehåll
+
+			// Hämta bild-URL och text
+
+			var imageUrl = service?.Value<IPublishedContent>("image")?.Url() ?? "";
+
+			var firstText = service?.Value<string>("firstText") ?? "";
+
+			var secondText = service?.Value<string>("secondText") ?? "";
+
+			<div class="our-projects-card">
+				<!-- Bild -->
+				<img src="@imageUrl" alt="@firstText" />
+
+				<!-- Text -->
+				<div class="our-projects-text">
+					<h4 class="bg-light">@firstText</h4>
+					<p class="bg-light">@secondText</p>
+				</div>
+
+			</div>
+		}
+	}
+	else
+	{
+		<p>No projects found.</p>
+	}
+</div>

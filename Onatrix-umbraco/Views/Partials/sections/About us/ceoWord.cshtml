@@ -1,0 +1,20 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+
+@{
+    var ceoImage = Model?.Value<IPublishedContent>("aboutUsImage")?.Url() ?? "";
+    var richTextContent = Model?.Value<string>("aboutPageCeoWord");
+}
+
+<div class="container">
+    <div class="right">
+        @Html.Raw(richTextContent)
+    </div>
+    
+    <div class="tina-image">
+        <img src="@ceoImage" alt="@Model.Value("aboutUsAltText")">
+        <p>@Model.Value("aboutUsImageText")</p>
+    </div>
+</div>

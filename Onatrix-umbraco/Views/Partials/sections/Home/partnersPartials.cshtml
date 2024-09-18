@@ -1,0 +1,25 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+
+@{
+    var partnerImage = new List<string>
+    {
+        Model?.Value<IPublishedContent>("partner1")?.Url() ?? "",
+        Model?.Value<IPublishedContent>("partner2")?.Url() ?? "",
+        Model?.Value<IPublishedContent>("partner3")?.Url() ?? "",
+        Model?.Value<IPublishedContent>("partner4")?.Url() ?? "",
+        Model?.Value<IPublishedContent>("partner5")?.Url() ?? "",
+        Model?.Value<IPublishedContent>("partner6")?.Url() ?? ""
+    };
+}
+
+
+<div class="our-projects-partners">
+    @foreach (var partner in partnerImage)
+    {
+        <img src="@partner" alt="Partner Image" />
+    }
+</div>

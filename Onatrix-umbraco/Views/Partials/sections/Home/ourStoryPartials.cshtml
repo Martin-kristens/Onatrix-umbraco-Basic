@@ -1,0 +1,17 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+
+@{
+
+	var ourStoryImage = Model?.Value<IPublishedContent>("ourStoryImage")?.Url() ?? "";
+}
+
+<div class="container">
+	<h2>@Model?.Value("ourStoryHeadline")</h2>
+	<p>@Model?.Value("ourStoryText")</p>
+	<button class="btn-primary" href="@Model?.Value("ourStoryButtonUrl")">@Model?.Value("ourStoryButtonName")</button>
+	<img src="@ourStoryImage" alt="">
+</div> 

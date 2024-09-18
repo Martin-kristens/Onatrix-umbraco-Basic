@@ -1,0 +1,47 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+
+@{
+	var successStoriesComponent = Model?.Value<IEnumerable<BlockListItem>>("successStoriesBlockList");
+	var successStoryImage = Model?.Value<IPublishedContent>("successStoryImage")?.Url() ?? "";
+}
+
+<div class="container">
+	<h6>@Model?.Value("successStoriesSectionTitle")</h6>
+	<h2>@Model?.Value("successStoriesHeadline")</h2>
+
+	<div class="success-stories">
+		@* <div class="success-stories-customer-served"> *@
+			@if (successStoriesComponent != null && successStoriesComponent.Any())
+			{
+				foreach (var story in successStoriesComponent)
+				{
+					// Hämtar innehållet från varje BlockListItem
+					var content = story.Content as ContentModels.SuccessStoriesItems;
+
+					// Kontrollera om content har laddats korrekt
+					if (content != null)
+					{
+						var numbersOfReviews = content.Value<string>("numberOfReviews");
+						var descriptionOfReviews = content.Value<string>("descriptionOfReviews");
+
+						<div class="success-stories-customer-served">
+							<p>@numbersOfReviews</p>
+							<p>@descriptionOfReviews</p>
+						</div>
+					}
+				}
+			}
+			else
+			{
+				<p>No success stories found</p>
+			}
+	</div>
+
+	<div>
+		<img src="@successStoryImage" alt="">
+	</div>
+</div> 
