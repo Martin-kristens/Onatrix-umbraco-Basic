@@ -1,4 +1,49 @@
 #breadcrumbs {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h2 {
+            font-size: 40px;
+        }
+
+        .breadcrumbs-navigation {
+            
+            .breadcrumb {
+                display: flex;
+                margin-right: 2rem;
+               /* justify-content: center;*/
+                flex-direction: row;
+                gap: 1rem;
+                li {
+                    list-style-type: none;
+
+                    .divider {
+                        margin-left: 0.5rem;
+                    }
+
+                    a {
+                        color: var(--color-default);
+                        text-decoration: none;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+
+                    &.active {
+                        color: var(--color-secondary);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/*#breadcrumbs {
     
     .container {
         padding-top: 1rem;
@@ -67,4 +112,4 @@
              }
          } 
     }
-}
+}*/

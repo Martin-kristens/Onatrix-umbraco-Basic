@@ -1,0 +1,111 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+
+@{
+
+    var cardHeadline1 = Model.Value<string>("servicePageCardHeadline1");
+    var cardImage1 = Model.Value<IPublishedContent>("servicePageCardImage1")?.Url();
+    var cardText1 = Model.Value<string>("servicePageCardSubText1");
+
+    var cardHeadline2 = Model.Value<string>("servicePageCardHeadline2");
+    var cardImage2 = Model.Value<IPublishedContent>("serviceCardCardImage2")?.Url();
+    var cardText2 = Model.Value<string>("servicePageCardSubText2");
+
+    var cardHeadline3 = Model.Value<string>("servicePageCardHeadline3");
+    var cardImage3 = Model.Value<IPublishedContent>("servicePageCardImage3")?.Url();
+    var cardText3 = Model.Value<string>("servicePageCardSubText3");
+
+    var cardHeadline4 = Model.Value<string>("servicePageHeadline4");
+    var cardImage4 = Model.Value<IPublishedContent>("servicePageCardImage4")?.Url();
+    var cardText4 = Model.Value<string>("servicePageCardSubText4");
+
+    var cardHeadline5 = Model.Value<string>("servicePageCardHeadline5");
+    var cardImage5 = Model.Value<IPublishedContent>("servicePageCardImage5")?.Url();
+    var cardText5 = Model.Value<string>("serviceCardCardSubText5");
+
+    var cardHeadline6 = Model.Value<string>("servicePageCardHeadline6");
+    var cardImage6 = Model.Value<IPublishedContent>("servicePageCardImage6")?.Url();
+    var cardText6 = Model.Value<string>("servicePageCardSubText6");
+
+}
+
+
+ <div class="container">
+    <!-- <h6>OUR SERVICES</h6> -->
+    <h2>We Provide The Solutions <br> To Grow Your Business Faster</h2>
+    
+    <div class="our-services-cards">
+         @* Kort 1 *@
+        <div class="our-services-card">
+            <h4 class="bg-light">@cardHeadline1</h4>
+            @if (!string.IsNullOrEmpty(cardImage1))
+            {
+                <img src="@cardImage1" alt="@cardHeadline1">
+            }
+            <p class="bg-light">@cardText1</p>
+        </div>
+
+        @* Kort 2 *@
+        <div class="our-services-card">
+            <h4 class="bg-light">@cardHeadline2</h4>
+            @if (!string.IsNullOrEmpty(cardImage2))
+            {
+                <img src="@cardImage2" alt="@cardHeadline2">
+            }
+            <p class="bg-light">@cardText2</p>
+        </div>
+
+        @* Kort 3 *@
+        <div class="our-services-card">
+            <h4 class="bg-light">@cardHeadline3</h4>
+            @if (!string.IsNullOrEmpty(cardImage3))
+            {
+                <img src="@cardImage3" alt="@cardHeadline3">
+            }
+            <p class="bg-light">@cardText3</p>
+        </div>
+
+        @* Kort 4 *@
+        <div class="our-services-card">
+            <h4 class="bg-light">@cardHeadline4</h4>
+            @if (!string.IsNullOrEmpty(cardImage4))
+            {
+                <img src="@cardImage4" alt="@cardHeadline4">
+            }
+            <p class="bg-light">@cardText4</p>
+        </div>
+
+        @* Kort 5 *@
+        <div class="our-services-card">
+            <h4 class="bg-light">@cardHeadline5</h4>
+            @if (!string.IsNullOrEmpty(cardImage5))
+            {
+                <img src="@cardImage5" alt="@cardHeadline5">
+            }
+            <p class="bg-light">@cardText5</p>
+        </div>
+
+        @* Kort 6 *@
+        <div class="our-services-card">
+            <h4 class="bg-light">@cardHeadline6</h4>
+            @if (!string.IsNullOrEmpty(cardImage6))
+            {
+                <img src="@cardImage6" alt="@cardHeadline6">
+            }
+            <p class="bg-light">@cardText6</p>
+        </div>
+    </div>
+
+    <nav>
+        <ul>
+            <a><li>Prev</li></a>
+            <li>1</li>
+            <li>2</li>
+            <a><li>Next</li></a>
+        </ul>
+    </nav>
+                   
+</div>      

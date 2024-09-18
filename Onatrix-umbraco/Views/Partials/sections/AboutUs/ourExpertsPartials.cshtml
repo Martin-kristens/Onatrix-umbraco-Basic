@@ -1,0 +1,116 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+
+@{
+    var cardImage1 = Model.Value<IPublishedContent>("ourExpertLargeImage1")?.Url();
+    var cardHeading1 = Model.Value<string>("ourExpertLargeImageName1");
+    var cardPosition1 = Model.Value<string>("ourExpertLargeImageDescription1");
+
+    var cardImage2 = Model.Value<IPublishedContent>("ourExpertLargeImage2")?.Url();
+    var cardHeading2 = Model.Value<string>("ourExpertLargeImageName2");
+    var cardPosition2 = Model.Value<string>("ourExpertLargeImageDescription2");
+
+    var cardImage3 = Model.Value<IPublishedContent>("ourExpertLargeImage3")?.Url();
+    var cardHeading3 = Model.Value<string>("ourExpertLargeImageName3");
+    var cardPosition3 = Model.Value<string>("ourExpertLargeImageDescription3");
+
+    var smallImage1 = Model.Value<IPublishedContent>("ourExpertSmallImage1")?.Url();
+    var smallHeading1 = Model.Value<string>("ourExpertSmallImageName1");
+    var smallPosition1 = Model.Value<string>("ourExpertSmallImageDescription1");
+
+    var smallImage2 = Model.Value<IPublishedContent>("ourExpertSmallImage2")?.Url();
+    var smallHeading2 = Model.Value<string>("ourExpertSmallImageName2");
+    var smallPosition2 = Model.Value<string>("ourExpertSmallImageDescription2");
+
+    var smallImage3 = Model.Value<IPublishedContent>("ourExpertSmallImage3")?.Url();
+    var smallHeading3 = Model.Value<string>("ourExpertSmallImageName3");
+    var smallPosition3 = Model.Value<string>("ourExpertSmallImageDescription3");
+
+    var smallImage4 = Model.Value<IPublishedContent>("ourExpertSmallImage4")?.Url();
+    var smallHeading4 = Model.Value<string>("ourExpertSmallImageName4");
+    var smallPosition4 = Model.Value<string>("ourExpertSmallImageDescription4");
+}
+
+<div class="container">
+        <h6>@Model.Value("ourExpertsPageTitle")</h6>
+        <h2>@Model.Value("ourExpertsHeadline")</h2>
+    
+        <div class="our-expert-large-cards">
+               @* stort Kort 1 *@
+            <div class="our-expert-large-card">
+                @if (!string.IsNullOrEmpty(cardImage1))
+                {
+                    <img src="@cardImage1" alt="@cardHeading1">
+                }
+                <h4 class="bg-light">@cardHeading1</h4>               
+                <p class="bg-light">@cardPosition1</p>
+            </div>
+
+                   @* stort Kort 2 *@
+            <div class="our-expert-large-card">
+                @if (!string.IsNullOrEmpty(cardImage1))
+                {
+                    <img src="@cardImage2" alt="@cardHeading3">
+                }
+                <h4 class="bg-light">@cardHeading2</h4>               
+                <p class="bg-light">@cardPosition2</p>
+            </div>
+
+                  @* stort Kort 3 *@
+            <div class="our-expert-large-card">
+                @if (!string.IsNullOrEmpty(cardImage1))
+                {
+                    <img src="@cardImage3" alt="@cardHeading3">
+                }
+                <h4 class="bg-light">@cardHeading3</h4>               
+                <p class="bg-light">@cardPosition3</p>
+            </div>
+        </div>
+
+        <div class="our-expert-small-cards">
+            <div class="our-expert-small-card">
+
+                @* litet kort 1*@
+                <div class="our-expert-small-card">
+                    @if (!string.IsNullOrEmpty(cardImage1))
+                    {
+                        <img src="@smallImage1" alt="@smallHeading1">
+                    }
+                    <h4 class="bg-light">@smallHeading1</h4>               
+                    <p class="bg-light">@smallPosition1</p>
+                </div>
+
+                    @* litet kort 2*@
+                <div class="our-expert-small-card">
+                    @if (!string.IsNullOrEmpty(cardImage1))
+                    {
+                        <img src="@smallImage2" alt="@smallHeading2">
+                    }
+                    <h4 class="bg-light">@smallHeading2</h4>               
+                    <p class="bg-light">@smallPosition2</p>
+                </div>
+
+                    @* litet kort 3*@
+                <div class="our-expert-small-card">
+                    @if (!string.IsNullOrEmpty(cardImage1))
+                    {
+                        <img src="@smallImage3" alt="@smallHeading3">
+                    }
+                    <h4 class="bg-light">@smallHeading3</h4>               
+                    <p class="bg-light">@smallPosition3</p>
+                </div>
+
+                    @* litet kort 4*@
+                <div class="our-expert-small-card">
+                    @if (!string.IsNullOrEmpty(cardImage1))
+                    {
+                        <img src="@smallImage4" alt="@smallHeading4">
+                    }
+                    <h4 class="bg-light">@smallHeading4</h4>               
+                    <p class="bg-light">@smallPosition4</p>
+                </div>
+        </div>
+    </div>

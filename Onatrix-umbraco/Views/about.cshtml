@@ -1,9 +1,24 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
 	Layout = "mainLayout.cshtml";
+	ViewBag.Title = Model?.Value("pageTitle") ?? null;
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.Title))
+{
+	@await Html.PartialAsync("partials/static/breadcrumb.cshtml")
 }
 
 <section id="leadership-insight" class="leadership-insight">
-	@await Html.PartialAsync("partials/sections/aboutus/ceoWord.cshtml", Model)
+	@await Html.PartialAsync("partials/sections/aboutUs/ceoWord.cshtml", Model)
+</section>
+
+ <section id="reviews-for-service" class=" bg-gray"> 
+	@await Html.PartialAsync("partials/sections/aboutUs/reviewsForServiceSection.cshtml", Model)                      
+</section>
+
+<section id="our-expert">
+    @await Html.PartialAsync("partials/sections/aboutUs/ourExpertsPartials.cshtml", Model)         
 </section>

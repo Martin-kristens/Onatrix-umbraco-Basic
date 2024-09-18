@@ -209,7 +209,7 @@ header .container {
   height: auto;
 }
 .nav .container a img {
-  width: 100%; /* Justera storleken på logotypen */
+  width: 100%;
   height: auto;
   object-fit: contain;
   margin-bottom: 1rem;
@@ -220,10 +220,21 @@ header .container {
   gap: 0.3rem;
   margin-right: 0.4rem;
 }
+.nav .container nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1rem;
+}
 .nav .container nav a {
   color: var(--color-default);
   text-decoration: none;
   font-weight: 600;
+}
+.nav .container nav a.active {
+  color: var(--color-active); /* Ändra till din aktiva färg */
+  font-weight: bold; /* Gör texten fetstilad för att markera den aktiva länken */
 }
 @media (min-width: 768px) {
   .nav .container img {
@@ -244,7 +255,13 @@ header .container {
     width: 10%;
   }
   .nav .container nav {
+    /* gap: 4rem;*/
+  }
+  .nav .container nav ul {
     gap: 4rem;
+  }
+  .nav .container i {
+    margin-left: 10rem;
   }
 }
 
@@ -759,49 +776,108 @@ nav {
 }
 
 #breadcrumbs .container {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-#breadcrumbs .container .about-us-navigation a {
+#breadcrumbs .container h2 {
+  font-size: 40px;
+}
+#breadcrumbs .container .breadcrumbs-navigation .breadcrumb {
+  display: flex;
+  margin-right: 2rem;
+  /* justify-content: center;*/
+  flex-direction: row;
+  gap: 1rem;
+}
+#breadcrumbs .container .breadcrumbs-navigation .breadcrumb li {
+  list-style-type: none;
+}
+#breadcrumbs .container .breadcrumbs-navigation .breadcrumb li .divider {
+  margin-left: 0.5rem;
+}
+#breadcrumbs .container .breadcrumbs-navigation .breadcrumb li a {
+  color: var(--color-default);
   text-decoration: none;
 }
-#breadcrumbs .container .about-us-navigation i {
-  color: #D9C3A9;
-  margin-left: 0.8rem;
-  margin-right: 0.8rem;
+#breadcrumbs .container .breadcrumbs-navigation .breadcrumb li a:hover {
+  text-decoration: underline;
 }
-@media (min-width: 768px) {
-  #breadcrumbs .container h2 {
-    font-size: 22px;
-  }
-  #breadcrumbs .container .about-us-navigation a {
-    text-decoration: none;
-    font-size: 10px;
-  }
-  #breadcrumbs .container .about-us-navigation i {
-    color: #D9C3A9;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    font-size: 10px;
-  }
-}
-@media (min-width: 1200px) {
-  #breadcrumbs .container h2 {
-    font-size: 40px;
-  }
-  #breadcrumbs .container .about-us-navigation a {
-    text-decoration: none;
-    font-size: 14px;
-  }
-  #breadcrumbs .container .about-us-navigation i {
-    color: #D9C3A9;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    font-size: 10px;
-  }
+#breadcrumbs .container .breadcrumbs-navigation .breadcrumb li.active {
+  color: var(--color-secondary);
 }
 
+/*#breadcrumbs {
+
+    .container {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        text-align: center;
+
+        .about-us-navigation {
+
+            a {
+                text-decoration: none;
+            }
+
+            i {
+                color: #D9C3A9;
+                margin-left: 0.8rem;
+                margin-right: 0.8rem;
+            }
+        }
+    }   
+
+    @include tablet {
+
+        .container {
+
+           h2 {
+            font-size: 22px;
+           }
+
+            .about-us-navigation {
+
+                a {
+                    text-decoration: none;
+                    font-size: 10px;
+                }
+
+                i {
+                    color: #D9C3A9;
+                    margin-left: 0.5rem;
+                    margin-right: 0.5rem;
+                    font-size: 10px;
+                }
+            }
+        } 
+    }
+
+    @include desktop {
+        .container {
+
+            h2 {
+             font-size: 40px;
+            }
+
+             .about-us-navigation {
+
+                 a {
+                     text-decoration: none;
+                     font-size: 14px;
+                 }
+
+                 i {
+                     color: #D9C3A9;
+                     margin-left: 0.5rem;
+                     margin-right: 0.5rem;
+                     font-size: 10px;
+                 }
+             }
+         } 
+    }
+}*/
 .contact-info {
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -1027,6 +1103,8 @@ nav {
   }
   #leadership-insight .container .right p {
     font-size: 15px;
+    margin: 0;
+    padding: 0.5rem 0;
   }
   #leadership-insight .container .tina-image img {
     width: 94%;
@@ -1058,6 +1136,9 @@ nav {
   color: var(--color-dark);
   padding-top: 1rem;
 }
+#our-expert .container .our-expert-small-cards {
+  display: flex;
+}
 #our-expert .container .our-expert-small-cards .our-expert-small-card {
   border: 1px solid rgba(206, 204, 204, 0.39);
   margin-bottom: 0.5rem;
@@ -1074,6 +1155,9 @@ nav {
 @media (min-width: 768px) {
   #our-expert {
     padding-bottom: 2rem;
+  }
+  #our-expert .container {
+    display: flex;
   }
   #our-expert .container h2 {
     font-size: 22px;

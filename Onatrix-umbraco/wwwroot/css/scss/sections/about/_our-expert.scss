@@ -23,7 +23,7 @@
         }
 
         .our-expert-small-cards {
-           
+           display: flex;
             .our-expert-small-card {
                 border: 1px solid rgba(206, 204, 204, 0.39);
                 margin-bottom: 0.5rem;
@@ -46,7 +46,7 @@
         padding-bottom: 2rem;
 
         .container {
-
+            display: flex;
             h2 {
                 font-size: 22px;
                 max-width: 80%;

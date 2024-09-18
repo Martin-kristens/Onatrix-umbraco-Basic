@@ -37,7 +37,8 @@
         </header>
 
         <section class="nav bg-light">
-            <div class="container">
+            @await Html.PartialAsync("partials/static/headerNavigation.cshtml", Model)
+            <!-- <div class="container">
                 <a href="/index.html"><img src="~/images/home/Brand.svg" alt="Ontarix logo"></a>
           
                 <div>
@@ -49,7 +50,7 @@
                      </nav>
                 </div>
                 <i class="fa-solid fa-magnifying-glass"></i>
-            </div>          
+            </div>           -->
         </section> 
 
         <main>
