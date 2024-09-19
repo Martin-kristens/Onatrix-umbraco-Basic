@@ -634,6 +634,16 @@ nav {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
+    justify-content: center;
+  }
+  #our-services .container .our-services-cards a {
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  #our-services .container .our-services-cards a:hover {
+    text-decoration: underline;
+    transform: translateY(-10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   #our-services .container .our-services-cards .our-services-card h4 {
     text-align: left;
@@ -1158,6 +1168,7 @@ nav {
   }
   #our-expert .container {
     display: flex;
+    flex-direction: column;
   }
   #our-expert .container h2 {
     font-size: 22px;
@@ -1173,24 +1184,29 @@ nav {
   #our-expert .container .our-expert-large-cards .our-expert-large-card {
     text-align: left;
   }
-  #our-expert .container .our-expert-large-cards .our-expert-large-card h6 {
-    padding-left: 0.5rem;
+  #our-expert .container .our-expert-large-cards .our-expert-large-card h4 {
+    padding-left: 0.8rem;
   }
   #our-expert .container .our-expert-large-cards .our-expert-large-card p {
     font-size: 12px;
-    padding-left: 0.5rem;
+    padding-left: 0.8rem;
   }
   #our-expert .container .our-expert-small-cards {
     display: flex;
+    flex-direction: row;
     gap: 0.8rem;
     text-align: left;
   }
-  #our-expert .container .our-expert-small-cards .our-expert-small-card h6 {
-    padding-left: 0.5rem;
+  #our-expert .container .our-expert-small-cards .our-expert-small-card {
+    display: flex;
+    flex-direction: column;
+  }
+  #our-expert .container .our-expert-small-cards .our-expert-small-card h4 {
+    padding-left: 0.8rem;
   }
   #our-expert .container .our-expert-small-cards .our-expert-small-card p {
     font-size: 12px;
-    padding-left: 0.5rem;
+    padding-left: 0.8rem;
   }
 }
 
@@ -1292,6 +1308,15 @@ nav {
   color: var(--color-default);
   font-size: 26px;
 }
+#services-details .container .left-side .service-details-online-support img {
+  position: absolute;
+  bottom: -55px;
+  right: 0;
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+  overflow: hidden;
+}
 #services-details .container .right-side {
   display: flex;
   flex-direction: column;
@@ -1321,7 +1346,7 @@ nav {
   top: 0;
   font-size: 18px;
   line-height: 1;
-  color: var(--color-dark); /* Ändra färg här */
+  color: var(--color-dark);
 }
 #services-details .container .right-side h4 {
   font-size: 22px;
@@ -1330,6 +1355,9 @@ nav {
   font-size: 18px;
 }
 @media (min-width: 768px) {
+  #services-details {
+    display: flex;
+  }
   #services-details .container {
     display: flex;
     gap: 2rem;
@@ -1340,7 +1368,7 @@ nav {
     justify-content: flex-start;
     align-items: start;
     padding-top: 0;
-    width: 100%;
+    width: 86%;
     padding-top: 1rem;
   }
   #services-details .container .left-side h4 {
@@ -1479,9 +1507,11 @@ hr {
   .services-details-form form .container .services-details-form-input input {
     width: 100%;
     padding: 0.7rem;
+    font-size: 12px;
   }
   .services-details-form form .container textarea {
     padding: 0.7rem;
+    font-size: 12px;
   }
   .services-details-form form .container button {
     width: 20%;
@@ -1575,6 +1605,7 @@ hr {
   width: 100%;
   padding: 1rem;
   margin-bottom: 2rem;
+  position: relative;
   border-radius: 4px;
   position: relative;
 }
@@ -1599,6 +1630,15 @@ hr {
   color: var(--color-default);
   font-size: 28px;
 }
+#projects .container .projects-right .service-details-online-support img {
+  position: absolute;
+  bottom: -55px;
+  right: 0;
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+  overflow: hidden;
+}
 @media (min-width: 768px) {
   #projects .container {
     display: flex;
@@ -1607,6 +1647,7 @@ hr {
   #projects .container .projects-left {
     flex: 3;
     margin-right: 2rem;
+    display: flex;
   }
   #projects .container .projects-left .projects-card {
     display: flex;
@@ -1616,6 +1657,7 @@ hr {
     padding: 1rem 0;
     height: 250px;
     border-bottom: 1px solid var(--color-gray);
+    max-width: 65%;
   }
   #projects .container .projects-left .projects-card img {
     flex: 1;
@@ -1628,10 +1670,12 @@ hr {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-top: 1rem;
+    text-decoration: none;
   }
   #projects .container .projects-left .projects-card .projects-left-card-right h4 {
     margin: 0;
-    font-size: 18px;
+    font-size: 8px;
   }
   #projects .container .projects-left .projects-card .projects-left-card-right .projects-date {
     display: flex;
@@ -1674,6 +1718,8 @@ hr {
   }
   #projects .container .projects-right .projects-right-tags a p {
     border: 1px solid #e6e6e6;
+    padding: 0.5rem 1rem;
+    border-radius: 50%;
     font-size: 13px;
   }
   #projects .container .projects-right .service-details-online-support h4 {
@@ -1693,16 +1739,27 @@ hr {
   }
 }
 @media (min-width: 1200px) {
-  #projects .container .projects-left .projects-card .projects-left-card-right {
+  #projects .container .projects-left .projects-card a {
+    text-decoration: none;
+    color: var(--color-dark);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  #projects .container .projects-left .projects-card a:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  #projects .container .projects-left .projects-card a .projects-left-card-right {
     margin-top: -20px;
+    gap: 0.8rem;
   }
-  #projects .container .projects-left .projects-card .projects-left-card-right h4 {
-    font-size: 22px;
+  #projects .container .projects-left .projects-card a .projects-left-card-right h4 {
+    font-size: 19px;
+    text-decoration: none;
   }
-  #projects .container .projects-left .projects-card .projects-left-card-right .projects-date i {
+  #projects .container .projects-left .projects-card a .projects-left-card-right .projects-date i {
     font-size: 14px;
   }
-  #projects .container .projects-left .projects-card .projects-left-card-right .projects-date p {
+  #projects .container .projects-left .projects-card a .projects-left-card-right .projects-date p {
     font-size: 14px;
   }
   #projects .container .projects-right .service-details-online-support h4 {

@@ -14,29 +14,26 @@
             .our-services-card {
                 border: 1px solid rgba(206, 204, 204, 0.39);
                 border-radius: 5px;
-    
+
                 h4 {
                     padding: 1rem;
                 }
-    
+
                 img {
                     width: 100%;
                     height: auto;
                     object-fit: cover;
                 }
-    
+
                 p {
                     padding: 1rem;
                 }
-    
-                
             }
         }
-    
     }
 
     @include tablet {
-       
+
         .container {
 
             h6 {
@@ -47,52 +44,68 @@
                 font-size: 30px;
             }
 
-            .our-services-cards{
+            .our-services-cards {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 column-gap: 0.6rem;
                 row-gap: 0.6rem;
+
                 .our-services-card {
                     border: 1px solid rgba(206, 204, 204, 0.39);
-        
+
                     h4 {
                         padding: 1rem;
                     }
-        
+
                     p {
                         text-align: left;
                         padding: 1rem;
                     }
                 }
-            }           
+            }
         }
     }
 
     @include desktop {
-
         padding-bottom: 4rem;
+
         .container {
             h6 {
                 font-size: 14px;
             }
+
             h2 {
                 font-size: 40px;
             }
-            .our-services-cards{
+
+            .our-services-cards {
                 display: grid;
                 grid-template-columns: 1fr 1fr 1fr;
                 gap: 2rem;
+                justify-content: center;
+
+                a {
+                    text-decoration: none;
+                    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+                    &:hover {
+                        text-decoration: underline;
+                        transform: translateY(-10px); 
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    }
+                }
+
                 .our-services-card {
 
                     h4 {
                         text-align: left;
                     }
-        
+
                     p {
                         padding: 14px;
                     }
                 }
-            }           
+            }
         }
     }
 }

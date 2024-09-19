@@ -1,0 +1,53 @@
+﻿
+
+
+@using Umbraco.Cms.Core.Models.Blocks;
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<BlockListItem> // Mottag ett BlockListItem som Model
+
+
+@{
+	//hämtar in blocklist
+	// var serviceCard = Model.Value<IEnumerable<BlockListItem>>("cardComponent");
+	var servicesCards = Umbraco.Content(Guid.Parse("ada7b1b6-8be6-4207-bf83-bcc9e75f6c3b"))
+    .ChildrenOfType("serviceItemTemplate")
+    .Where(x => x.IsVisible());
+
+	
+	
+}
+
+
+<div class="our-services-cards">
+	@if (servicesCards != null && servicesCards.Any())
+	{
+		<p>Debug: @servicesCards?.Count() items found</p>
+		foreach (var card in servicesCards!)
+		{
+			var title = card?.Value<string>("pageTitle");
+			<p>@title</p>
+			<!-- var serviceCardContent = Model.Content; // Blockets innehåll
+
+			// Hämta värden från blocket
+			var heading = serviceCardContent.Value<string>("cardHeading");
+			var image = serviceCardContent.Value<IPublishedContent>("cardImage")?.Url();
+			var text = serviceCardContent.Value<string>("cardText");
+
+			<div class="our-services-card">
+				<h4 class="bg-light">heading</h4>
+				<img src="image" alt=heading" />
+				<p class="bg-light">image</p>
+			</div> -->
+		}
+
+		<p>Har service</p>
+	}
+	else
+	{
+		<p>fungerar inte</p>
+	}
+</div> 
+
+
+

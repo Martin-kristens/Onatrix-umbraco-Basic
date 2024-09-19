@@ -3,9 +3,54 @@
 @{
 	Layout = "mainLayout.cshtml";
 	ViewBag.Title = Model?.Value("pageTitle") ?? null;
+
+	var selection = Umbraco.Content(Guid.Parse("dbc7579e-ba9d-40d7-a9bd-ca652da8b24f"))
+    .ChildrenOfType("projectsItemTemplate")
+    .Where(x => x.IsVisible());
 }
 
 @if (!string.IsNullOrEmpty(ViewBag.Title))
 {
 	@await Html.PartialAsync("partials/static/breadcrumb.cshtml")
 }
+
+<section id="projects">
+    <div class="container">
+        <div class="projects-left">
+			
+			@foreach (var item in selection)
+			{
+				var image = item?.Value<IPublishedContent>("thumbnalImage")?.Url() ?? "";
+
+				var date = item?.Value<string>("dateDescription") ?? "";
+				var preamble = item?.Value<string>("preamble") ?? "";
+				var readMore = item?.Value<string>("readMore") ?? "";
+
+				<div class="projects-card">					
+					<img src="@image" alt="">
+					<a href="@item.Url()">
+						<div class="projects-left-card-right">							
+							<h4 class="bg-light">@item.Name()</h4>
+							<p><i class="fa-regular fa-calendar-days"></i>  @date</p>
+							<p class="bg-light">@preamble</p>
+							<p>@readMore <i class="fa-regular fa-arrow-right"></i></p>
+						</div>
+					</a>
+				</div>
+			}
+			<nav>
+				<ul>
+					<a>
+					<li>Prev</li></a>
+					<li>1</li>
+					<li>2</li>
+					<a>
+					<li>Next</li></a>
+				</ul>
+			</nav>
+		
+                                     
+        </div>                                                         
+    </div>          
+</section>
+

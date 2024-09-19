@@ -4,42 +4,33 @@
 
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
 
-@{
-
-	// var ourStoryImage = Model?.Value<IPublishedContent>("ourStoryImage")?.Url() ?? "";
-
-	var servicesCards = Model?.Value<IEnumerable<BlockListItem>>("ourServicesCards");
-	bool hasServices = servicesCards != null && servicesCards.Any();
+@{ 
+	var selection = Umbraco.Content(Guid.Parse("ada7b1b6-8be6-4207-bf83-bcc9e75f6c3b"))
+	.ChildrenOfType("serviceItemTemplate")
+	.Where(x => x.IsVisible()); 
 }
+
 
 <div class="container">
 	<h6>@Model.Value("ourServicesSectionTitle")</h6>
 	<h2>@Model.Value("ourServicesHeadline")</h2>
+
+
 	<div class="our-services-cards">
-		@if (hasServices)
+		@foreach (var item in selection)
 		{
-			foreach (var card in servicesCards)
-			{
+			var image = item?.Value<IPublishedContent>("thumbnalImage")?.Url() ?? "";
+			var preamble = item?.Value<string>("preamble") ?? "";
 
-				var service = (ContentModels.OurServiceCard)card.Content; // Kontrollera alias och innehåll
-
-				var imageUrl = service.Value<IPublishedContent>("image")?.Url() ?? "";
-
-				var title = service.Value<string>("title");
-
-				var description = service.Value<string>("description");
-
+			<a href="@item.Url()">
 				<div class="our-services-card">
-					<h4 class="bg-light">@title</h4>
-					<img src="@imageUrl" alt="@title" />
-					<p class="bg-light">@description</p>
+					<h4 class="bg-light">@item.Name()</h4>
+					<img src="@image" alt="">
+					<p class="bg-light">@preamble</p>
 				</div>
-
-			}
-		}
-		else
-		{
-			<p>No services found.</p>
+			</a>
 		}
 	</div>
 </div>
+
+		

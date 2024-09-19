@@ -1,5 +1,6 @@
 #projects {
     padding-top: 2rem;
+
     .container {
 
         .projects-left {
@@ -8,7 +9,7 @@
             padding-bottom: 2rem;
 
             .projects-card {
-                
+
 
                 img {
                     width: 100%;
@@ -72,12 +73,9 @@
                         border: 1px solid #e6e6e6;
                         border-radius: 20px;
                         padding: 0.4rem 1rem;
-
-
-                        
                         font-size: 20px;
                     }
-                }                
+                }
             }
 
             .service-details-online-support {
@@ -85,7 +83,7 @@
                 width: 100%;
                 padding: 1rem;
                 margin-bottom: 2rem;
-                // position: relative;
+                position: relative;
                 border-radius: 4px;
                 position: relative;
 
@@ -104,7 +102,6 @@
                     font-size: 24px;
                     font-style: italic;
                     border-radius: 4px;
-                    
                 }
 
                 i {
@@ -115,17 +112,16 @@
                     font-size: 28px;
                 }
 
-                // img {
-                //     position: absolute;
-                //     bottom: -55px;
-                //     right: 0;
-                //     width: 50%;
-                //     height: auto;
-                //     object-fit: cover;
-                //     overflow: hidden;
-                // }
+                img {
+                    position: absolute;
+                    bottom: -55px;
+                    right: 0;
+                    width: 50%;
+                    height: auto;
+                    object-fit: cover;
+                    overflow: hidden;
+                }
             }
-
         }
     }
 
@@ -135,9 +131,10 @@
             padding-bottom: 3rem;
 
             .projects-left {
-               flex: 3;
-               margin-right: 2rem;
-    
+                flex: 3;
+                margin-right: 2rem;
+                display: flex;
+
                 .projects-card {
                     display: flex;
                     align-items: strech;
@@ -146,13 +143,13 @@
                     padding: 1rem 0;
                     height: 250px;
                     border-bottom: 1px solid var(--color-gray);
-    
+                    max-width: 65%;
+
                     img {
                         flex: 1;
                         width: 50%;
                         height: auto;
                         object-fit: cover;
-    
                     }
 
                     .projects-left-card-right {
@@ -160,43 +157,44 @@
                         display: flex;
                         flex-direction: column;
                         justify-content: center;
+                        padding-top: 1rem;
+                        text-decoration: none;
 
                         h4 {
                             margin: 0;
-                            font-size: 18px;
-        
+                            font-size: 8px;
                         }
-        
+
                         .projects-date {
                             display: flex;
                             align-items: baseline;
                             gap: 0.5rem;
                         }
-        
+
                         p {
                             font-size: 12px;
                             margin: 0;
                         }
-        
+
                         h6 {
                             color: var(--color-dark);
                             cursor: pointer;
                             font-weight: 500;
                             font-size: 14px;
-        
+
                             i {
                                 color: var(--color-secondary);
                                 margin-left: 0.5rem;
                             }
                         }
-                    }                    
+                    }
                 }
             }
 
             hr {
                 border: 1px solid #ececee;
             }
-    
+
             .projects-right {
                 flex: 1;
                 padding-left: 1rem;
@@ -213,29 +211,28 @@
                         text-decoration: none;
                         color: var(--color-dark);
                         cursor: pointer;
+
                         p {
                             border: 1px solid #e6e6e6;
-                            // padding: 0.5rem 1rem;
-                            // border-radius: 50%;
+                            padding: 0.5rem 1rem;
+                            border-radius: 50%;
                             font-size: 13px;
                         }
                     }
-    
-                  
                 }
 
                 .service-details-online-support {
                     h4 {
                         font-size: 18px;
                     }
-    
+
                     p {
                         font-size: 10px;
                     }
-    
+
                     input {
-                        font-size: 10px;   
-                        padding: 0.5rem;                    
+                        font-size: 10px;
+                        padding: 0.5rem;
                     }
 
                     i {
@@ -244,8 +241,6 @@
                         font-size: 14px;
                     }
                 }
-
-                
             }
         }
     }
@@ -255,44 +250,58 @@
         .container {
 
             .projects-left {
+
                 .projects-card {
-                    
-                    .projects-left-card-right {
-                        margin-top: -20px;
-                        
-                        h4 {
-                            font-size: 22px;
+
+                    a {
+                        text-decoration: none;
+                        color: var(--color-dark);
+                        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+                        &:hover {
+                            transform: translateY(-1px);
+                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
                         }
 
-                        .projects-date {
+                        .projects-left-card-right {
+                            margin-top: -20px;
+                            gap: 0.8rem;
 
-                            i {
-                                font-size: 14px;
+                            h4 {
+                                font-size: 19px;
+                                text-decoration: none;
                             }
-                            p {
-                                font-size: 14px;
+
+                            .projects-date {
+
+                                i {
+                                    font-size: 14px;
+                                }
+
+                                p {
+                                    font-size: 14px;
+                                }
                             }
                         }
                     }
-                   
                 }
             }
 
-           
+
 
             .projects-right {
                 .service-details-online-support {
                     h4 {
                         font-size: 18px;
                     }
-    
+
                     p {
                         font-size: 14px;
                     }
-    
+
                     input {
-                        font-size: 14px;   
-                        padding: 1rem;                    
+                        font-size: 14px;
+                        padding: 1rem;
                     }
 
                     i {
@@ -305,3 +314,43 @@
         }
     }
 }
+
+
+//#projects {
+//    padding-top: 4rem;
+
+//    .container {
+//        display: flex;
+//        flex-direction: column;
+
+//        .projects-left {
+//            display: flex;
+//            flex-direction: column;
+//            gap: 2rem;
+
+//            .projects-card {
+//                display: flex;
+//                gap: 1.5rem;
+//                padding: 1rem;
+//                border-radius: 8px;
+//                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+//                max-width: 50%;
+
+//                img {
+//                    max-width: 100%;
+//                    height: auto;
+//                    border-radius: 8px;
+//                }
+
+//                .projects-left-card-right {
+//                    flex: 1;
+
+//                    h4,
+//                    p {
+//                        margin: 0.5rem 0;
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}

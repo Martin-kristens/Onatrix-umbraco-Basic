@@ -1,0 +1,62 @@
+﻿
+
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+	ViewBag.Title = Model?.Value("pageTitle") ?? null;
+
+	var selection = Umbraco.Content(Guid.Parse("ada7b1b6-8be6-4207-bf83-bcc9e75f6c3b"))
+    .ChildrenOfType("serviceItemTemplate")
+    .Where(x => x.IsVisible());
+    
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.Title))
+{
+	@await Html.PartialAsync("partials/static/breadcrumb.cshtml")
+}
+
+ <section id="our-services">
+	<div class="container">
+		@if (!string.IsNullOrEmpty(Model.Value("customHeadline").ToString()))
+		{
+			<h2>@Model.Value("customHeadline")</h2>
+		}
+		
+		<div class="our-services-cards">
+			@foreach (var item in selection)
+			{
+				var image = item?.Value<IPublishedContent>("thumbnalImage")?.Url() ?? "";
+				var preamble = item?.Value<string>("preamble") ?? "";
+				
+				<a href="@item.Url()">
+					<div class="our-services-card">
+						<h4 class="bg-light">@item.Name()</h4>
+						<img src="@image" alt="">
+						<p class="bg-light">@preamble</p>
+					</div> 
+				</a>
+			}			                       
+		</div>
+		<nav>
+			<ul>
+				<a><li>Prev</li></a>
+				<li>1</li>
+				<li>2</li>
+				<a><li>Next</li></a>
+			</ul>
+		</nav>
+		
+	</div>           
+</section>
+
+
+
+
+
+
+
+
+
+

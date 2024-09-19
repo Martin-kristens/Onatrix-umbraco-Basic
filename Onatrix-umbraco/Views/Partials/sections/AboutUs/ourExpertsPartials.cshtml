@@ -5,112 +5,101 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
 
 @{
+
+    // var largeCard = Model?.Value<IEnumerable<BlockListItem>>("cardList");
+    // var largeCard = Model.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("cardList") ?? null;
+
     var cardImage1 = Model.Value<IPublishedContent>("ourExpertLargeImage1")?.Url();
-    var cardHeading1 = Model.Value<string>("ourExpertLargeImageName1");
-    var cardPosition1 = Model.Value<string>("ourExpertLargeImageDescription1");
 
     var cardImage2 = Model.Value<IPublishedContent>("ourExpertLargeImage2")?.Url();
-    var cardHeading2 = Model.Value<string>("ourExpertLargeImageName2");
-    var cardPosition2 = Model.Value<string>("ourExpertLargeImageDescription2");
 
     var cardImage3 = Model.Value<IPublishedContent>("ourExpertLargeImage3")?.Url();
-    var cardHeading3 = Model.Value<string>("ourExpertLargeImageName3");
-    var cardPosition3 = Model.Value<string>("ourExpertLargeImageDescription3");
 
     var smallImage1 = Model.Value<IPublishedContent>("ourExpertSmallImage1")?.Url();
-    var smallHeading1 = Model.Value<string>("ourExpertSmallImageName1");
-    var smallPosition1 = Model.Value<string>("ourExpertSmallImageDescription1");
 
     var smallImage2 = Model.Value<IPublishedContent>("ourExpertSmallImage2")?.Url();
-    var smallHeading2 = Model.Value<string>("ourExpertSmallImageName2");
-    var smallPosition2 = Model.Value<string>("ourExpertSmallImageDescription2");
 
     var smallImage3 = Model.Value<IPublishedContent>("ourExpertSmallImage3")?.Url();
-    var smallHeading3 = Model.Value<string>("ourExpertSmallImageName3");
-    var smallPosition3 = Model.Value<string>("ourExpertSmallImageDescription3");
 
     var smallImage4 = Model.Value<IPublishedContent>("ourExpertSmallImage4")?.Url();
-    var smallHeading4 = Model.Value<string>("ourExpertSmallImageName4");
-    var smallPosition4 = Model.Value<string>("ourExpertSmallImageDescription4");
 }
 
 <div class="container">
-        <h6>@Model.Value("ourExpertsPageTitle")</h6>
-        <h2>@Model.Value("ourExpertsHeadline")</h2>
+    <h6>@Model.Value("ourExpertsPageTitle")</h6>
+    <h2>@Model.Value("ourExpertsHeadline")</h2>
     
-        <div class="our-expert-large-cards">
-               @* stort Kort 1 *@
-            <div class="our-expert-large-card">
-                @if (!string.IsNullOrEmpty(cardImage1))
-                {
-                    <img src="@cardImage1" alt="@cardHeading1">
-                }
-                <h4 class="bg-light">@cardHeading1</h4>               
-                <p class="bg-light">@cardPosition1</p>
-            </div>
-
-                   @* stort Kort 2 *@
-            <div class="our-expert-large-card">
-                @if (!string.IsNullOrEmpty(cardImage1))
-                {
-                    <img src="@cardImage2" alt="@cardHeading3">
-                }
-                <h4 class="bg-light">@cardHeading2</h4>               
-                <p class="bg-light">@cardPosition2</p>
-            </div>
-
-                  @* stort Kort 3 *@
-            <div class="our-expert-large-card">
-                @if (!string.IsNullOrEmpty(cardImage1))
-                {
-                    <img src="@cardImage3" alt="@cardHeading3">
-                }
-                <h4 class="bg-light">@cardHeading3</h4>               
-                <p class="bg-light">@cardPosition3</p>
-            </div>
+    <div class="our-expert-large-cards">
+    @* stort Kort 1 *@
+        <div class="our-expert-large-card">
+            @if (!string.IsNullOrEmpty(cardImage1))
+            {
+                <img src="@cardImage1" alt="@cardImage1">
+            }
+                <h4 class="bg-light">@Model.Value("ourExpertLargeImageName1")</h4>
+                <p class="bg-light">@Model.Value("ourExpertLargeImageDescription1")</p>              
         </div>
+
+                @* stort Kort 2 *@
+        <div class="our-expert-large-card">
+            @if (!string.IsNullOrEmpty(cardImage1))
+            {
+                <img src="@cardImage2" alt="">
+            }
+            <h4 class="bg-light">@Model.Value("ourExpertLargeImageName2")</h4>               
+            <p class="bg-light">@Model.Value("ourExpertLargeImageDescription2")</p>
+        </div> 
+
+                @* stort Kort 3 *@
+        <div class="our-expert-large-card">
+            @if (!string.IsNullOrEmpty(cardImage1))
+            {
+                <img src="@cardImage3" alt="">
+            }
+            <h4 class="bg-light">@Model.Value("ourExpertLargeImageName3")</h4>               
+            <p class="bg-light">@Model.Value("ourExpertSmallImageDescription3")</p>
+        </div> 
+    </div>
 
         <div class="our-expert-small-cards">
+
+            @* litet kort 1*@
             <div class="our-expert-small-card">
+                @if (!string.IsNullOrEmpty(cardImage1))
+                {
+                    <img src="@smallImage1" alt="">
+                }
+                <h4 class="bg-light">@Model.Value("ourExpertSmallImageName1")</h4>               
+                <p class="bg-light">@Model.Value("ourExpertSmallImageDescription1")</p>
+            </div> 
 
-                @* litet kort 1*@
+                @* litet kort 2*@
                 <div class="our-expert-small-card">
-                    @if (!string.IsNullOrEmpty(cardImage1))
-                    {
-                        <img src="@smallImage1" alt="@smallHeading1">
-                    }
-                    <h4 class="bg-light">@smallHeading1</h4>               
-                    <p class="bg-light">@smallPosition1</p>
-                </div>
+                @if (!string.IsNullOrEmpty(cardImage1))
+                {
+                    <img src="@smallImage2" alt="">
+                }
+                <h4 class="bg-light">@Model.Value("ourExpertSmallImageName2")</h4>
+                <p class="bg-light">@Model.Value("ourExpertSmallImageDesription2")</p>
+            </div> 
 
-                    @* litet kort 2*@
-                <div class="our-expert-small-card">
-                    @if (!string.IsNullOrEmpty(cardImage1))
-                    {
-                        <img src="@smallImage2" alt="@smallHeading2">
-                    }
-                    <h4 class="bg-light">@smallHeading2</h4>               
-                    <p class="bg-light">@smallPosition2</p>
-                </div>
+                @* litet kort 3*@
+            <div class="our-expert-small-card">
+                @if (!string.IsNullOrEmpty(cardImage1))
+                {
+                    <img src="@smallImage3" alt="">
+                }
+                <h4 class="bg-light">@Model.Value("ourExpertSmallImageName3")</h4>               
+                <p class="bg-light">@Model.Value("ourExpertSmallImageDesription2")</p>
+            </div> 
 
-                    @* litet kort 3*@
-                <div class="our-expert-small-card">
-                    @if (!string.IsNullOrEmpty(cardImage1))
-                    {
-                        <img src="@smallImage3" alt="@smallHeading3">
-                    }
-                    <h4 class="bg-light">@smallHeading3</h4>               
-                    <p class="bg-light">@smallPosition3</p>
-                </div>
-
-                    @* litet kort 4*@
-                <div class="our-expert-small-card">
-                    @if (!string.IsNullOrEmpty(cardImage1))
-                    {
-                        <img src="@smallImage4" alt="@smallHeading4">
-                    }
-                    <h4 class="bg-light">@smallHeading4</h4>               
-                    <p class="bg-light">@smallPosition4</p>
-                </div>
-        </div>
+                @* litet kort 4*@
+            <div class="our-expert-small-card">
+                @if (!string.IsNullOrEmpty(cardImage1))
+                {
+                    <img src="@smallImage4" alt="">
+                }
+                <h4 class="bg-light">@Model.Value("ourExpertSmallImageName4")</h4>               
+                <p class="bg-light">@Model.Value("ourExpertSmallImageDescription4")</p>
+            </div> 
+       </div>
     </div>

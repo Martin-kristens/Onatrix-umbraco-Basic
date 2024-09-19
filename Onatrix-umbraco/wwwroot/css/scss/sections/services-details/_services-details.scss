@@ -1,27 +1,28 @@
 #services-details {
 
-    .container {
+   .container {
 
-        .left-side {
-           display: flex;
+       .left-side {
+            display: flex;
            flex-direction: column;
-           justify-content: center;
-           align-items: center;
-           padding-top: 1rem;
+          justify-content: center;
+            align-items: center;
+            padding-top: 1rem;
            padding-bottom: 2rem;
 
            h4 {
-            font-size: 28px;
+                font-size: 28px;
            }
 
             .service-details-card {
                 width: 100%;
-               
-                img {
+
+              img {
                     width: 100%;
                     height: auto;
                     object-fit: cover;
                 }
+
                 p {
                     width: 100%;
                     font-size: 14px;
@@ -34,9 +35,10 @@
                 width: 100%;
                 padding: 1rem;
                 padding-bottom: 2rem;
-                // position: relative;
+              // position: relative;
                 border-radius: 4px;
                 position: relative;
+
                 h4 {
                     font-size: 22px;
                 }
@@ -52,7 +54,6 @@
                     font-size: 18px;
                     font-style: italic;
                     border-radius: 4px;
-                    
                 }
 
                 i {
@@ -62,16 +63,15 @@
                     color: var(--color-default);
                     font-size: 26px;
                 }
-
-                // img {
-                //     position: absolute;
-                //     bottom: -55px;
-                //     right: 0;
-                //     width: 50%;
-                //     height: auto;
-                //     object-fit: cover;
-                //     overflow: hidden;
-                // }
+               img {
+                   position: absolute;
+                   bottom: -55px;
+                   right: 0;
+                   width: 50%;
+                   height: auto;
+                   object-fit: cover;
+                   overflow: hidden;
+               }
             }
         }
 
@@ -90,7 +90,6 @@
 
             h4 {
                 padding-top: 2rem;
-
             }
 
             .bullet-point {
@@ -98,17 +97,17 @@
                     text-align: left;
                     font-size: 18px;
                     position: relative;
-                    padding-left: 20px; 
-                    margin-bottom: 10px; 
+                    padding-left: 20px;
+                    margin-bottom: 10px;
 
                     &::before {
-                        content: '•'; 
+                        content: '•';
                         position: absolute;
                         left: 0;
                         top: 0;
-                        font-size: 18px; 
-                        line-height: 1; 
-                        color: var(--color-dark); /* Ändra färg här */
+                        font-size: 18px;
+                        line-height: 1;
+                        color: var(--color-dark); 
                     }
                 }
             }
@@ -120,11 +119,11 @@
             p {
                 font-size: 18px;
             }
-            
         }
-    } 
+    }
 
     @include tablet {
+        display: flex;
 
         .container {
             display: flex;
@@ -136,34 +135,36 @@
                 justify-content: flex-start;
                 align-items: start;
                 padding-top: 0;
-                width: 100%;
+                width: 86%;
                 padding-top: 1rem;
-    
-               h4 {
-                font-size: 18px;
-               }
-    
+
+                h4 {
+                    font-size: 18px;
+                }
+
                 .service-details-card {
-                   position: relative;
+                    position: relative;
+
                     img {
                         width: 100%;
                         height: auto;
                         object-fit: cover;
                     }
+
                     p {
                         font-size: 10px;
                     }
                 }
-    
+
                 .service-details-online-support {
                     h4 {
                         font-size: 18px;
                     }
-    
+
                     p {
                         font-size: 10px;
                     }
-    
+
                     input {
                         font-size: 10px;
                         padding: 0.5rem;
@@ -178,65 +179,66 @@
                 }
             }
 
-          
-    
+
+
             .right-side {
-                
+
                 h4 {
                     font-size: 18px;
-                    text-align: left; //denna fungerar inte, FIXA 
+                    text-align: left; //denna fungerar inte, FIXA
                 }
-    
+
                 .bullet-point {
 
                     p {
                         font-size: 12px;
-    
+
                         &::before {
-                            font-size: 12px; 
+                            font-size: 12px;
                         }
                     }
                 }
-    
+
                 h4 {
                     font-size: 18px;
                 }
-    
+
                 p {
                     font-size: 12px;
                 }
-                
             }
-        } 
+        }
     }
 
     @include desktop {
         padding-top: 2rem;
+
         .container {
 
             .left-side {
-    
-               h4 {
-                font-size: 22px;
-               }
-    
+
+                h4 {
+                    font-size: 22px;
+                }
+
                 .service-details-card {
 
                     p {
                         font-size: 14px;
                     }
                 }
-    
+
                 .service-details-online-support {
                     position: relative;
+
                     h4 {
                         font-size: 22px;
                     }
-    
+
                     p {
                         font-size: 14px;
                     }
-    
+
                     input {
                         padding: 1rem;
                         font-size: 13px;
@@ -250,25 +252,24 @@
                     }
                 }
             }
-    
+
             .right-side {
-                    
+
                 h4 {
                     font-size: 22px;
                 }
-    
+
                 .bullet-point {
                     p {
                         font-size: 14px;
                     }
                 }
-    
+
                 p {
                     font-size: 14px;
                 }
-                
             }
-        } 
+        }
     }
 }
 
@@ -279,11 +280,11 @@ hr {
 .services-details-form {
        padding-bottom: 2rem;
     form {
-       
+     
         .container {
             display: flex;
             flex-direction: column;
-            
+          
             h4 {
               font-size: 22px;
             }
@@ -291,7 +292,7 @@ hr {
             .services-details-form-input {
                 display: flex;
                 flex-direction: column;
-                
+              
 
                input {
                 margin-bottom: 1rem;
@@ -319,26 +320,26 @@ hr {
         form {
 
             .container {
-                              
+                            
                 h4 {
                   font-size: 18px;
                 }
-    
+  
                 .services-details-form-input {
                     display: flex;
                     flex-direction: row;
                     gap: 1rem;
-    
+  
                    input {
                     width: 100%;
                     padding: 0.7rem;
-                    // font-size: 12px;
+                   font-size: 12px;
                    }
                 }
-    
+  
                 textarea {
                     padding: 0.7rem;
-                    // font-size: 12px;
+                    font-size: 12px;
                 }
                 button {
                     width: 20%;
@@ -358,17 +359,17 @@ hr {
                     display: flex;
                     flex-direction: row;
                     gap: 1rem;
-    
+  
                    input {
                     width: 100%;
                     padding: 1rem;
-                    // font-size: 12px;
+                  // font-size: 12px;
                    }
                 }
-    
+  
                 textarea {
                     padding: 0.7rem;
-                    // font-size: 12px;
+                  // font-size: 12px;
                 }
 
                 button {
