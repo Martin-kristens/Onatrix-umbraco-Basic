@@ -163,6 +163,17 @@ header .container {
   text-align: center;
   display: flex;
 }
+header .container .social-media {
+  display: flex;
+  align-items: stretch;
+}
+header .container .social-media a {
+  border: 1px solid rgba(205, 208, 223, 0.315);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem 1rem 0 1rem;
+}
 @media (min-width: 768px) {
   header .container {
     display: flex;

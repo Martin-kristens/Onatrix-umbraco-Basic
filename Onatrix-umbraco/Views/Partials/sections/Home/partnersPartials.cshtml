@@ -5,21 +5,17 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
 
 @{
-    var partnerImage = new List<string>
-    {
-        Model?.Value<IPublishedContent>("partner1")?.Url() ?? "",
-        Model?.Value<IPublishedContent>("partner2")?.Url() ?? "",
-        Model?.Value<IPublishedContent>("partner3")?.Url() ?? "",
-        Model?.Value<IPublishedContent>("partner4")?.Url() ?? "",
-        Model?.Value<IPublishedContent>("partner5")?.Url() ?? "",
-        Model?.Value<IPublishedContent>("partner6")?.Url() ?? ""
-    };
+    // hämtar blocklist från Home
+    var slides = Model.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("slides") ?? null;
 }
 
 
 <div class="our-projects-partners">
-    @foreach (var partner in partnerImage)
+    @foreach (var partner in slides)
     {
-        <img src="@partner" alt="Partner Image" />
+        //hämtar bild från Image slider item
+        var image = partner.Content.Value<IPublishedContent>("selectedImage")?.Url();
+
+        <img src="@image" alt="Partner Image" />
     }
 </div>

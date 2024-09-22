@@ -1,0 +1,58 @@
+﻿<!-- dessa för att kunna hämta ut från Settings -->
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+
+@{
+    //hämtar roten i trädstrukturen
+    var rootContent = UmbracoHelper.ContentAtRoot();
+    // söker i rotcontent efter settings page
+    var settings = rootContent?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+    var contactAddress = settings?.Value<string>("officeLocation") ?? null;
+    var contactPhone = settings?.Value<string>("officePhone") ?? null;
+    var contactEmail = settings?.Value<string>("officeEmailAddress") ?? null;
+    var contactImage = settings?.Value<IPublishedContent>("officeImage")?.Url();
+    var contactBackgroundImage = settings?.Value<IPublishedContent>("officeBackgroundImage")?.Url();
+
+}
+  
+  
+@*   <section class="contact-info bg-gray"> *@
+    <div class="container">
+        <div class="right">
+            <h2>@Model.Value("officeHeadline")</h2>
+
+            <div class="location">
+                <div class="office">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <h6>Office location</h6>
+                </div>
+                <p>@contactAddress</p>
+            </div>
+        
+            <div class="phone-number">
+                <div class="phone">
+                    <i class="fa-solid fa-phone-flip"></i>
+                    <h6>Phone number</h6>
+                </div>
+                <p>@contactPhone</p>
+            </div>
+        
+            <div class="email-address">
+                <div class="email">
+                    <i class="fa-regular fa-envelope"></i>
+                    <h6>E-mail address</h6>
+                </div>
+                <p>@contactEmail</p>
+            </div>
+        </div>
+                      
+        <div class="contact-image">
+            <div class="component1">
+                <img src="@contactImage" alt="">
+            </div>
+                        
+            <img src="@contactBackgroundImage" alt="">
+        </div>
+    </div>
+@* </section>  *@

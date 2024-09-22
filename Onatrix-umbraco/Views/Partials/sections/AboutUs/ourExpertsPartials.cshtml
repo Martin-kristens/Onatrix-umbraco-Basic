@@ -5,101 +5,53 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
 
 @{
+    // hämtar blocklist från about 
+    var expertCard = Model.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("expertCard") ?? null;
 
-    // var largeCard = Model?.Value<IEnumerable<BlockListItem>>("cardList");
-    // var largeCard = Model.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("cardList") ?? null;
-
-    var cardImage1 = Model.Value<IPublishedContent>("ourExpertLargeImage1")?.Url();
-
-    var cardImage2 = Model.Value<IPublishedContent>("ourExpertLargeImage2")?.Url();
-
-    var cardImage3 = Model.Value<IPublishedContent>("ourExpertLargeImage3")?.Url();
-
-    var smallImage1 = Model.Value<IPublishedContent>("ourExpertSmallImage1")?.Url();
-
-    var smallImage2 = Model.Value<IPublishedContent>("ourExpertSmallImage2")?.Url();
-
-    var smallImage3 = Model.Value<IPublishedContent>("ourExpertSmallImage3")?.Url();
-
-    var smallImage4 = Model.Value<IPublishedContent>("ourExpertSmallImage4")?.Url();
+    // Filtrera de stora och små korten baserat på blocktypen (alias)
+    var largeCards = expertCard?.Where(x => x.Content.ContentType.Alias == "largeCardItem") ?? null;
+    var smallCards = expertCard?.Where(x => x.Content.ContentType.Alias == "smallCardItem") ?? null;
 }
 
 <div class="container">
     <h6>@Model.Value("ourExpertsPageTitle")</h6>
     <h2>@Model.Value("ourExpertsHeadline")</h2>
-    
+
     <div class="our-expert-large-cards">
-    @* stort Kort 1 *@
-        <div class="our-expert-large-card">
-            @if (!string.IsNullOrEmpty(cardImage1))
-            {
-                <img src="@cardImage1" alt="@cardImage1">
-            }
-                <h4 class="bg-light">@Model.Value("ourExpertLargeImageName1")</h4>
-                <p class="bg-light">@Model.Value("ourExpertLargeImageDescription1")</p>              
-        </div>
+        @foreach (var item in largeCards!)
+        {
+            // hämtar block types från large card item
+            var largeImage = item.Content.Value<IPublishedContent>("largeImage")?.Url();
+            var nameLarge = item.Content.Value<string>("largeImageName");
+            var positionLarge = item.Content.Value<string>("largeImageWorkPosition");
 
-                @* stort Kort 2 *@
-        <div class="our-expert-large-card">
-            @if (!string.IsNullOrEmpty(cardImage1))
-            {
-                <img src="@cardImage2" alt="">
-            }
-            <h4 class="bg-light">@Model.Value("ourExpertLargeImageName2")</h4>               
-            <p class="bg-light">@Model.Value("ourExpertLargeImageDescription2")</p>
-        </div> 
-
-                @* stort Kort 3 *@
-        <div class="our-expert-large-card">
-            @if (!string.IsNullOrEmpty(cardImage1))
-            {
-                <img src="@cardImage3" alt="">
-            }
-            <h4 class="bg-light">@Model.Value("ourExpertLargeImageName3")</h4>               
-            <p class="bg-light">@Model.Value("ourExpertSmallImageDescription3")</p>
-        </div> 
+            <div class="our-expert-large-card">
+                @if (!string.IsNullOrEmpty(largeImage))
+                {
+                    <img src="@largeImage" alt="@nameLarge">
+                }
+                <h4 class="bg-light">@nameLarge</h4>
+                <p class="bg-light">@positionLarge</p>
+            </div>
+        }
     </div>
+             
+    <div class="our-expert-small-cards"> 
+        @foreach (var item in smallCards)
+        {
+            // hämtar block types från small card item
+            var smallImage = item.Content.Value<IPublishedContent>("smallImage")?.Url();
+            var nameSmall = item.Content.Value<string>("expertNameSmall");
+            var positionSmall = item.Content.Value<string>("expertPositionSmall");
 
-        <div class="our-expert-small-cards">
-
-            @* litet kort 1*@
             <div class="our-expert-small-card">
-                @if (!string.IsNullOrEmpty(cardImage1))
+                @if (!string.IsNullOrEmpty(smallImage))
                 {
-                    <img src="@smallImage1" alt="">
+                    <img src="@smallImage" alt="">
                 }
-                <h4 class="bg-light">@Model.Value("ourExpertSmallImageName1")</h4>               
-                <p class="bg-light">@Model.Value("ourExpertSmallImageDescription1")</p>
-            </div> 
-
-                @* litet kort 2*@
-                <div class="our-expert-small-card">
-                @if (!string.IsNullOrEmpty(cardImage1))
-                {
-                    <img src="@smallImage2" alt="">
-                }
-                <h4 class="bg-light">@Model.Value("ourExpertSmallImageName2")</h4>
-                <p class="bg-light">@Model.Value("ourExpertSmallImageDesription2")</p>
-            </div> 
-
-                @* litet kort 3*@
-            <div class="our-expert-small-card">
-                @if (!string.IsNullOrEmpty(cardImage1))
-                {
-                    <img src="@smallImage3" alt="">
-                }
-                <h4 class="bg-light">@Model.Value("ourExpertSmallImageName3")</h4>               
-                <p class="bg-light">@Model.Value("ourExpertSmallImageDesription2")</p>
-            </div> 
-
-                @* litet kort 4*@
-            <div class="our-expert-small-card">
-                @if (!string.IsNullOrEmpty(cardImage1))
-                {
-                    <img src="@smallImage4" alt="">
-                }
-                <h4 class="bg-light">@Model.Value("ourExpertSmallImageName4")</h4>               
-                <p class="bg-light">@Model.Value("ourExpertSmallImageDescription4")</p>
-            </div> 
-       </div>
+                <h4 class="bg-light">@nameSmall</h4>
+                <p class="bg-light">@positionSmall</p>
+            </div>
+        }      
     </div>
+</div> 
