@@ -1666,51 +1666,61 @@ hr {
     flex: 3;
     margin-right: 2rem;
     display: flex;
+    gap: 1.5rem;
   }
   #projects .container .projects-left .projects-card {
     display: flex;
-    align-items: strech;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1rem 0;
+    /*align-items: strech;*/
+    justify-content: space-around;
+    padding: 0.5rem 0;
     height: 250px;
     border-bottom: 1px solid var(--color-gray);
-    max-width: 65%;
+    max-width: 89%;
   }
-  #projects .container .projects-left .projects-card img {
+  #projects .container .projects-left .projects-card .projects-card-link {
+    display: flex;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  #projects .container .projects-left .projects-card .projects-card-link:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  #projects .container .projects-left .projects-card .projects-card-link img {
     flex: 1;
     width: 50%;
     height: auto;
     object-fit: cover;
   }
-  #projects .container .projects-left .projects-card .projects-left-card-right {
+  #projects .container .projects-left .projects-card .projects-card-link .projects-left-card-right {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding-top: 1rem;
+    justify-content: space-between;
+    padding-left: 0.8rem;
     text-decoration: none;
   }
-  #projects .container .projects-left .projects-card .projects-left-card-right h4 {
+  #projects .container .projects-left .projects-card .projects-card-link .projects-left-card-right h4 {
     margin: 0;
-    font-size: 8px;
+    font-size: 1rem;
   }
-  #projects .container .projects-left .projects-card .projects-left-card-right .projects-date {
+  #projects .container .projects-left .projects-card .projects-card-link .projects-left-card-right .projects-date {
     display: flex;
     align-items: baseline;
     gap: 0.5rem;
   }
-  #projects .container .projects-left .projects-card .projects-left-card-right p {
+  #projects .container .projects-left .projects-card .projects-card-link .projects-left-card-right p {
     font-size: 12px;
     margin: 0;
   }
-  #projects .container .projects-left .projects-card .projects-left-card-right h6 {
+  #projects .container .projects-left .projects-card .projects-card-link .projects-left-card-right h6 {
     color: var(--color-dark);
     cursor: pointer;
     font-weight: 500;
     font-size: 14px;
   }
-  #projects .container .projects-left .projects-card .projects-left-card-right h6 i {
+  #projects .container .projects-left .projects-card .projects-card-link .projects-left-card-right h6 i {
     color: var(--color-secondary);
     margin-left: 0.5rem;
   }
@@ -1761,28 +1771,102 @@ hr {
   }
 }
 @media (min-width: 1200px) {
-  #projects .container .projects-left .projects-card a {
-    text-decoration: none;
-    color: var(--color-dark);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  #projects .container .projects-left {
+    /*
+    .projects-card {
+
+        a {
+            text-decoration: none;
+            color: var(--color-dark);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            &:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            .projects-left-card-right {
+                margin-top: -20px;
+                gap: 0.8rem;
+
+                h4 {
+                    font-size: 19px;
+                    text-decoration: none;
+                }
+
+                .projects-date {
+
+                    i {
+                        font-size: 14px;
+                    }
+
+                    p {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }*/
   }
-  #projects .container .projects-left .projects-card a:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  #projects .container .projects-left .projects-card {
+    /*  display: flex;*/
+    /*align-items: strech;*/
+    /* justify-content: space-around;*/
+    /*                    gap: 1rem;*/
+    /*     height: 250px;
+    border-bottom: 1px solid var(--color-gray);
+    max-width: 65%;*/
+    /*
+
+    a {
+        padding-left: 0.5rem;
+    }*/
   }
-  #projects .container .projects-left .projects-card a .projects-left-card-right {
-    margin-top: -20px;
-    gap: 0.8rem;
+  #projects .container .projects-left .projects-card .projects-card-link {
+    /* display: flex;
+     text-decoration: none;
+     color: inherit;*/
   }
-  #projects .container .projects-left .projects-card a .projects-left-card-right h4 {
-    font-size: 19px;
-    text-decoration: none;
+  #projects .container .projects-left .projects-card .projects-card-link img {
+    /* flex: 1;
+     width: 50%;
+     height: auto;
+     object-fit: cover;*/
   }
-  #projects .container .projects-left .projects-card a .projects-left-card-right .projects-date i {
-    font-size: 14px;
-  }
-  #projects .container .projects-left .projects-card a .projects-left-card-right .projects-date p {
-    font-size: 14px;
+  #projects .container .projects-left .projects-card .projects-card-link .projects-left-card-right {
+    /*              flex: 1;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  padding-top: 1rem;
+                  text-decoration: none;*/
+    /* h4 {
+         margin: 0;
+         font-size: 8px;
+     }
+
+     .projects-date {
+         display: flex;
+         align-items: baseline;
+         gap: 0.5rem;
+     }
+
+     p {
+         font-size: 12px;
+         margin: 0;
+     }
+
+     h6 {
+         color: var(--color-dark);
+         cursor: pointer;
+         font-weight: 500;
+         font-size: 14px;
+
+         i {
+             color: var(--color-secondary);
+             margin-left: 0.5rem;
+         }
+     }*/
   }
   #projects .container .projects-right {
     padding-left: 2rem;

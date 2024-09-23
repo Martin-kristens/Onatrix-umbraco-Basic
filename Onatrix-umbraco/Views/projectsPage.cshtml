@@ -26,9 +26,10 @@
 				var preamble = item?.Value<string>("preamble") ?? "";
 				var readMore = item?.Value<string>("readMore") ?? "";
 
-				<div class="projects-card">					
-					<img src="@image" alt="">
-					<a href="@item.Url()">
+				<div class="projects-card">
+					<a href="@item.Url()" class="projects-card-link">
+						<img src="@image" alt="">
+					
 						<div class="projects-left-card-right">							
 							<h4 class="bg-light">@item.Name()</h4>
 							<p><i class="fa-regular fa-calendar-days"></i>  @date</p>
