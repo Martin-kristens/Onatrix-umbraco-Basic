@@ -7,26 +7,26 @@
     var rootContent = UmbracoHelper.ContentAtRoot();
     // söker i rotcontent efter settings page
     var settings = rootContent?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
-
-    var sideBarImage = settings?.Value<IPublishedContent>("sideBarImage")?.Url() ?? null;
-    var headline = settings?.Value<string>("sideBarHeadline") ?? null;
-    var sideBarText = settings?.Value<string>("sideBarText") ?? null;
+    
+    var headlineTags = settings?.Value<string>("tagsHeadline") ?? null;
+    var tags = settings?.Value<IEnumerable<string>>("tagName") ?? new List<string>();
     var formHeadline = settings?.Value<string>("formHeadline") ?? null;
     var formText = settings?.Value<string>("formText") ?? null;
     var formPlaceholder = settings?.Value<string>("formPlaceholder") ?? null;
 }
 
-<div class="left-side">
-    <h4>@headline</h4>
-    <div class="service-details-card">
-        <img src="@sideBarImage" alt="">
-        <p>@sideBarText</p>
-    </div>
-    <div class="service-details-online-support bg-primary">
-        <h4>@formHeadline</h4>
-        <p>@formText</p>
-        <input type="text" placeholder="@formPlaceholder">
-        <i class="fa-regular fa-envelope"></i>
-    </div>
+<h4>@headlineTags</h4>
+<div class="projects-right-tags">
+
+    @foreach (var tag in tags)
+    {
+        <a><p>@tag</p></a> 
+    }
 </div>
 
+<div class="service-details-online-support bg-primary">
+    <h4>@formHeadline</h4>
+    <p>@formText</p>
+    <input type="text" placeholder="@formPlaceholder">
+    <i class="fa-regular fa-envelope"></i>
+</div>

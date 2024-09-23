@@ -1739,6 +1739,10 @@ hr {
     padding: 0.5rem 1rem;
     border-radius: 50%;
     font-size: 13px;
+    transition: box-shadow 0.3s ease;
+  }
+  #projects .container .projects-right .projects-right-tags a p:hover {
+    color: var(--color-secondary);
   }
   #projects .container .projects-right .service-details-online-support h4 {
     font-size: 18px;
@@ -1779,6 +1783,9 @@ hr {
   }
   #projects .container .projects-left .projects-card a .projects-left-card-right .projects-date p {
     font-size: 14px;
+  }
+  #projects .container .projects-right {
+    padding-left: 2rem;
   }
   #projects .container .projects-right .service-details-online-support h4 {
     font-size: 18px;
