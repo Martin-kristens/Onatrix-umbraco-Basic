@@ -1,5 +1,6 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
 @{
 	Layout = "mainLayout.cshtml";
 	ViewBag.Title = Model?.Value("pageTitle") ?? Model?.Name;
@@ -12,24 +13,11 @@
 
 <section id="services-details">
 	<div class="container">
-        <div class="left-side">
-            <h4>About us</h4>
-            <div class="service-details-card">
-                <img src="/images/card-6.svg" alt="">
-                <p>Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non </p>
-            </div>
-            <div class="service-details-online-support bg-primary">
-                <h4>How can we help you?</h4>
-                <p>online support 24/7, we are here to help you</p>
-                <input type="text" placeholder="E-mail address">
-                <i class="fa-regular fa-envelope"></i>
-                <!-- <img src="/images/services-details/Mail.svg" alt=""> -->
-            </div>
-        </div>
+        @await Html.PartialAsync("partials/static/sideBar.cshtml")
 
         <hr class="separator">
         <div class="right-side">
-            @Model.Value("pageContent")
+            @Model?.Value("pageContent")
         </div>
 	
     </div>
