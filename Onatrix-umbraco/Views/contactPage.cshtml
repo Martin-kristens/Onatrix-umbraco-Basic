@@ -1,8 +1,16 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @{
 	Layout = "mainLayout.cshtml";
 	ViewBag.Title = Model?.Value("pageTitle") ?? null;
+
+	var placeholderText = Model.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("formPlaceholder") ?? null;
+	var backgroundImage = Model.Value<IPublishedContent>("backgroundImage")?.Url();
+
+	// Om det finns slides i den aktuella modellen
+	var slides = Model.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("slides") ?? null;
 }
 
 @if (!string.IsNullOrEmpty(ViewBag.Title))
@@ -12,5 +20,30 @@
 
 <section class="contact-info bg-light">
 	@await Html.PartialAsync("partials/static/_contanctInformation.cshtml")
-</section>
+</section> 
 
+<section class="contact-request-form">
+	<img src="@backgroundImage" alt="">
+	<div class="container">
+		<form class="bg-light" action="">
+			<h6>@Model.Value("formTitle")</h6>
+			<h2>@Model.Value("formHeadline")</h2>
+			<p>@Model.Value("formText")</p>
+
+			<div class="request-form-input">
+				@foreach (var item in placeholderText)
+				{
+					var placeholder = item.Content.Value<string>("placeholderText");
+					<input type="text" placeholder="@placeholder">
+				}
+				<select name="Financial" id="">
+					<option value="">@Model.Value("formOptionName")</option>
+				</select>
+			</div>
+			<button class="btn-primary">@Model.Value("formButtomName")</button>
+		</form>
+		<section id="partner-section">
+			@await Html.PartialAsync("partials/sections/home/partnersPartials.cshtml", Model)
+		</section> 
+	</div>
+</section>

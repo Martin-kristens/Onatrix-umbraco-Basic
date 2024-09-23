@@ -8,9 +8,10 @@
     var rootContent = UmbracoHelper.ContentAtRoot();
     // söker i rotcontent efter settings page
     var settings = rootContent?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
-    var contactAddress = settings?.Value<string>("officeLocation") ?? null;
-    var contactPhone = settings?.Value<string>("officePhone") ?? null;
-    var contactEmail = settings?.Value<string>("officeEmailAddress") ?? null;
+    var headline = settings?.Value<string>("officeHeadline") ?? "";
+    var contactAddress = settings?.Value<string>("officeLocation") ?? "";
+    var contactPhone = settings?.Value<string>("officePhone") ?? "";
+    var contactEmail = settings?.Value<string>("officeEmailAddress") ?? "";
     var contactImage = settings?.Value<IPublishedContent>("officeImage")?.Url();
     var contactBackgroundImage = settings?.Value<IPublishedContent>("officeBackgroundImage")?.Url();
 
@@ -20,7 +21,7 @@
 @*   <section class="contact-info bg-gray"> *@
     <div class="container">
         <div class="right">
-            <h2>@Model.Value("officeHeadline")</h2>
+            <h2>@headline</h2>
 
             <div class="location">
                 <div class="office">

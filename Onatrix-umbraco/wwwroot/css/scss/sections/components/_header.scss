@@ -1,55 +1,35 @@
-header {
+#topbar {
     width: 100%;
+    padding: 0 0.2rem;
 
-    .container {
-        text-align: center;
+    #topbar_container {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+
+        .header_location {
+            font-size: 12px;
+        }
 
         .social-media {
             display: flex;
-            align-items: stretch;
+            align-items: center;
 
-            a {
-                border: 1px solid rgba(205, 208, 223, 0.315);
-                align-items: center;
+
+            .social-media-link {
+                border-left: 1px solid rgba(205, 208, 223, 0.315);
+                border-right: 1px solid rgba(205, 208, 223, 0.315);
+                padding: 1rem 0.7rem 0.2rem 0.7rem;
+                margin: 0;
+                //display: flex;
+                //text-align: center;
                 justify-content: center;
-                text-align: center;
-                padding: 1rem 1rem 0 1rem;
-            }
-        }
-    }
 
-    @include tablet {
 
-        .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: stretch;
-            padding-top: 0.5rem;
-
-            .topbar {
-                display: flex;
-
-                i {
-                    width: 100%;
-                    height: auto;
-                }
-            }
-
-            p {
-                font-size: 12px;
-            }
-
-            .social-media {
-                display: flex;
-                align-items: stretch;
-
-                a {
-                    border: 1px solid rgba(205, 208, 223, 0.315);
-                    align-items: center;
-                    justify-content: center;
-                    text-align: center;
-                    padding: 1rem 1rem 0 1rem;
+                .topbar-icon {
+                    margin-left: 0;
+                    font-size: 1.2rem;
                 }
             }
         }
