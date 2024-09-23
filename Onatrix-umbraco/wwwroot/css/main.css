@@ -277,13 +277,20 @@ header .container .social-media a {
 }
 
 footer {
-  text-align: center;
-  padding: 1rem;
+  display: flex;
 }
-@media (min-width: 1200px) {
-  footer {
-    text-align: left;
-  }
+footer .container {
+  display: flex;
+}
+footer .container .credits a {
+  color: var(--color-secondary);
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+footer .container .credits a:hover {
+  color: var(--color-light);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 nav {

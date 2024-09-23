@@ -1,0 +1,24 @@
+﻿ <!-- dessa för att kunna hämta ut från Settings -->
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+@{
+    //hämtar roten i trädstrukturen
+    var rootContent = UmbracoHelper.ContentAtRoot();
+    // söker i rotcontent efter settings page
+    var settings = rootContent?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+    var officeLocation = settings?.Value<string>("officeLocation") ?? null;
+}
+
+ 
+
+     <div class="container">
+         <p>@officeLocation</p>
+  @*        <div class="social-media"> *@
+             @await Html.PartialAsync("socialMediaInformation.cshtml")
+
+             <!-- <a href="#"><i class="fa-brands fa-facebook"></i></a>
+             <a href="#"><i class="fa-brands fa-twitter"></i></a>
+             <a href="#"><i class="fa-brands fa-linkedin-in"></i></a> -->
+   @*       </div> *@
+     </div>

@@ -26,44 +26,17 @@
 <body>
     <div class="wrapper">
         <header class="bg-primary">
-            <div class="container">
-                <p>Klarabergsviadukten 90, 111 64 Stockholm</p>
-                <div class="social-media">
-                    @await Html.PartialAsync("partials/static/socialMediaInformation.cshtml")
-
-                    <!-- <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a> -->
-                </div>
-            </div>
+            @await Html.PartialAsync("partials/static/topBar.cshtml")
         </header>
 
         <section class="nav bg-light">
             @await Html.PartialAsync("partials/static/headerNavigation.cshtml", Model)
-            <!-- <div class="container">
-                <a href="/index.html"><img src="~/images/home/Brand.svg" alt="Ontarix logo"></a>
-          
-                <div>
-                    <nav>
-                        <a href="/aboutus">About</a> 
-                        <a href="/services.html">Services</a> 
-                        <a href="/projects.html">Projects</a> 
-                        <a href="/contact.html">Contact</a>   
-                     </nav>
-                </div>
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </div>           -->
         </section> 
 
         <main>
           @RenderBody()  
         </main>
-
-        <footer class="bg-dark">            
-            <div class="container">
-                <p>© Onatrix. All Rights Reserved. Credits to <span>Themesflat</span></p>
-            </div>
-        </footer>
+        @await Html.PartialAsync("partials/static/footer.cshtml")
     </div>
     <script src="/scripts/main.js"></script>
 </body>

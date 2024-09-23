@@ -1,8 +1,27 @@
-footer {
-    text-align: center;
-    padding: 1rem;
 
-    @include desktop {
-        text-align: left;
+
+footer {
+    display: flex;
+
+    .container {
+        display: flex;
+
+        .copyright-info {
+        }
+
+        .credits {
+
+            a {
+                color: var(--color-secondary);
+                text-decoration: none;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+                &:hover {
+                    color: var(--color-light);
+                    transform: translateY(-1px);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                }
+            }
+        }
     }
 }
