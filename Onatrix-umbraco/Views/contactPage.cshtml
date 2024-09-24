@@ -23,7 +23,7 @@
 </section> 
 
 <section class="contact-request-form">
-	<img src="@backgroundImage" alt="">
+	<img class="contact_bgImage" src="@backgroundImage" alt="">
 	<div class="container">
 		<form class="bg-light" action="">
 			<h6>@Model.Value("formTitle")</h6>
@@ -42,8 +42,10 @@
 			</div>
 			<button class="btn-primary">@Model.Value("formButtomName")</button>
 		</form>
-		<section id="partner-section">
-			@await Html.PartialAsync("partials/sections/home/partnersPartials.cshtml", Model)
-		</section> 
+		
 	</div>
 </section>
+
+<section class="partner-section">
+	@await Html.PartialAsync("partials/sections/home/partnersPartials.cshtml", Model)
+</section> 

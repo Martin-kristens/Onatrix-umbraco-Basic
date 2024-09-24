@@ -3,45 +3,36 @@
 @using Umbraco.Cms.Core.Models.Blocks
 
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
-
 @{
-
-	// var ourStoryImage = Model?.Value<IPublishedContent>("ourStoryImage")?.Url() ?? "";
-
-	var projectsCards = Model?.Value<IEnumerable<BlockListItem>>("ourProjectsCards");
-	// bool hasProjectsServices = projectsCards != null && projectsCards.Any();
+	var selection = Umbraco.Content(Guid.Parse("dbc7579e-ba9d-40d7-a9bd-ca652da8b24f"))
+    .ChildrenOfType("projectsItemTemplate")
+    .Where(x => x.IsVisible());
 }
 
 <div class="container">
 	<h6>@Model?.Value("ourProjectsSectionTitle")</h6>
 	<h2>@Model?.Value("ourProjectsHeadline")</h2>
 </div>
-<div class="our-projects-cards">
-	@if (projectsCards != null && projectsCards.Any())
+
+<div class="our-projects-cards" id="projects-cards_home">
+	@if (selection != null && selection.Any())
 	{
-		foreach (var card in projectsCards)
+		foreach (var item in selection)
 		{
-			var service = (ContentModels.OurProjectsCards)card.Content; // Kontrollera alias och innehåll
+			var imageUrl = item?.Value<IPublishedContent>("thumbnailImageLarge")?.Url() ?? "";
+			var cardSubheadline = item?.Value<string>("cardSubheadline") ?? "";
+				<a href="@item.Url()" class="projectCard_link">
+					<div class="our-projects-card">
+						<!-- Bild -->
+						<img src="@imageUrl" alt="@item.Name()" class="projectCard_img"/>
 
-			// Hämta bild-URL och text
-
-			var imageUrl = service?.Value<IPublishedContent>("image")?.Url() ?? "";
-
-			var firstText = service?.Value<string>("firstText") ?? "";
-
-			var secondText = service?.Value<string>("secondText") ?? "";
-
-			<div class="our-projects-card">
-				<!-- Bild -->
-				<img src="@imageUrl" alt="@firstText" />
-
-				<!-- Text -->
-				<div class="our-projects-text">
-					<h4 class="bg-light">@firstText</h4>
-					<p class="bg-light">@secondText</p>
-				</div>
-
-			</div>
+						<!-- Text -->
+						<div class="our-projects-text">
+							<h5 class=" our-projects-headline">@item.Name()</h5>
+							<p class=" our-projects-subHeadline">@cardSubheadline</p>
+						</div>
+					</div>
+				</a>			
 		}
 	}
 	else
@@ -49,3 +40,6 @@
 		<p>No projects found.</p>
 	}
 </div>
+
+
+

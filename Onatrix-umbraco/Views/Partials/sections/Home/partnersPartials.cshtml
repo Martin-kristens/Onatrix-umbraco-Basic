@@ -10,12 +10,12 @@
 }
 
 
-<div class="our-projects-partners">
+<div class="container our-projects-partners">
     @foreach (var partner in slides)
     {
         //hämtar bild från Image slider item
         var image = partner.Content.Value<IPublishedContent>("selectedImage")?.Url();
 
-        <img src="@image" alt="Partner Image" />
+        <a class="partner_link" href="#"><img src="@image" alt="Partner Image" class="partner_image" /></a>
     }
 </div>

@@ -13,7 +13,7 @@
 
 <img class="hero-background" src="@backgroundImage" alt="" />
 <div class="container">
-	<h1>@Model?.Value("heroHeadline")</h1>
-	<p>@Model?.Value("heroText")</p>
+	<h1 class="hero_headline">@Model?.Value("heroHeadline")</h1>
+	<p class="hero_text">@Model?.Value("heroText")</p>
 	<button class="btn-primary" href="@Model?.Value("heroButtonUrl")">@Model?.Value("heroButtonText")</button>
 </div>

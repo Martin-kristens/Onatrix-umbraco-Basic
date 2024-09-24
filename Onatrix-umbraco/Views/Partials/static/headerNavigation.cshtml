@@ -21,20 +21,20 @@
     
 }
     <div class="container">
-        <a href="/"><img src="@siteLogoType" alt="Ontarix logo"></a>   
-        <div>
+        <a href="/" class="nav_logo"><img src="@siteLogoType" alt="Ontarix logo" class="nav_img"></a>   
+        @*  <div> *@
             <!-- <i class="fa-solid fa-bars"></i> -->
-            <nav>
-                @if (selection?.Length > 0)
-                {
-                    <ul>
-                        @foreach (var item in selection)
-                        {
-                            <a href="@item.Url(PublishedUrlProvider)">@item.Name</a>
-                        }
-                    </ul>
-                }   
-            </nav>
-        </div>
+        <nav class="nav_navigation">
+            @if (selection?.Length > 0)
+            {
+                <ul class="nav_list">
+                    @foreach (var item in selection)
+                    {
+                        <a href="@item.Url(PublishedUrlProvider)" class="nav_links">@item.Name</a>
+                    }
+                </ul>
+            }   
+        </nav>
+      @*    </div> *@
         <i class="fa-solid fa-magnifying-glass"></i>
     </div>   

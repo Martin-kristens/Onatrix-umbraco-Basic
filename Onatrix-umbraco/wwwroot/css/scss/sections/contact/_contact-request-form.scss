@@ -1,5 +1,10 @@
 .contact-request-form {
-    img {
+    /* img {
+        width: 100%;
+        height: auto;
+    }*/
+
+    .contact_bgImage {
         width: 100%;
         height: auto;
     }
@@ -7,6 +12,7 @@
     .container {
         form {
             text-align: center;
+
             p {
                 font-style: italic;
             }
@@ -29,7 +35,6 @@
                     border-radius: 4px;
                     border: 1px solid #ececee;
                     padding: 1rem;
-                    
                 }
             }
 
@@ -38,7 +43,7 @@
             }
         }
 
-        .our-projects-partners {
+        /*.our-projects-partners {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -49,19 +54,24 @@
                 width: 20%;
                 height: auto;
             }
-        }
+        }*/
     }
 
     @include tablet {
-        img {
+       /* img {
+            margin-bottom: 4rem;
+        }*/
+
+        .contact_bgImage {
             margin-bottom: 4rem;
         }
+
         .container {
             position: relative;
 
             form {
                 position: absolute;
-                bottom: 117px;
+                bottom: 0;
                 left: 0;
                 // margin-bottom: 5rem;
                 padding: 1rem;
@@ -85,25 +95,25 @@
                 }
             }
 
-            .our-projects-partners {
+           /* .our-projects-partners {
                 padding-bottom: 0;
                 margin-top: 2rem;
-    
+
                 img {
                     width: 10%;
                     height: auto;
                 }
-            }
-           
+            }*/
         }
     }
 
     @include desktop {
         .container {
             position: relative;
+
             form {
                 position: absolute;
-                bottom: 180px;
+                bottom: 0;
                 left: 0;
                 width: 100%;
                 padding: 4rem 3rem;
@@ -117,7 +127,7 @@
                 .request-form-input {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
-                    
+
                     input, select {
                         width: 100%;
                         padding: 1rem;
@@ -130,18 +140,18 @@
                 }
             }
 
-            .our-projects-partners {
+           /* .our-projects-partners {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 gap: 1rem;
                 padding-bottom: 2rem;
-    
+
                 img {
                     width: 10%;
                     height: auto;
                 }
-            }
+            }*/
         }
     }
 }

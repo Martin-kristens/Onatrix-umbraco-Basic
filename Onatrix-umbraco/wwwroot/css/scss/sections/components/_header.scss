@@ -20,16 +20,20 @@
             .social-media-link {
                 border-left: 1px solid rgba(205, 208, 223, 0.315);
                 border-right: 1px solid rgba(205, 208, 223, 0.315);
-                padding: 1rem 0.7rem 0.2rem 0.7rem;
                 margin: 0;
-                //display: flex;
-                //text-align: center;
-                justify-content: center;
-
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
 
                 .topbar-icon {
                     margin-left: 0;
                     font-size: 1.2rem;
+                    padding: 1.5rem 0.7rem 0.2rem 0.7rem;
+                    color: var(--color-light);
+
+                    &:hover {
+                        transform: translateY(-2px);
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                        color: var(--color-secondary);
+                    }
                 }
             }
         }
