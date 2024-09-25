@@ -131,6 +131,7 @@
 
             .left-side {
                 display: flex;
+                flex: 1;
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: start;
@@ -182,7 +183,7 @@
 
 
             .right-side {
-
+                flex:3;
                 h4 {
                     font-size: 18px;
                     text-align: left; //denna fungerar inte, FIXA

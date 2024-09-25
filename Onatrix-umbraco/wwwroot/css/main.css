@@ -339,6 +339,9 @@ nav {
   #hero .container p {
     max-width: 400px;
   }
+  #hero .container .hero_link {
+    margin-top: 1rem;
+  }
 }
 @media (min-width: 1200px) {
   #hero .hero-background {
@@ -737,6 +740,9 @@ nav {
 @media (min-width: 1200px) {
   #our-story {
     padding-bottom: 5rem;
+  }
+  #our-story .container .story_link {
+    margin-top: 1rem;
   }
   #our-story .container img {
     padding-top: 4rem;
@@ -1351,6 +1357,7 @@ nav {
   }
   #services-details .container .left-side {
     display: flex;
+    flex: 1;
     flex-direction: column;
     justify-content: flex-start;
     align-items: start;
@@ -1387,6 +1394,9 @@ nav {
     position: absolute;
     bottom: 40px;
     right: 28px;
+  }
+  #services-details .container .right-side {
+    flex: 3;
   }
   #services-details .container .right-side h4 {
     font-size: 18px;
@@ -1945,7 +1955,7 @@ hr {
   border-bottom: none;
 }
 #projects-details .container .projects-details-right .project-details-cards .projects-card img {
-  width: 50%;
+  width: 40%;
   height: auto;
   object-fit: cover;
   margin-right: 1rem;
@@ -1964,7 +1974,7 @@ hr {
     gap: 2rem;
   }
   #projects-details .container .project-details-left {
-    flex: 2;
+    flex: 3;
   }
   #projects-details .container .project-details--right {
     flex: 1;
@@ -2025,7 +2035,7 @@ hr {
     font-size: 14px;
   }
   #projects-details .container .projects-details-left {
-    flex: 2;
+    flex: 3;
   }
   #projects-details .container .projects-details-left .projects-details-date .projects-date p {
     font-size: 14px;

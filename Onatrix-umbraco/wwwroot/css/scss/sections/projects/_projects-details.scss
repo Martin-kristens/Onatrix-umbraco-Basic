@@ -127,7 +127,7 @@
                     }
 
                     img {
-                        width: 50%;
+                        width: 40%;
                         height: auto;
                         object-fit: cover;
                         margin-right: 1rem;
@@ -205,7 +205,7 @@
             gap: 2rem;
 
             .project-details-left {
-                flex: 2;
+                flex: 3;
             }
 
             .project-details--right {
@@ -341,7 +341,7 @@
             }
 
             .projects-details-left {
-                flex: 2;
+                flex: 3;
 
                 .projects-details-date {
                     .projects-date {
