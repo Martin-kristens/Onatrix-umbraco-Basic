@@ -1,9 +1,12 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks;
+
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
 @inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
 @{
 	Layout = "mainLayout.cshtml";
 	ViewBag.Title = Model?.Value("pageTitle") ?? Model?.Name;
+
 }
 
 @if (!string.IsNullOrEmpty(ViewBag.Title))
@@ -27,13 +30,13 @@
 <section id="services-details-form" class="services-details-form">
     <form action="">
         <div class="container">
-            <h4>Have a question ?</h4>
+            <h4>@Model.Value("formHeadline")</h4>
             <div class="services-details-form-input">
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
+                <input type="text" placeholder="@Model.Value("formPlaceholderName")">
+                <input type="email" placeholder="@Model.Value("formPlaceholderEmail")">
             </div>
-            <textarea name="" id="" placeholder="Question"></textarea>
-            <button class="btn-primary">Submit</button>
+            <textarea name="" id="" placeholder="@Model.Value("formSelectPlaceholder")"></textarea>
+            <button href="@Model.Value("formButtonUrl")" class="btn-primary">@Model.Value("formButtonName")</button>
         </div>
     </form>
 </section>

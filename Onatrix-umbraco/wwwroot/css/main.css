@@ -157,15 +157,15 @@ h6 {
 
 #topbar {
   width: 100%;
-  padding: 0 0.2rem;
 }
 #topbar #topbar_container {
   display: flex;
+  align-items: baseline;
   justify-content: space-between;
-  align-items: center;
 }
 #topbar #topbar_container .header_location {
-  font-size: 12px;
+  font-size: 0.8rem;
+  padding-bottom: 0;
 }
 #topbar #topbar_container .social-media {
   display: flex;
@@ -179,8 +179,8 @@ h6 {
 }
 #topbar #topbar_container .social-media .social-media-link .topbar-icon {
   margin-left: 0;
-  font-size: 1.2rem;
-  padding: 1.5rem 0.7rem 0.2rem 0.7rem;
+  font-size: 1rem;
+  padding: 1rem 0.7rem 0.2rem 0.7rem;
   color: var(--color-light);
 }
 #topbar #topbar_container .social-media .social-media-link .topbar-icon:hover {

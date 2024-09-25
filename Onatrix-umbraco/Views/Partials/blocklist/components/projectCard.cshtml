@@ -1,27 +1,27 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
-@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
-@model dynamic
-@{
-	Layout = "mainLayout.cshtml";
-	ViewBag.Title = Model?.Value("pageTitle") ?? Model?.Name;
+﻿@*  @using Umbraco.Cms.Web.Common.PublishedModels;
+ @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+ @inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+ @model dynamic
+ @{
+ 	Layout = "mainLayout.cshtml";
+ 	ViewBag.Title = Model?.Value("pageTitle") ?? Model?.Name;
 
-    var image = Model?.Value<IPublishedContent>("thumbnalImage")?.Url();
-}
+     var image = Model?.Value<IPublishedContent>("thumbnalImage")?.Url();
+ }
+ *@
 
-
-<div class="projects-card">
-    <img src="@image" alt="">
-    <div class="projects-left-card-right">
-        <h6>@Model.Value("cardHeadline")</h6>
-        <div class="projects-date">
-            <i class="fa-regular fa-calendar-days"></i>
-            <p>@Model.Value("dateDescription")</p>
-        </div>
-        @if (Model.ShowText)
-        {
-            <p>@Model.Preamble</p>
-            <h6>@Model.ReadMoreText <i class="fa-regular fa-arrow-right"></i></h6>
-        }                               
-    </div>                        
-</div>
+@*  <div class="projects-card">
+     <img src="@image" alt="">
+     <div class="projects-left-card-right">
+         <h6>@Model.Value("cardHeadline")</h6>
+         <div class="projects-date">
+             <i class="fa-regular fa-calendar-days"></i>
+             <p>@Model.Value("dateDescription")</p>
+         </div>
+         @if (Model.ShowText)
+         {
+             <p>@Model.Preamble</p>
+             <h6>@Model.ReadMoreText <i class="fa-regular fa-arrow-right"></i></h6>
+         }                               
+     </div>                        
+ </div> *@
