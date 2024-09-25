@@ -6,6 +6,7 @@
 
 @{
     var signatureImage = Model?.Value<IPublishedContent>("aboutUsSignatureImage")?.Url() ?? "";
+	var placeholderText = Model?.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("formPlaceholder") ?? null;
 }
 
 <div class="container">
@@ -18,16 +19,16 @@
 		<p>@Model.Value("aboutUsSignature")</p>
 	</div>
 	<form class="right-side">
-		<h5 class="bg-primary">Request a call back</h5>
-		<p>Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat</p>
-		<input type="text" placeholder="Name">
-		<input type="text" placeholder="Email address">
-		<input type="text" placeholder="Phone">
+		<h5 class="bg-primary">@Model.Value("formHeadline")</h5>
+		<p>@Model.Value("formText")</p>
+		@foreach (var item in placeholderText)
+		{
+			var placeholder = item.Content.Value<string>("placeholderText");
+			<input type="text" placeholder="@placeholder">
+		}
 		<select name="" id="">
-			<option value="">Financial consulting</option>
-			<option value="">2</option>
-			<option value="">3</option>
+			<option value="">@Model.Value("formSelectPlaceholder")</option>
 		</select>
-		<button class="btn-accent">Submit</button>
+		<button class="btn-accent">@Model.Value("formButtomName")</button>
 	</form>
 </div>

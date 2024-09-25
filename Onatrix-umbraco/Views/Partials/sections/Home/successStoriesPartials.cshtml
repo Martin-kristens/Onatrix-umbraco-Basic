@@ -5,7 +5,8 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
 
 @{
-	var successStoriesComponent = Model?.Value<IEnumerable<BlockListItem>>("successStoriesBlockList");
+	// var successStoriesComponent = Model?.Value<IEnumerable<BlockListItem>>("successStoriesBlockList");
+	var successStoriesComponent = Model.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("successStoriesBlockList") ?? null;
 	var successStoryImage = Model?.Value<IPublishedContent>("successStoryImage")?.Url() ?? "";
 }
 
@@ -14,31 +15,27 @@
 	<h2>@Model?.Value("successStoriesHeadline")</h2>
 
 	<div class="success-stories">
-		@* <div class="success-stories-customer-served"> *@
-			@if (successStoriesComponent != null && successStoriesComponent.Any())
+		@if (successStoriesComponent != null && successStoriesComponent.Any())
+		{
+			foreach (var story in successStoriesComponent)
 			{
-				foreach (var story in successStoriesComponent)
+				var numbersOfReviews = story.Content.Value<string>("numberOfReviews");
+				var descriptionOfReviews = story.Content.Value<string>("descriptionOfReviews");
+
+				// Kontrollera om content har laddats korrekt
+				if (story != null)
 				{
-					// Hämtar innehållet från varje BlockListItem
-					var content = story.Content as ContentModels.SuccessStoriesItems;
-
-					// Kontrollera om content har laddats korrekt
-					if (content != null)
-					{
-						var numbersOfReviews = content.Value<string>("numberOfReviews");
-						var descriptionOfReviews = content.Value<string>("descriptionOfReviews");
-
-						<div class="success-stories-customer-served">
-							<p>@numbersOfReviews</p>
-							<p>@descriptionOfReviews</p>
-						</div>
-					}
+					<div class="success-stories-customer-served">
+						<p>@numbersOfReviews</p>
+						<p>@descriptionOfReviews</p>
+					</div>
 				}
 			}
-			else
-			{
-				<p>No success stories found</p>
-			}
+		}
+		else
+		{
+			<p>No success stories found</p>
+		}
 	</div>
 
 	<div>

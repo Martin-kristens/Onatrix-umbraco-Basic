@@ -1,0 +1,61 @@
+.sidebar-with-tags {
+    gap: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    .sidebar_tags_links {
+        text-decoration: none;
+        color: var(--color-dark);
+        cursor: pointer;
+        display: flex;
+        border-radius: 20px;
+
+        .sidebar_text {
+            border: 1px solid #e6e6e6;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 13px;
+        }
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    }
+}
+
+.service-details-online-support {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    box-sizing: border-box;
+
+    h4 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    input {
+        padding: 1rem;
+        font-size: 14px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .envelope {
+        font-size: 20px;
+        position: absolute;
+        bottom: 47px;
+        right: 50px;
+        color: var(--color-dark);
+        font-weight: 300;
+    }
+}

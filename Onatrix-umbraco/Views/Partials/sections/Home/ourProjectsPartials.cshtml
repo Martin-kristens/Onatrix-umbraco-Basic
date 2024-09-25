@@ -21,18 +21,18 @@
 		{
 			var imageUrl = item?.Value<IPublishedContent>("thumbnailImageLarge")?.Url() ?? "";
 			var cardSubheadline = item?.Value<string>("cardSubheadline") ?? "";
-				<a href="@item.Url()" class="projectCard_link">
-					<div class="our-projects-card">
-						<!-- Bild -->
-						<img src="@imageUrl" alt="@item.Name()" class="projectCard_img"/>
+			<a href="@item.Url()" class="projectCard_link">
+				<div class="our-projects-card">
+					<!-- Bild -->
+					<img src="@imageUrl" alt="@item.Name()" class="projectCard_img"/>
 
-						<!-- Text -->
-						<div class="our-projects-text">
-							<h5 class=" our-projects-headline">@item.Name()</h5>
-							<p class=" our-projects-subHeadline">@cardSubheadline</p>
-						</div>
+					<!-- Text -->
+					<div class="our-projects-text">
+						<h5 class=" our-projects-headline">@item.Name()</h5>
+						<p class=" our-projects-subHeadline">@cardSubheadline</p>
 					</div>
-				</a>			
+				</div>
+			</a>			
 		}
 	}
 	else

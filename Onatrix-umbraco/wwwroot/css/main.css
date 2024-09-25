@@ -266,6 +266,61 @@ nav {
     color: var(--color-dark);
   }
 }
+.sidebar-with-tags {
+  gap: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.sidebar-with-tags .sidebar_tags_links {
+  text-decoration: none;
+  color: var(--color-dark);
+  cursor: pointer;
+  display: flex;
+  border-radius: 20px;
+}
+.sidebar-with-tags .sidebar_tags_links .sidebar_text {
+  border: 1px solid #e6e6e6;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 13px;
+}
+.sidebar-with-tags .sidebar_tags_links:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.service-details-online-support {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+.service-details-online-support h4 {
+  font-size: 22px;
+}
+.service-details-online-support p {
+  font-size: 14px;
+}
+.service-details-online-support input {
+  padding: 1rem;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.service-details-online-support .envelope {
+  font-size: 20px;
+  position: absolute;
+  bottom: 47px;
+  right: 50px;
+  color: var(--color-dark);
+  font-weight: 300;
+}
+
 #hero .container {
   text-align: center;
 }
@@ -1903,53 +1958,6 @@ hr {
   align-items: baseline;
   gap: 0.2rem;
 }
-#projects-details .container .projects-details-right .projects-right-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding-top: 1rem;
-  padding-bottom: 2rem;
-}
-#projects-details .container .projects-details-right .projects-right-tags a {
-  text-decoration: none;
-  color: var(--color-dark);
-  cursor: pointer;
-}
-#projects-details .container .projects-details-right .projects-right-tags a p {
-  border: 1px solid #e6e6e6;
-  padding: 0.4rem 1rem;
-  border-radius: 20px;
-  font-size: 13px;
-}
-#projects-details .container .projects-details-right .service-details-online-support {
-  text-align: left;
-  width: 100%;
-  padding: 1rem;
-  margin-bottom: 2rem;
-  border-radius: 4px;
-  position: relative;
-}
-#projects-details .container .projects-details-right .service-details-online-support h4 {
-  font-size: 22px;
-}
-#projects-details .container .projects-details-right .service-details-online-support p {
-  font-size: 18px;
-}
-#projects-details .container .projects-details-right .service-details-online-support input {
-  width: 100%;
-  padding: 1rem;
-  margin-top: 1rem;
-  font-size: 18px;
-  font-style: italic;
-  border-radius: 6px;
-}
-#projects-details .container .projects-details-right .service-details-online-support i {
-  position: absolute;
-  bottom: 37px;
-  right: 35px;
-  color: var(--color-default);
-  font-size: 18px;
-}
 @media (min-width: 768px) {
   #projects-details .container {
     display: flex;
@@ -1982,46 +1990,31 @@ hr {
   #projects-details .container .projects-details-left .projects-details-tags a p {
     font-size: 10px;
   }
-  #projects-details .container .projects-details-right h4 {
+  #projects-details .container .projects-details-right .recent-projects_title {
     font-size: 18px;
+    padding-bottom: 1.5rem;
   }
-  #projects-details .container .projects-details-right .project-details-cards .projects-card {
+  #projects-details .container .projects-details-right .recent-projects_links {
+    text-decoration: none;
+  }
+  #projects-details .container .projects-details-right .recent-projects_links .project-details-cards .projects-card {
     border-bottom: 1px solid var(--color-gray);
     padding-bottom: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-  #projects-details .container .projects-details-right .project-details-cards .projects-card:last-child {
+  #projects-details .container .projects-details-right .recent-projects_links .project-details-cards .projects-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  #projects-details .container .projects-details-right .recent-projects_links .project-details-cards .projects-card:last-child {
     border-bottom: none;
   }
-  #projects-details .container .projects-details-right .project-details-cards .projects-card .projects-left-card-right h6 {
+  #projects-details .container .projects-details-right .recent-projects_links .project-details-cards .projects-card .projects-left-card-right h6 {
     font-size: 12px;
   }
-  #projects-details .container .projects-details-right .project-details-cards .projects-card .projects-left-card-right i, #projects-details .container .projects-details-right .project-details-cards .projects-card .projects-left-card-right p {
+  #projects-details .container .projects-details-right .recent-projects_links .project-details-cards .projects-card .projects-left-card-right i, #projects-details .container .projects-details-right .recent-projects_links .project-details-cards .projects-card .projects-left-card-right p {
     font-size: 10px;
-  }
-  #projects-details .container .projects-details-right .projects-right-tags {
-    gap: 1.2rem;
-  }
-  #projects-details .container .projects-details-right .projects-right-tags a p {
-    font-size: 10px;
-  }
-  #projects-details .container .projects-details-right .service-details-online-support {
-    position: relative;
-  }
-  #projects-details .container .projects-details-right .service-details-online-support h4 {
-    font-size: 14px;
-  }
-  #projects-details .container .projects-details-right .service-details-online-support p {
-    font-size: 12px;
-  }
-  #projects-details .container .projects-details-right .service-details-online-support input {
-    font-size: 10px;
-    padding: 0.5rem;
-  }
-  #projects-details .container .projects-details-right .service-details-online-support i {
-    position: absolute;
-    bottom: 26px;
-    right: 28px;
-    font-size: 10px;
+    color: var(--color-dark);
   }
 }
 @media (min-width: 1200px) {
@@ -2082,33 +2075,6 @@ hr {
   }
   #projects-details .container .projects-details-right .project-details-cards .projects-card .projects-left-card-right p {
     font-size: 14px;
-  }
-  #projects-details .container .projects-details-right .projects-right-tags {
-    gap: 1.5rem;
-  }
-  #projects-details .container .projects-details-right .projects-right-tags a p {
-    font-size: 13px;
-    padding: 0.4rem 1rem;
-    border-radius: 20px;
-  }
-  #projects-details .container .projects-details-right .service-details-online-support {
-    position: relative;
-  }
-  #projects-details .container .projects-details-right .service-details-online-support h4 {
-    font-size: 22px;
-  }
-  #projects-details .container .projects-details-right .service-details-online-support p {
-    font-size: 14px;
-  }
-  #projects-details .container .projects-details-right .service-details-online-support input {
-    padding: 1rem;
-    font-size: 14px;
-  }
-  #projects-details .container .projects-details-right .service-details-online-support i {
-    font-size: 20px;
-    position: absolute;
-    bottom: 32px;
-    right: 37px;
   }
 }
 

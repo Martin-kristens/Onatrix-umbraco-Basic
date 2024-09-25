@@ -1,11 +1,16 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models.Blocks
 @{
 	Layout = "mainLayout.cshtml";
 	ViewBag.Title = Model?.Value("pageTitle") ?? Model?.Name;
 
     var tags = Model?.Value<IEnumerable<string>>("tagName") ?? new List<string>();
     var projectItems = Model?.Value<IEnumerable<string>>("projectsItemTemplate") ?? new List<string>();
+    
+    var selection = Umbraco.Content(Guid.Parse("dbc7579e-ba9d-40d7-a9bd-ca652da8b24f"))
+    .ChildrenOfType("projectsItemTemplate")
+    .Where(x => x.IsVisible());
 }
 
 @if (!string.IsNullOrEmpty(ViewBag.Title))
@@ -17,6 +22,7 @@
 <section id="projects-details">
     <div class="container">
         <div class="projects-details-left">
+            <div><i class="fa-regular fa-calendar-days"></i></div>
             @Model?.Value("pageContent")
 
             <div class="projects-details-tags">
@@ -31,68 +37,31 @@
         <hr>
 
         <div class="projects-details-right">
-            <h4>Recent projects</h4>
-            <div class="project-details-cards">
-                <div class="projects-card">
-                    <img src="/images/projects/pj1.svg" alt="">
-                    <div class="projects-left-card-right">
-                        <h6>Annual Report for Juva Inc.</h6>
-                        <div class="projects-date">
-                            <i class="fa-regular fa-calendar-days"></i>
-                            <p>June</p>
-                            <p>15,</p>
-                            <p>2024</p>
+            @if (selection != null && selection.Any())
+            {
+                <h4 class="recent-projects_title">@Model.Value("sectionTitle")</h4>
+                foreach (var item in selection)
+                {
+                    var imageUrl = item?.Value<IPublishedContent>("thumbnalImage")?.Url() ?? null;
+                    var cardHeadline = item?.Value<string>("cardHeadline") ?? "";
+                    var date = item?.Value<string>("dateDescription") ?? "";
+                    <a class="recent-projects_links" href="#">
+                        <div class="project-details-cards">
+                            <div class="projects-card">
+                                <img src="@imageUrl" alt="">
+                                <div class="projects-left-card-right">
+                                    <h6>@cardHeadline</h6>
+                                    <div class="projects-date">
+                                        <i class="fa-regular fa-calendar-days"></i>
+                                        <p>@date</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="projects-card">
-                    <img src="/images/projects/pj2.svg" alt="">
-                    <div class="projects-left-card-right">
-                        <h6>Business Insights for SP Group Inc.</h6>
-                        <div class="projects-date">
-                            <i class="fa-regular fa-calendar-days"></i>
-                            <p>May</p>
-                            <p>17,</p>
-                            <p>2024</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="projects-card">
-                    <img src="/images/projects/pj3.svg" alt="">
-                    <div class="projects-left-card-right">
-                        <h6>
-                            Financial Advisors to
-                            Irra Group Inc.
-                        </h6>
-                        <div class="projects-date">
-                            <i class="fa-regular fa-calendar-days"></i>
-                            <p>February</p>
-                            <p>6,</p>
-                            <p>2024</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="projects-card">
-                    <img src="/images/projects/pj1.svg" alt="">
-                    <div class="projects-left-card-right">
-                        <h6>
-                            Budget Planning for
-                            Buccura Inc.
-                        </h6>
-                        <div class="projects-date">
-                            <i class="fa-regular fa-calendar-days"></i>
-                            <p>Januray</p>
-                            <p>3,</p>
-                            <p>2024</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
+                    </a>
+                 
+                }
+            }
 
             @await Html.PartialAsync("partials/static/sideBarWithTags.cshtml")
         </div>

@@ -9,9 +9,16 @@
     // söker i rotcontent efter settings page
     var settings = rootContent?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
     var headline = settings?.Value<string>("officeHeadline") ?? "";
+
+    var addressLabel = settings?.Value<string>("officeLocationLable") ?? "";
     var contactAddress = settings?.Value<string>("officeLocation") ?? "";
+
+    var phoneLabel = settings?.Value<string>("officePhoneLable") ?? "";
     var contactPhone = settings?.Value<string>("officePhone") ?? "";
+
+    var emailLabel = settings?.Value<string>("officeEmailLable") ?? "";
     var contactEmail = settings?.Value<string>("officeEmailAddress") ?? "";
+
     var contactImage = settings?.Value<IPublishedContent>("officeImage")?.Url();
     var contactBackgroundImage = settings?.Value<IPublishedContent>("officeBackgroundImage")?.Url();
 
@@ -26,7 +33,7 @@
             <div class="location">
                 <div class="office">
                     <i class="fa-solid fa-location-dot"></i>
-                    <h6>Office location</h6>
+                    <h6>@addressLabel</h6>
                 </div>
                 <p>@contactAddress</p>
             </div>
@@ -34,7 +41,7 @@
             <div class="phone-number">
                 <div class="phone">
                     <i class="fa-solid fa-phone-flip"></i>
-                    <h6>Phone number</h6>
+                    <h6>@phoneLabel</h6>
                 </div>
                 <p>@contactPhone</p>
             </div>
@@ -42,7 +49,7 @@
             <div class="email-address">
                 <div class="email">
                     <i class="fa-regular fa-envelope"></i>
-                    <h6>E-mail address</h6>
+                    <h6>@emailLabel</h6>
                 </div>
                 <p>@contactEmail</p>
             </div>

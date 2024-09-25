@@ -16,11 +16,11 @@
 }
 
 <h4>@headlineTags</h4>
-<div class="projects-right-tags">
+<div class="sidebar-with-tags">
 
     @foreach (var tag in tags)
     {
-        <a><p>@tag</p></a> 
+        <a class="sidebar_tags_links"><p class="sidebar_text">@tag</p></a> 
     }
 </div>
 
@@ -28,5 +28,5 @@
     <h4>@formHeadline</h4>
     <p>@formText</p>
     <input type="text" placeholder="@formPlaceholder">
-    <i class="fa-regular fa-envelope"></i>
+    <i class="fa-regular fa-envelope envelope"></i>
 </div>

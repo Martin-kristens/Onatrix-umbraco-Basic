@@ -15,7 +15,8 @@
     {
         //hämtar bild från Image slider item
         var image = partner.Content.Value<IPublishedContent>("selectedImage")?.Url();
+        var alt = partner.Content.Value<string>("imageAlt") ?? "";
 
-        <a class="partner_link" href="#"><img src="@image" alt="Partner Image" class="partner_image" /></a>
+        <a class="partner_link" href="#"><img src="@image" alt="@alt" class="partner_image" /></a>
     }
 </div>

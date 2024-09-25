@@ -6,7 +6,7 @@
             padding-top: 0.5rem;
 
             .projects-details-date {
-                
+
                 .projects-date {
                     display: flex;
                     align-items: baseline;
@@ -38,7 +38,6 @@
             }
 
             h5 {
-
             }
 
             .bullet-point {
@@ -46,16 +45,16 @@
                     text-align: left;
                     font-size: 14px;
                     position: relative;
-                    padding-left: 20px; 
-                    margin-bottom: 10px; 
+                    padding-left: 20px;
+                    margin-bottom: 10px;
 
                     &::before {
-                        content: '•'; 
+                        content: '•';
                         position: absolute;
                         left: 0;
                         top: 0;
-                        font-size: 14px; 
-                        line-height: 1; 
+                        font-size: 14px;
+                        line-height: 1;
                         color: var(--color-dark); /* Ändra färg här */
                     }
                 }
@@ -70,18 +69,15 @@
                 }
 
                 .projects-details-image-text-right {
-
                 }
             }
 
             h5 {
-
             }
 
             p {
-
             }
-            
+
             img {
                 width: 100%;
                 height: auto;
@@ -111,7 +107,7 @@
                         padding: 0.4rem 1rem;
                         font-size: 13px;
                     }
-                } 
+                }
             }
         }
 
@@ -129,22 +125,21 @@
                     &:last-child {
                         border-bottom: none;
                     }
-    
+
                     img {
                         width: 50%;
                         height: auto;
                         object-fit: cover;
                         margin-right: 1rem;
                     }
-    
+
                     .projects-left-card-right {
-    
+
                         h6 {
                             color: var(--color-dark);
                         }
-    
+
                         .projects-date {
-    
                             display: flex;
                             align-items: baseline;
                             gap: 0.2rem;
@@ -152,65 +147,56 @@
                     }
                 }
             }
-
-           
-
-            .projects-right-tags {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 1rem;
-                padding-top: 1rem;
-                padding-bottom: 2rem;
-                a {
-                    text-decoration: none;
-                    color: var(--color-dark);
-
-                    cursor: pointer;
-                    p {
-                        border: 1px solid #e6e6e6;
-                        padding: 0.4rem 1rem;
-                        border-radius: 20px;
-                        font-size: 13px;
-                    }
-                } 
-            }
-
-            .service-details-online-support {
-                text-align: left;
-                width: 100%;
-                padding: 1rem;
-                margin-bottom: 2rem;
-                // position: relative;
-                border-radius: 4px;
-                position: relative;
-
-                h4 {
-                    font-size: 22px;
-                }
-
-                p {
-                    font-size: 18px;
-                }
-
-                input {
-                    width: 100%;
-                    padding: 1rem;
-                    margin-top: 1rem;
-                    font-size: 18px;
-                    font-style: italic;
-                    border-radius: 6px;                    
-                }
-
-                i {
-                    position: absolute;
-                    bottom: 37px;
-                    right: 35px;
-                    color: var(--color-default);
-                    font-size: 18px;
-                }
-            }       
+            //.projects-right-tags {
+            //    display: flex;
+            //    flex-wrap: wrap;
+            //    gap: 1rem;
+            //    padding-top: 1rem;
+            //    padding-bottom: 2rem;
+            //    a {
+            //        text-decoration: none;
+            //        color: var(--color-dark);
+            //        cursor: pointer;
+            //        p {
+            //            border: 1px solid #e6e6e6;
+            //            padding: 0.4rem 1rem;
+            //            border-radius: 20px;
+            //            font-size: 13px;
+            //        }
+            //    }
+            //}
+            //.service-details-online-support {
+            //    text-align: left;
+            //    width: 100%;
+            //    padding: 1rem;
+            //    margin-bottom: 2rem;
+            // position: relative;
+            //    border-radius: 4px;
+            //    position: relative;
+            //    h4 {
+            //        font-size: 22px;
+            //    }
+            //    p {
+            //        font-size: 18px;
+            //    }
+            //    input {
+            //        width: 100%;
+            //        padding: 1rem;
+            //        margin-top: 1rem;
+            //        font-size: 18px;
+            //        font-style: italic;
+            //        border-radius: 6px;
+            //    }
+            //    i {
+            //        position: absolute;
+            //        bottom: 37px;
+            //        right: 35px;
+            //        color: var(--color-default);
+            //        font-size: 18px;
+            //    }
+            //}
         }
-    }   
+    }
 
     @include tablet {
 
@@ -241,7 +227,7 @@
 
                         p {
                             font-size: 10px;
-                        }       
+                        }
                     }
                 }
 
@@ -262,73 +248,86 @@
                         font-size: 12px;
                     }
 
-                    a {                       
+                    a {
                         p {
                             font-size: 10px;
                         }
-                    }                   
+                    }
                 }
-            }  
-            
+            }
+
             .projects-details-right {
-                h4 {
+                .recent-projects_title {
                     font-size: 18px;
+                    padding-bottom: 1.5rem;
                 }
 
-                .project-details-cards {
-                    
-                    .projects-card {
-                        border-bottom: 1px solid var(--color-gray);
-                        padding-bottom: 1rem;
+                .recent-projects_links {
+                    text-decoration: none;
 
-                        &:last-child {
-                            border-bottom: none;
-                        }
-                            
-                        .projects-left-card-right {
-    
-                            h6 {
-                                font-size: 12px;
+                    .project-details-cards {
+
+                        .projects-card {
+                            border-bottom: 1px solid var(--color-gray);
+                            padding-bottom: 1rem;
+                            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+                            &:hover {
+                                transform: translateY(-5px);
+                                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
                             }
-    
-                            i, p {
-                                font-size: 10px;
-                            }    
-                        }
-                    }
-                } 
 
-                .projects-right-tags {
-                    gap: 1.2rem;
-                    a {                       
-                        p {
-                            font-size: 10px;
+                            &:last-child {
+                                border-bottom: none;
+                            }
+
+                            .projects-left-card-right {
+
+                                h6 {
+                                    font-size: 12px;
+                                }
+
+                                i, p {
+                                    font-size: 10px;
+                                    color: var(--color-dark);
+                                }
+                            }
                         }
                     }
                 }
-
-                .service-details-online-support {
-                    position: relative;
-                    h4 {
-                        font-size: 14px;
-                    }
-
-                    p {
-                        font-size: 12px;
-                    }
-
-                    input {
-                        font-size: 10px;
-                        padding: 0.5rem;
-                    }
-
-                    i{
-                        position: absolute;
-                        bottom: 26px;
-                        right: 28px;
-                        font-size: 10px;
-                    }
-                }
+                //.projects-right-tags {
+                //    gap: 1.2rem;
+                //    transition: transform 0.3s ease, box-shadow 0.3s ease;
+                //    a {
+                //        border-radius: 20px;
+                //        p {
+                //            font-size: 10px;
+                //        }
+                //        &:hover {
+                //            transform: translateY(-5px);
+                //            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                //        }
+                //    }
+                //}
+                //.service-details-online-support {
+                //    position: relative;
+                //    h4 {
+                //        font-size: 14px;
+                //    }
+                //    p {
+                //        font-size: 12px;
+                //    }
+                //    input {
+                //        font-size: 10px;
+                //        padding: 0.5rem;
+                //    }
+                //    i {
+                //        position: absolute;
+                //        bottom: 26px;
+                //        right: 28px;
+                //        font-size: 10px;
+                //    }
+                //}
             }
         }
     }
@@ -336,11 +335,14 @@
     @include desktop {
         .container {
             display: flex;
+
             p {
                 font-size: 14px;
             }
+
             .projects-details-left {
                 flex: 2;
+
                 .projects-details-date {
                     .projects-date {
                         p {
@@ -349,7 +351,7 @@
 
                         i {
                             font-size: 14px;
-                        }                        
+                        }
                     }
                 }
 
@@ -393,6 +395,7 @@
 
             .projects-details-right {
                 flex: 1;
+
                 h4 {
                     font-size: 22px;
                 }
@@ -419,39 +422,35 @@
                         }
                     }
                 }
-
-                .projects-right-tags {
-                    gap: 1.5rem;
-                    a {
-                        p {
-                            font-size: 13px;
-                            padding: 0.4rem 1rem;
-                            border-radius: 20px;
-                        }
-                    }
-                }
-
-                .service-details-online-support {
-                   position: relative;
-                    h4 {
-                        font-size: 22px;
-                    }
-                    p {
-                        font-size: 14px;
-                    }
-
-                    input {
-                        padding: 1rem;
-                        font-size: 14px;
-                    }
-
-                    i {
-                        font-size: 20px;
-                        position: absolute;
-                        bottom: 32px;
-                        right: 37px;
-                    }
-                }
+                //.projects-right-tags {
+                //    gap: 1.5rem;
+                //    a {
+                //        p {
+                //            font-size: 13px;
+                //            padding: 0.4rem 1rem;
+                //            border-radius: 20px;
+                //        }
+                //    }
+                //}
+                //.service-details-online-support {
+                //    position: relative;
+                //    h4 {
+                //        font-size: 22px;
+                //    }
+                //    p {
+                //        font-size: 14px;
+                //    }
+                //    input {
+                //        padding: 1rem;
+                //        font-size: 14px;
+                //    }
+                //    i {
+                //        font-size: 20px;
+                //        position: absolute;
+                //        bottom: 32px;
+                //        right: 37px;
+                //    }
+                //}
             }
         }
     }
