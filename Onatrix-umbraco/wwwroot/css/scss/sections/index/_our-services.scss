@@ -88,8 +88,8 @@
                     text-decoration: none;
                     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-                    &:hover {                      
-                        transform: translateY(-10px); 
+                    &:hover {
+                        transform: translateY(-10px) rotate(5deg);
                         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
                     }
                 }

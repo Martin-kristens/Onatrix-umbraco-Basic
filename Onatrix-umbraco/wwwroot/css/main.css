@@ -612,7 +612,7 @@ nav {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   #our-services .container .our-services-cards a:hover {
-    transform: translateY(-10px);
+    transform: translateY(-10px) rotate(5deg);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   #our-services .container .our-services-cards .our-services-card h4 {
@@ -1097,16 +1097,27 @@ nav {
     display: flex;
     flex-direction: column;
   }
-  #our-expert .container h2 {
-    font-size: 22px;
+  #our-expert .container .expert_headline {
+    font-size: 40px;
     max-width: 80%;
     margin: 0 auto;
-    margin-bottom: 1rem;
+    padding-bottom: 2rem;
   }
-  #our-expert .container .our-expert-large-cards {
+  #our-expert .container .our-expert-large-cards, #our-expert .container .our-expert-small-cards {
     display: flex;
     gap: 0.8rem;
-    padding-bottom: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  #our-expert .container .our-expert-large-card, #our-expert .container .our-expert-small-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  #our-expert .container .our-expert-large-card:hover, #our-expert .container .our-expert-small-card:hover {
+    transform: translateY(-10px) rotate(5deg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  #our-expert .container .our-expert-large-cards {
+    padding-bottom: 2rem;
   }
   #our-expert .container .our-expert-large-cards .our-expert-large-card {
     text-align: left;
@@ -1119,9 +1130,6 @@ nav {
     padding-left: 0.8rem;
   }
   #our-expert .container .our-expert-small-cards {
-    display: flex;
-    flex-direction: row;
-    gap: 0.8rem;
     text-align: left;
   }
   #our-expert .container .our-expert-small-cards .our-expert-small-card {
@@ -1139,17 +1147,6 @@ nav {
 
 #reviews-for-service {
   position: relative;
-  /* .kevin-gardner {
-      flex: 0 0 auto;
-      width: 50%;
-      padding-right: 0;
-
-      .reviewSection_img {
-          width: 100%;
-          height: auto;
-          object-fit: cover;
-      }
-  }*/
 }
 #reviews-for-service .container {
   display: flex;
@@ -1166,10 +1163,12 @@ nav {
 }
 #reviews-for-service .container .left .reviewer_name {
   padding-bottom: 0;
+  margin-top: 1rem;
 }
 #reviews-for-service .container .left .reviewer_company {
   padding-bottom: 0;
   margin-top: 0;
+  margin-bottom: 1rem;
 }
 #reviews-for-service .container .kevin-gardner {
   margin-left: auto;
@@ -1179,27 +1178,39 @@ nav {
   width: 46vw;
   height: 100%;
   z-index: 0;
-  /*.reviewSection_img {
-      width: calc(100% + 100px);
-      margin-left: calc(-50% + 40.5rem);
-      height: auto;
-      object-fit: cover;
-  }*/
+  overflow: hidden;
 }
 #reviews-for-service .container .kevin-gardner .reviewSection_img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /*   width: calc(100% + 20%);
-  margin-left: 38.75%;
   height: auto;
-  object-fit: cover;*/
-  /*  width: calc(100% + 20%);
-  margin-left: calc(-50% + 88.75%);
-  height: auto;
-  object-fit: cover;*/
+  object-fit: contain;
 }
 
+/*   width: calc(100% + 20%);
+                margin-left: 38.75%;
+                height: auto;
+                object-fit: cover;*/
+/*  width: calc(100% + 20%);
+                margin-left: calc(-50% + 88.75%);
+                height: auto;
+                object-fit: cover;*/
+/* .kevin-gardner {
+        flex: 0 0 auto;
+        width: 50%;
+        padding-right: 0;
+
+        .reviewSection_img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    }*/
+/*.reviewSection_img {
+                width: calc(100% + 100px);
+                margin-left: calc(-50% + 40.5rem);
+                height: auto;
+                object-fit: cover;
+            }*/
 /*#reviews-for-service {
     padding-top: 3rem;
     padding-bottom: 3rem;

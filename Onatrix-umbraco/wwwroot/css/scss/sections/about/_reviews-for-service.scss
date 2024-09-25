@@ -26,45 +26,45 @@
 
             .reviewer_name {
                 padding-bottom: 0;
+                margin-top: 1rem;
             }
 
             .reviewer_company {
                 padding-bottom: 0;
                 margin-top: 0;
+                margin-bottom: 1rem;
             }
         }
 
         .kevin-gardner {
             margin-left: auto;
-            position: absolute; // Placera bilden absolut inom sektionen
+            position: absolute; 
             top: 0;
             right: -388px;
-            width: 46vw; // Anpassa bredden efter viewportens bredd
+            width: 46vw; 
             height: 100%;
             z-index: 0;
+            overflow: hidden;
 
             .reviewSection_img {
                 width: 100%;
-                height: 100%;
-                object-fit: cover;
-                /*   width: calc(100% + 20%);
+                height: auto;
+                object-fit: contain;
+            }
+            
+        }
+    }
+  
+}
+/*   width: calc(100% + 20%);
                 margin-left: 38.75%;
                 height: auto;
                 object-fit: cover;*/
-                /*  width: calc(100% + 20%);
+/*  width: calc(100% + 20%);
                 margin-left: calc(-50% + 88.75%);
                 height: auto;
                 object-fit: cover;*/
-            }
-            /*.reviewSection_img {
-                width: calc(100% + 100px);
-                margin-left: calc(-50% + 40.5rem);
-                height: auto;
-                object-fit: cover;
-            }*/
-        }
-    }
-    /* .kevin-gardner {
+/* .kevin-gardner {
         flex: 0 0 auto;
         width: 50%;
         padding-right: 0;
@@ -75,9 +75,12 @@
             object-fit: cover;
         }
     }*/
-}
-
-
+/*.reviewSection_img {
+                width: calc(100% + 100px);
+                margin-left: calc(-50% + 40.5rem);
+                height: auto;
+                object-fit: cover;
+            }*/
 /*#reviews-for-service {
     padding-top: 3rem;
     padding-bottom: 3rem;

@@ -15,9 +15,9 @@
 
 <div class="container">
     <h6>@Model.Value("expertTitle")</h6>
-    <h2>@Model.Value("expertHeadline")</h2>
+    <h2 class="expert_headline">@Model.Value("expertHeadline")</h2>
 
-    <div class="our-expert-large-cards">
+    <a href="" class="our-expert-large-cards">
         @foreach (var item in largeCards!)
         {
             // hämtar block types från large card item
@@ -34,9 +34,9 @@
                 <p class="bg-light">@positionLarge</p>
             </div>
         }
-    </div>
+    </a>
              
-    <div class="our-expert-small-cards"> 
+    <a class="our-expert-small-cards"> 
         @foreach (var item in smallCards)
         {
             // hämtar block types från small card item
@@ -53,5 +53,5 @@
                 <p class="bg-light">@positionSmall</p>
             </div>
         }      
-    </div>
+    </a>
 </div> 
