@@ -1,7 +1,7 @@
 #our-story {
     text-align: center;
     padding-bottom: 2rem;
-    background-image: url("../../../images/dot-map\ 1.svg");
+    background-image: url('../../../../images/home/dot-map 1.svg');
     background-size: cover; /* Gör att bilden täcker hela ytan */
     background-position: center 55px; /* Centrerar bakgrunden */
     background-repeat: no-repeat;
@@ -29,7 +29,8 @@
         .container {
             .story_link {
                 margin-top: 1rem;
-            }    
+            }
+
             img {
                 padding-top: 4rem;
             }
