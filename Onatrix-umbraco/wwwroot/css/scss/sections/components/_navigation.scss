@@ -20,6 +20,11 @@
                     &:hover {
                         color: var(--color-secondary);
                     }
+
+                    &.active {
+                        font-weight: bold;
+                        color: var(--color-secondary);
+                    }
                 }
             }
         }

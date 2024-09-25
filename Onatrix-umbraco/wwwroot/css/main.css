@@ -204,6 +204,10 @@ h6 {
 #nav .container .nav_navigation .nav_list .nav_links:hover {
   color: var(--color-secondary);
 }
+#nav .container .nav_navigation .nav_list .nav_links.active {
+  font-weight: bold;
+  color: var(--color-secondary);
+}
 
 footer {
   display: flex;
@@ -811,76 +815,6 @@ nav {
   color: var(--color-secondary);
 }
 
-/*#breadcrumbs {
-
-    .container {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        text-align: center;
-
-        .about-us-navigation {
-
-            a {
-                text-decoration: none;
-            }
-
-            i {
-                color: #D9C3A9;
-                margin-left: 0.8rem;
-                margin-right: 0.8rem;
-            }
-        }
-    }   
-
-    @include tablet {
-
-        .container {
-
-           h2 {
-            font-size: 22px;
-           }
-
-            .about-us-navigation {
-
-                a {
-                    text-decoration: none;
-                    font-size: 10px;
-                }
-
-                i {
-                    color: #D9C3A9;
-                    margin-left: 0.5rem;
-                    margin-right: 0.5rem;
-                    font-size: 10px;
-                }
-            }
-        } 
-    }
-
-    @include desktop {
-        .container {
-
-            h2 {
-             font-size: 40px;
-            }
-
-             .about-us-navigation {
-
-                 a {
-                     text-decoration: none;
-                     font-size: 14px;
-                 }
-
-                 i {
-                     color: #D9C3A9;
-                     margin-left: 0.5rem;
-                     margin-right: 0.5rem;
-                     font-size: 10px;
-                 }
-             }
-         } 
-    }
-}*/
 .contact-info {
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -1204,50 +1138,130 @@ nav {
 }
 
 #reviews-for-service {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  position: relative;
+  /* .kevin-gardner {
+      flex: 0 0 auto;
+      width: 50%;
+      padding-right: 0;
+
+      .reviewSection_img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+      }
+  }*/
 }
 #reviews-for-service .container {
-  text-align: center;
+  display: flex;
+  align-items: flex-start;
+  z-index: 1;
 }
-#reviews-for-service .kevin-gardner img {
+#reviews-for-service .container .left {
+  max-width: 400px;
+  margin-top: 3rem;
+  /* padding-top: 3rem;*/
+}
+#reviews-for-service .container .left .ratings {
+  margin-top: 1rem;
+}
+#reviews-for-service .container .left .reviewer_name {
+  padding-bottom: 0;
+}
+#reviews-for-service .container .left .reviewer_company {
+  padding-bottom: 0;
+  margin-top: 0;
+}
+#reviews-for-service .container .kevin-gardner {
+  margin-left: auto;
+  position: absolute;
+  top: 0;
+  right: -388px;
+  width: 46vw;
+  height: 100%;
+  z-index: 0;
+  /*.reviewSection_img {
+      width: calc(100% + 100px);
+      margin-left: calc(-50% + 40.5rem);
+      height: auto;
+      object-fit: cover;
+  }*/
+}
+#reviews-for-service .container .kevin-gardner .reviewSection_img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /*   width: calc(100% + 20%);
+  margin-left: 38.75%;
   height: auto;
-  object-fit: contain;
-}
-@media (min-width: 768px) {
-  #reviews-for-service {
-    padding-top: 0;
-    padding-bottom: 0;
-    display: flex;
-  }
-  #reviews-for-service .container {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    text-align: left;
-  }
-  #reviews-for-service .container .left {
-    text-align: left;
-  }
-  #reviews-for-service .container .left h6 {
-    font-size: 12px;
-  }
-  #reviews-for-service .container .left h2 {
-    font-size: 22px;
-    max-width: 60%;
-  }
-  #reviews-for-service .container .left p {
-    font-style: italic;
-    font-size: 12px;
-    max-width: 90%;
-  }
-  #reviews-for-service .kevin-gardner img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  object-fit: cover;*/
+  /*  width: calc(100% + 20%);
+  margin-left: calc(-50% + 88.75%);
+  height: auto;
+  object-fit: cover;*/
 }
 
+/*#reviews-for-service {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+
+    .container {
+        text-align: center;
+    }
+
+    .kevin-gardner {
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+    }
+
+    @include tablet {
+        padding-top: 0;
+        padding-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+
+        .container {
+            padding: 3rem 1rem;*/
+/*padding-top: 3rem;
+padding-bottom: 3rem;*/
+/*text-align: left;
+
+            .left {
+                text-align: left;
+
+                h6 {
+                    font-size: 12px;
+                }
+
+                h2 {
+                    font-size: 22px;
+                    max-width: 60%;
+                }
+
+                p {
+                    font-style: italic;
+                    font-size: 12px;
+                    max-width: 90%;
+                }
+            }
+        }
+
+        .kevin-gardner {
+
+
+            .reviewSection_img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                margin-top: -1rem;
+            }
+        }
+    }
+}*/
 #services-details .container .left-side {
   display: flex;
   flex-direction: column;
