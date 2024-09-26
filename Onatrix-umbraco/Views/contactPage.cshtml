@@ -11,6 +11,11 @@
 
 	// Om det finns slides i den aktuella modellen
 	var slides = Model.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("slides") ?? null;
+
+	bool.TryParse(ViewData["error_name"]?.ToString()!, out bool error_name);
+	bool.TryParse(ViewData["error_phone"]?.ToString()!, out bool error_phone);
+	bool.TryParse(ViewData["error_email"]?.ToString()!, out bool error_email);
+	bool.TryParse(ViewData["error_selectOption"]?.ToString()!, out bool error_selectOption);
 }
 
 @if (!string.IsNullOrEmpty(ViewBag.Title))
@@ -26,26 +31,73 @@
 	<img class="contact_bgImage" src="@backgroundImage" alt="">
 	<div class="container">
 		<form class="bg-light" action="">
-			<h6>@Model.Value("formTitle")</h6>
-			<h2>@Model.Value("formHeadline")</h2>
-			<p>@Model.Value("formText")</p>
+			<h6 class="form_title">@Model.Value("formTitle")</h6>
+			<h2 class="form_headline">@Model.Value("formHeadline")</h2>
+			<p class="form_text">@Model.Value("formText")</p>
 
 			<div class="request-form-input">
-				@foreach (var item in placeholderText)
+
+				@if (TempData["success"] != null)
 				{
-					var placeholder = item.Content.Value<string>("placeholderText");
-					<input type="text" placeholder="@placeholder">
+					<div class="success-message">@TempData["Success"]</div>
+					@using (Html.BeginUmbracoForm("ReturnSubmit", "ContactSurface", FormMethod.Post))
+					{
+						<button type="submit" class="btn-primary redirect_button">Redirect to page</button>
+					}				
 				}
-				<select name="Financial" id="">
-					<option value="">@Model.Value("formOptionName")</option>
-				</select>
-			</div>
-			<button class="btn-primary">@Model.Value("formButtomName")</button>
-		</form>
-		
+				else
+				{
+					@using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post))
+					{
+						<div class="contact-request-group">
+							<input id="name" name="name" type="text" placeholder="Name" class="form-input" value="@ViewData["name"]"/>
+							<span class="form-input-error @((error_name) ? "form-invalid-input": null)">You must enter your name</span>
+						</div>
+
+						<div class="contact-request-group">
+							<input id="phone" name="phone" type="tel" placeholder="Phone" class="form-input" value="@ViewData["phone"]" />
+							<span class="form-input-error @((error_phone) ? "form-invalid-input": null)">You must enter a phone number</span>
+						</div>
+
+						<div class="contact-request-group">
+							<input id="email" name="email" type="email" placeholder="Email" class="form-input" value="@ViewData["email"]" />
+							<span class="form-input-error @((error_email) ? "form-invalid-input": null)">You must enter a valid email-address</span>
+						</div>
+
+						<div class="contact-request-group">
+							<select name="selectOption" id="selectOption" class="selectOption">
+								<option value="">@Model.Value("formOptionName")</option>
+								<option value="option1">Option 1</option>
+								<option value="option2">Option 2</option>
+								<option value="option3">Option 3</option>
+							</select>
+							<span class="form-input-error @((error_selectOption) ? "form-invalid-input": null)">You must select an option</span>
+						</div>
+						<div class="form-button">
+							<button class="btn-primary ">@Model.Value("formButtomName")</button>
+						</div>
+					
+					}
+				}				
+			</div>			
+		</form>		
 	</div>
 </section>
 
 <section class="partner-section">
 	@await Html.PartialAsync("partials/sections/home/partnersPartials.cshtml", Model)
 </section> 
+
+
+
+
+@* <div class="request-form-input">
+				@foreach (var item in placeholderText)
+				{
+				var placeholder = item.Content.Value<string>("placeholderText");
+				<input type="text" placeholder="@placeholder">
+				}
+				<select name="Financial" id="">
+				<option value="">@Model.Value("formOptionName")</option>
+				</select>
+				</div> *@
