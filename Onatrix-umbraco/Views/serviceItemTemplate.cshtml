@@ -6,12 +6,6 @@
 @{
 	Layout = "mainLayout.cshtml";
 	ViewBag.Title = Model?.Value("pageTitle") ?? Model?.Name;
-
-
-
-    bool.TryParse(ViewData["error_name"]?.ToString()!, out bool error_name);
-    bool.TryParse(ViewData["error_email"]?.ToString()!, out bool error_email);
-    bool.TryParse(ViewData["error_message"]?.ToString()!, out bool error_message);
 }
 
 @if (!string.IsNullOrEmpty(ViewBag.Title))
@@ -31,46 +25,7 @@
     </div>
 </section>
 
-
-<section id="services-details-form" class="services-details-form">
-    
-        <div class="container">
-            <h4 class="form_headline">@Model?.Value("formHeadline")</h4>
-            <form action="">
-                @if (TempData["success"] != null)
-                {
-                    <div class="success-message">@TempData["Success"]</div>
-                    @using (Html.BeginUmbracoForm("ReturnSubmit", "ContactSurface", FormMethod.Post))
-                    {
-                        <button type="submit" class="btn-primary redirect_button">Redirect to page</button>
-                    }
-                }
-                else
-                {
-                    @using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post))
-                    {
-                        <div class="services-details-form-input">
-                            <input id="name" name="name" type="text" placeholder="@Model?.Value("formPlaceholderName")" class="form-input" value="@ViewData["name"]">
-                            <span class="form-input-error @((error_name) ? "form-invalid-input": null)">You must enter your name</span>
-
-                        </div>
-                        <div class="services-details-form-input">
-                            <input id="email" name="email" type="email" placeholder="@Model?.Value("formPlaceholderEmail")" class="form-input" value="@ViewData["email"]">
-                            <span class="form-input-error @((error_email) ? "form-invalid-input": null)">You must enter a valid email-address</span>
-                        </div>
-                        <div class="services-details-form-input">
-                            <textarea name="message" id="message" placeholder="@Model?.Value("formSelectPlaceholder")" class="form-textarea">@ViewData["message"]</textarea>
-                            <span class="form-input-error @((error_message) ? "form-invalid-input": null)">You must enter a message</span>
-                        </div>
-
-                        <button href="@Model?.Value("formButtonUrl")" class="btn-primary form-button">@Model?.Value("formButtonName")</button>
-                    }
-                }
-            
-            </form>
-        </div>
-    
-</section>
+@await Html.PartialAsync("partials/static/messageForm.cshtml");
 	
 <section class="contact-info bg-gray">
     @await Html.PartialAsync("partials/static/_contanctInformation.cshtml")

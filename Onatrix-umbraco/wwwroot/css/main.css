@@ -325,6 +325,135 @@ nav {
   font-weight: 300;
 }
 
+.services-details-form {
+  padding-bottom: 2rem;
+}
+.services-details-form .container .form_headline {
+  font-size: 22px;
+}
+.services-details-form .container form {
+  display: flex;
+  flex-direction: column;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;*/
+}
+.services-details-form .container form .input-fields {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 1rem;
+}
+.services-details-form .container form .input-fields .services-details-form-input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.services-details-form .container form .input-fields .services-details-form-input .form-input {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  font-style: italic;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ececee;
+}
+.services-details-form .container form .input-fields .services-details-form-input .form-input-error {
+  display: none;
+  margin-bottom: 1rem;
+  color: red;
+}
+.services-details-form .container form .input-fields .services-details-form-input .form-invalid-input {
+  display: block;
+}
+.services-details-form .container form .services-details-form-textarea .form-textarea {
+  grid-column: 1/-1;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 2rem;
+  font-size: 14px;
+  font-style: italic;
+  border-radius: 4px;
+  border: 1px solid #ececee;
+}
+.services-details-form .container form .services-details-form-textarea .form-input-error {
+  display: none;
+  color: red;
+  margin-bottom: 1rem;
+}
+.services-details-form .container form .services-details-form-textarea .form-invalid-input {
+  display: block;
+}
+.services-details-form .container form .form-button {
+  width: 25%;
+  grid-column: 1;
+}
+
+/*@include tablet {
+        padding-top: 2rem;*/
+/*    form {
+
+            .container {
+
+                h4 {
+                    font-size: 18px;
+                }
+
+                .services-details-form-input {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 1rem;
+
+                    input {
+                        width: 100%;
+                        padding: 0.7rem;
+                        font-size: 12px;
+                    }
+                }
+
+                textarea {
+                    padding: 0.7rem;
+                    font-size: 12px;
+                }
+
+                button {
+                    width: 20%;
+                }
+            }
+        }*/
+/*}
+
+    @include desktop {*/
+/*  form {
+
+            .container {
+                h4 {
+                    font-size: 25px;
+                }
+
+                .services-details-form-input {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 1rem;
+
+                    input {
+                        width: 100%;
+                        padding: 1rem;
+                        // font-size: 12px;
+                    }
+                }
+
+                textarea {
+                    padding: 0.7rem;
+                    // font-size: 12px;
+                }
+
+                button {
+                    width: 15%;
+                }
+            }
+        }*/
+/*}*/
 #hero .container {
   text-align: center;
 }
@@ -1484,119 +1613,6 @@ hr {
   border: 1px solid #ececee;
 }
 
-.services-details-form {
-  padding-bottom: 2rem;
-  /*@include tablet {
-      padding-top: 2rem;*/
-  /*    form {
-
-          .container {
-
-              h4 {
-                  font-size: 18px;
-              }
-
-              .services-details-form-input {
-                  display: flex;
-                  flex-direction: row;
-                  gap: 1rem;
-
-                  input {
-                      width: 100%;
-                      padding: 0.7rem;
-                      font-size: 12px;
-                  }
-              }
-
-              textarea {
-                  padding: 0.7rem;
-                  font-size: 12px;
-              }
-
-              button {
-                  width: 20%;
-              }
-          }
-      }*/
-  /*}
-
-  @include desktop {*/
-  /*  form {
-
-          .container {
-              h4 {
-                  font-size: 25px;
-              }
-
-              .services-details-form-input {
-                  display: flex;
-                  flex-direction: row;
-                  gap: 1rem;
-
-                  input {
-                      width: 100%;
-                      padding: 1rem;
-                      // font-size: 12px;
-                  }
-              }
-
-              textarea {
-                  padding: 0.7rem;
-                  // font-size: 12px;
-              }
-
-              button {
-                  width: 15%;
-              }
-          }
-      }*/
-  /*}*/
-}
-.services-details-form .container {
-  /*    display: flex;
-      flex-direction: column;*/
-}
-.services-details-form .container .form_headline {
-  font-size: 22px;
-}
-.services-details-form .container form {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-.services-details-form .container form .services-details-form-input {
-  display: contents;
-  /* display: flex;
-   flex-direction: column;*/
-}
-.services-details-form .container form .services-details-form-input .form-input {
-  margin-bottom: 1rem;
-  padding: 2rem;
-  font-style: italic;
-  font-size: 14px;
-  border-radius: 4px;
-  border: 1px solid #ececee;
-}
-.services-details-form .container form .services-details-form-input .form-input-error {
-  display: none;
-}
-.services-details-form .container form .services-details-form-input .form-invalid-input {
-  display: flex;
-  color: red;
-}
-.services-details-form .container form .services-details-form-input .form-textarea {
-  grid-column: 1/-1;
-  margin-bottom: 1rem;
-  padding: 2rem;
-  font-size: 14px;
-  font-style: italic;
-  border-radius: 4px;
-  border: 1px solid #ececee;
-}
-.services-details-form .container form .form-button {
-  width: 25%;
-}
-
 #projects {
   padding-top: 2rem;
 }
@@ -2183,7 +2199,7 @@ hr {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-primary);
+  color: blue;
   font-weight: 700;
 }
 .contact-request-form .container form .request-form-input .contact-request-group {

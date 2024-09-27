@@ -1,0 +1,74 @@
+﻿<!-- dessa för att kunna hämta ut från Settings -->
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+
+@{
+    //hämtar roten i trädstrukturen
+    var rootContent = UmbracoHelper.ContentAtRoot();
+    // söker i rotcontent efter settings page
+    var settings = rootContent?.FirstOrDefault(x => x.ContentType.Alias == "messageForm") ?? null;
+
+    var headline = settings?.Value<string>("formHeadline") ?? "";
+
+    var redirectButton = settings?.Value<string>("redirectButtonText") ?? "";
+
+    var placeholderName = settings?.Value<string>("formPlaceholderName") ?? "";
+    var errorName = settings?.Value<string>("nameErrorText") ?? "";
+
+    var placeholderEmail = settings?.Value<string>("formPlaceholderEmail") ?? "";
+    var errorEmail = settings?.Value<string>("emailErrorText") ?? "";
+
+    var placeholderMessag = settings?.Value<string>("formPlaceholderMessage") ?? "";
+    var errorMessage = settings?.Value<string>("messageErrorText") ?? "";
+
+    var formButtonUrl = settings?.Value<string>("formButtonUrl") ?? "";
+    var formButtonName = settings?.Value<string>("formButtonName") ?? "";
+
+    bool.TryParse(ViewData["error_name"]?.ToString()!, out bool error_name);
+    bool.TryParse(ViewData["error_email"]?.ToString()!, out bool error_email);
+    bool.TryParse(ViewData["error_message"]?.ToString()!, out bool error_message);
+
+}
+
+<section id="services-details-form" class="services-details-form">
+
+    <div class="container">
+        <h4 class="form_headline">@headline</h4>
+        <form action="">
+            @if (TempData["success"] != null)
+            {
+                <div class="success-message">@TempData["Success"]</div>
+                @using (Html.BeginUmbracoForm("ReturnSubmit", "ContactSurface", FormMethod.Post))
+                {
+                    <button type="submit" class="btn-primary redirect_button">@redirectButton</button>
+                }
+            }
+            else
+            {
+                @using (Html.BeginUmbracoForm("MessageSubmit", "ContactSurface", FormMethod.Post))
+                {
+                    <div class="input-fields">
+                        <div class="services-details-form-input">
+                            <input id="name" name="name" type="text" placeholder="@placeholderName" class="form-input" value="@ViewData["name"]">
+                            <span class="form-input-error @((error_name) ? "form-invalid-input": null)">@errorName</span>
+                        </div>
+                        <div class="services-details-form-input">
+                            <input id="email" name="email" type="email" placeholder="@placeholderEmail" class="form-input" value="@ViewData["email"]">
+                            <span class="form-input-error @((error_email) ? "form-invalid-input": null)">@errorEmail</span>
+                        </div>
+                    </div>
+                   
+                    <div class="services-details-form-textarea">
+                        <textarea name="message" id="message" placeholder="@placeholderMessag" class="form-textarea">@ViewData["message"]</textarea>
+                        <span class="form-input-error @((error_message) ? "form-invalid-input": null)">@errorMessage</span>
+                    </div>
+
+                    <button href="@formButtonUrl" class="btn-primary form-button">@formButtonName</button>
+                }
+            }
+
+        </form>
+    </div>
+
+</section>

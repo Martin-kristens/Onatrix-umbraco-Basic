@@ -20,22 +20,40 @@ public class ContactSurfaceController : SurfaceController
 	{
 		if (!ModelState.IsValid)
 		{
+
 			ViewData["name"] = form.Name;
 			ViewData["phone"] = form.Phone;
 			ViewData["email"] = form.Email;
 			ViewData["selectOption"] = form.SelectOption;
-			ViewData["message"] = form.Message;
 
 			ViewData["error_name"] = string.IsNullOrEmpty(form.Name);
 			ViewData["error_phone"] = string.IsNullOrEmpty(form.Phone);
 			ViewData["error_email"] = string.IsNullOrEmpty(form.Email);
 			ViewData["error_selectOption"] = string.IsNullOrEmpty(form.SelectOption);
-			ViewData["error_message"] = string.IsNullOrEmpty(form.Message);
 
 			return CurrentUmbracoPage();
 		}
 
 		TempData["success"] = "Your form has successfully been submitted";
+		return RedirectToCurrentUmbracoPage();
+	}
+
+	public IActionResult MessageSubmit(MessageFormModel form)
+	{
+		if (!ModelState.IsValid)
+		{
+			ViewData["name"] = form.Name;
+			ViewData["email"] = form.Email;
+			ViewData["message"] = form.Message;
+
+			ViewData["error_name"] = string.IsNullOrEmpty(form.Name);
+			ViewData["error_email"] = string.IsNullOrEmpty(form.Email);
+			ViewData["error_message"] = string.IsNullOrEmpty(form.Message);
+
+			return CurrentUmbracoPage();
+		}
+
+		TempData["success"] = "Your message has successfully been submitted";
 		return RedirectToCurrentUmbracoPage();
 	}
 
