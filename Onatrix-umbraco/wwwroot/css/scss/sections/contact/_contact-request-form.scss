@@ -32,7 +32,7 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 gap: 1rem;
-                margin-bottom: 1rem;
+                /*margin-bottom: 2rem;*/
                 z-index: 100;
 
                 .success-message {
@@ -50,6 +50,8 @@
                     display: flex;
                     flex-direction: column;
                     gap: 1rem;
+                    position: relative;
+                    margin-bottom: 1rem;
 
                     .form-input {
                         border-radius: 4px;
@@ -65,6 +67,9 @@
                     .form-invalid-input {
                         display: flex;
                         color: red;
+                        position: absolute;
+                        bottom: -27px;
+                        left: 0;
                     }
 
                     .selectOption {

@@ -10,50 +10,56 @@
         form {
             display: flex;
             flex-direction: column;
-            /* display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;*/
 
+            .redirect_button {
+                width: 25%;
+                margin-top: 1rem;
+            } 
+            
             .input-fields {
                 display: flex;
                 flex-direction: row;
                 width: 100%;
                 gap: 1rem;
+                margin-bottom: 2rem;
 
                 .services-details-form-input {
                     display: flex;
                     flex-direction: column;
                     width: 100%;
-
+                    position: relative;
 
                     .form-input {
                         width: 100%;
-                        margin-bottom: 1.5rem;
                         padding: 1rem;
                         font-style: italic;
                         font-size: 14px;
                         border-radius: 4px;
                         border: 1px solid #ececee;
-
                     }
 
                     .form-input-error {
                         display: none;
-                        margin-bottom: 1rem;
+                        margin-bottom: 0;
                         color: red;
                     }
 
                     .form-invalid-input {
                         display: block;
+                        position: absolute;
+                        bottom: -27px;
+                        left: 0;
                     }
                 }
             }
 
             .services-details-form-textarea {
+                position: relative;
+                margin-bottom: 2rem;
+
                 .form-textarea {
                     grid-column: 1 / -1;
                     width: 100%;
-                    margin-bottom: 1rem;
                     padding: 2rem;
                     font-size: 14px;
                     font-style: italic;
@@ -64,11 +70,14 @@
                 .form-input-error {
                     display: none;
                     color: red;
-                    margin-bottom: 1rem;
+                    margin-bottom: 0;
                 }
 
                 .form-invalid-input {
                     display: block;
+                    position: absolute;
+                    bottom: -20px;
+                    left: 0;
                 }
             }
 
