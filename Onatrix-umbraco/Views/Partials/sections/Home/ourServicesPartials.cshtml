@@ -22,10 +22,10 @@
 			var image = item?.Value<IPublishedContent>("thumbnalImage")?.Url() ?? "";
 			var preamble = item?.Value<string>("preamble") ?? "";
 
-			<a href="@item.Url()">
+			<a href="@item?.Url()">
 				<div class="our-services-card">
-					<h4 class="bg-light">@item.Name()</h4>
-					<img src="@image" alt="@Model.Value("ourServicesSectionTitle")">
+					<h4 class="bg-light">@item?.Name()</h4>
+					<img class="card_image" src="@image" alt="@Model.Value("ourServicesSectionTitle")">
 					<p class="bg-light">@preamble</p>
 				</div>
 			</a>

@@ -5,7 +5,6 @@
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
 
 @{
-	// var successStoriesComponent = Model?.Value<IEnumerable<BlockListItem>>("successStoriesBlockList");
 	var successStoriesComponent = Model.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("successStoriesBlockList") ?? null;
 	var successStoryImage = Model?.Value<IPublishedContent>("successStoryImage")?.Url() ?? "";
 }

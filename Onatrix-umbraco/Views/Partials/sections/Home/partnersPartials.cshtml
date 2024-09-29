@@ -11,12 +11,16 @@
 
 
 <div class="container our-projects-partners">
-    @foreach (var partner in slides)
+    @if (slides != null && slides.Any())
     {
-        //hämtar bild från Image slider item
-        var image = partner.Content.Value<IPublishedContent>("selectedImage")?.Url();
-        var alt = partner.Content.Value<string>("imageAlt") ?? "";
+        foreach (var partner in slides)
+        {
+            //hämtar bild från Image slider item
+            var image = partner.Content.Value<IPublishedContent>("selectedImage")?.Url();
+            var alt = partner.Content.Value<string>("imageAlt") ?? "";
 
-        <a class="partner_link" href="#"><img src="@image" alt="@alt" class="partner_image" /></a>
+            <a class="partner_link" href="#"><img src="@image" alt="@alt" class="partner_image" /></a>
+        }
     }
+
 </div>

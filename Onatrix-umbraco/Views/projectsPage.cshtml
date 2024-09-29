@@ -27,11 +27,11 @@
 				var readMore = item?.Value<string>("readMore") ?? "";
 
 				<div class="projects-card">
-					<a href="@item.Url()" class="projects-card-link">
-						<img src="@image" alt="@item.Name()">
+					<a href="@item?.Url()" class="projects-card-link">
+						<img src="@image" alt="@item?.Name()">
 					
 						<div class="projects-left-card-right">							
-							<h4 class="bg-light">@item.Name()</h4>
+							<h4 class="bg-light">@item?.Name()</h4>
 							<p><i class="fa-regular fa-calendar-days"></i>  @date</p>
 							<p class="bg-light">@preamble</p>
 							<p>@readMore <i class="fa-regular fa-arrow-right"></i></p>
@@ -41,12 +41,10 @@
 			}
 			<nav>
 				<ul>
-					<a>
-					<li>Prev</li></a>
+					<a><li>Prev</li></a>
 					<li>1</li>
 					<li>2</li>
-					<a>
-					<li>Next</li></a>
+					<a><li>Next</li></a>
 				</ul>
 			</nav>
 		

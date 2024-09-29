@@ -28,6 +28,21 @@
                 }
             }
         }
+
+        .nav_search {
+            .search-input {
+                margin-left: 0; /* Avstånd mellan ikonen och inputfältet */
+                padding: 5px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                display: none; /* Döljer inputfältet initialt */
+            }
+
+            #searchIcon {
+                margin-left: 0; /* Avstånd mellan ikonen och inputfältet */
+                cursor: pointer; /* Gör det tydligt att ikonen är klickbar */
+            }
+        }
     }
 }
 

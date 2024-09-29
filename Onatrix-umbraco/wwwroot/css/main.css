@@ -208,6 +208,17 @@ h6 {
   font-weight: bold;
   color: var(--color-secondary);
 }
+#nav .container .nav_search .search-input {
+  margin-left: 0; /* Avstånd mellan ikonen och inputfältet */
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  display: none; /* Döljer inputfältet initialt */
+}
+#nav .container .nav_search #searchIcon {
+  margin-left: 0; /* Avstånd mellan ikonen och inputfältet */
+  cursor: pointer; /* Gör det tydligt att ikonen är klickbar */
+}
 
 footer {
   display: flex;
@@ -465,6 +476,24 @@ nav {
             }
         }*/
 /*}*/
+#scrollToTopBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: var(--color-secondary);
+  color: var(--color-light);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#scrollToTopBtn:hover {
+  background-color: #0056b3;
+}
+
 #hero .container {
   text-align: center;
 }
@@ -538,6 +567,11 @@ nav {
   width: 100%;
   height: auto;
   object-fit: cover;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+#our-projects #projects-cards_home .projectCard_link .our-projects-card .projectCard_img:hover {
+  transform: translateY(-10px) rotate(0.1deg);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 #our-projects #projects-cards_home .projectCard_link .our-projects-card .our-projects-text {
   background-color: var(--color-primary);
@@ -550,6 +584,20 @@ nav {
   bottom: 0;
   left: 0;
   transition: transform 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+#our-projects #projects-cards_home .projectCard_link .our-projects-card .our-projects-text .op_text-arrow {
+  display: flex;
+  flex-direction: column;
+}
+#our-projects #projects-cards_home .projectCard_link .our-projects-card .our-projects-text .op_arrow {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: var(--color-light);
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+  font-size: 3rem;
 }
 #our-projects #projects-cards_home .projectCard_link .our-projects-card .our-projects-text .our-projects-headline, #our-projects #projects-cards_home .projectCard_link .our-projects-card .our-projects-text .our-projects-subHeadline {
   margin: 0;
@@ -560,10 +608,15 @@ nav {
   background-color: var(--color-primary);
   opacity: 1.5;
 }
-#our-projects #projects-cards_home .projectCard_link .our-projects-card:hover .our-projects-headline,
-#our-projects #projects-cards_home .projectCard_link .our-projects-card:hover .our-projects-subHeadline {
+#our-projects #projects-cards_home .projectCard_link .our-projects-card:hover .our-projects-headline {
   color: var(--color-secondary);
   padding-top: 0.7rem;
+}
+#our-projects #projects-cards_home .projectCard_link .our-projects-card:hover .our-projects-subHeadline {
+  color: var(--color-light);
+}
+#our-projects #projects-cards_home .projectCard_link .our-projects-card:hover .op_arrow {
+  opacity: 1;
 }
 
 #about-us {
@@ -832,6 +885,7 @@ nav {
     height: auto;
     width: 80%;
     object-fit: contain;
+    border-radius: 0.2rem;
   }
 }
 @media (min-width: 1200px) {
@@ -1781,6 +1835,9 @@ hr {
   #projects .container .projects-left .projects-card .projects-card-link .projects-left-card-right p {
     font-size: 12px;
     margin: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
   }
   #projects .container .projects-left .projects-card .projects-card-link .projects-left-card-right h6 {
     color: var(--color-dark);
@@ -1997,7 +2054,7 @@ hr {
   top: 0;
   font-size: 14px;
   line-height: 1;
-  color: var(--color-dark); /* Ändra färg här */
+  color: var(--color-dark);
 }
 #projects-details .container .projects-details-left .projects-details-image-text img {
   width: 100%;

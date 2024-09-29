@@ -11,24 +11,28 @@
 
 <div class="container">
 	<div class="left-side">
-		<h6>@Model.Value("aboutUsSectionTitle")</h6>
-		<h2>@Model.Value("aboutUsHeadline")</h2>
-		<p>@Model.Value("aboutUsQuotes")</p>
-		<p>@Model.Value("aboutUsText")</p>
-		<img src="@signatureImage" alt="@Model.Value("aboutUsSignature")">
-		<p>@Model.Value("aboutUsSignature")</p>
+		<h6>@Model?.Value("aboutUsSectionTitle")</h6>
+		<h2>@Model?.Value("aboutUsHeadline")</h2>
+		<p>@Model?.Value("aboutUsQuotes")</p>
+		<p>@Model?.Value("aboutUsText")</p>
+		<img src="@signatureImage" alt="@Model?.Value("aboutUsSignature")">
+		<p>@Model?.Value("aboutUsSignature")</p>
 	</div>
 	<form class="right-side">
-		<h5 class="bg-primary">@Model.Value("formHeadline")</h5>
-		<p>@Model.Value("formText")</p>
-		@foreach (var item in placeholderText)
+		<h5 class="bg-primary">@Model?.Value("formHeadline")</h5>
+		<p>@Model?.Value("formText")</p>
+		@if (placeholderText != null && placeholderText.Any())
 		{
-			var placeholder = item.Content.Value<string>("placeholderText");
-			<input type="text" placeholder="@placeholder">
+			@foreach (var item in placeholderText)
+			{
+				var placeholder = item.Content.Value<string>("placeholderText");
+				<input type="text" placeholder="@placeholder">
+			}
 		}
+		
 		<select name="" id="">
-			<option value="">@Model.Value("formSelectPlaceholder")</option>
+			<option value="">@Model?.Value("formSelectPlaceholder")</option>
 		</select>
-		<button class="btn-accent">@Model.Value("formButtomName")</button>
+		<button class="btn-accent">@Model?.Value("formButtomName")</button>
 	</form>
 </div>

@@ -19,7 +19,7 @@
 
  <section id="our-services">
 	<div class="container">
-		@if (!string.IsNullOrEmpty(Model.Value("customHeadline").ToString()))
+		@if (!string.IsNullOrEmpty(Model?.Value("customHeadline")!.ToString()))
 		{
 			<h2>@Model.Value("customHeadline")</h2>
 		}
@@ -30,10 +30,10 @@
 				var image = item?.Value<IPublishedContent>("thumbnalImage")?.Url() ?? "";
 				var preamble = item?.Value<string>("preamble") ?? "";
 				
-				<a href="@item.Url()">
+				<a href="@item?.Url()">
 					<div class="our-services-card">
-						<h4 class="bg-light">@item.Name()</h4>
-						<img src="@image" alt="@item.Name()">
+						<h4 class="bg-light">@item?.Name()</h4>
+						<img src="@image" alt="@item?.Name()">
 						<p class="bg-light">@preamble</p>
 					</div> 
 				</a>

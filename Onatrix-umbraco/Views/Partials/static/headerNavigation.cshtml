@@ -19,12 +19,7 @@
     var rootContent = UmbracoHelper.ContentAtRoot();
     // söker i rotcontent efter settings page
     var settings = rootContent?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
-    var siteLogoType = settings?.Value<IPublishedContent>("siteLogoType")?.Url() ?? "";   
-
-    // for navigation
-    // var activeItems = Model.Ancestors().ToArray();
-    // var homePageDisplayName = "Home";
-    // var isFirstItem = true;
+    var siteLogoType = settings?.Value<IPublishedContent>("siteLogoType")?.Url() ?? "";
 }
     <div class="container">
         <a href="/" class="nav_logo"><img src="@siteLogoType" alt="Ontarix logo" class="nav_img"></a> 
@@ -44,5 +39,10 @@
                 </ul>
             }   
         </nav>
-        <i class="fa-solid fa-magnifying-glass"></i>
+        <div class="nav_search">
+            <input type="text" id="searchInput" class="search-input" placeholder="Sök..." style="display: none;">
+            <i class="fa-solid fa-magnifying-glass" id="searchIcon"></i>
+        </div>
+       
+
     </div>   

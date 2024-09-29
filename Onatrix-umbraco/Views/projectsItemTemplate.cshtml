@@ -45,7 +45,7 @@
                     var imageUrl = item?.Value<IPublishedContent>("thumbnalImage")?.Url() ?? null;
                     var cardHeadline = item?.Value<string>("cardHeadline") ?? "";
                     var date = item?.Value<string>("dateDescription") ?? "";
-                    <a class="recent-projects_links" href="#">
+                    <a class="recent-projects_links" href="@item.Url()">
                         <div class="project-details-cards">
                             <div class="projects-card">
                                 <img src="@imageUrl" alt="@cardHeadline">
