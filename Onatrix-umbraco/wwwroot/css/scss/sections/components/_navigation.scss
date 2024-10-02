@@ -1,13 +1,60 @@
-.nav {
-    padding-bottom: 0.1rem;
-    padding-top: 1rem;
+#nav {
+    padding: 1rem 0;
 
     .container {
-        
         display: flex;
         align-items: center;
         justify-content: space-between;
-        
+
+        .nav_logo {
+            .nav_img {
+            }
+        }
+
+        .nav_navigation {
+            .nav_list {
+                .nav_links {
+                    font-weight: 600;
+                    color: var(--color-dark);
+
+                    &:hover {
+                        color: var(--color-secondary);
+                    }
+
+                    &.active {
+                        font-weight: bold;
+                        color: var(--color-secondary);
+                    }
+                }
+            }
+        }
+
+        .nav_search {
+            .search-input {
+                margin-left: 0; /* Avstånd mellan ikonen och inputfältet */
+                padding: 5px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                display: none; /* Döljer inputfältet initialt */
+            }
+
+            #searchIcon {
+                margin-left: 0; /* Avstånd mellan ikonen och inputfältet */
+                cursor: pointer; /* Gör det tydligt att ikonen är klickbar */
+            }
+        }
+    }
+}
+
+
+//.nav {
+//    padding-bottom: 0.1rem;
+//    padding-top: 1rem;
+
+//    .container {
+//        display: flex;
+//        align-items: center;
+//        justify-content: space-between;
         // a {
         //     width: 50%;
         //     height: auto;
@@ -18,71 +65,102 @@
         //         margin-bottom: 1rem;
         //     }
         // }
-           
-        a {
-            display: flex;
-            align-items: center;
-            width: auto;
-            height: auto;
 
-            img {
-                width: 100%; /* Justera storleken på logotypen */
-                height: auto;
-                object-fit: contain;
-                margin-bottom: 1rem;
-            }
-        }
-       
-    
-        nav {
-            display: flex;
-            flex-direction: row;
-            gap: 0.3rem;
-            margin-right: 0.4rem;
+//        .nav_logo {
+//            display: flex;
+//            align-items: center;
+//            width: auto;
+//            height: auto;
+//        }
 
-            a {
-                color: var(--color-default);
-                text-decoration: none;
-                font-weight: 600;
-            }
-        }
-    }
+//        img {
+//            width: 100%;
+//            height: auto;
+//            object-fit: contain;
+//            margin-bottom: 1rem;
+//        }
+//    }
 
-    @include tablet {
-        .container {
-        
-            img {
-                width: 15%;
-                height: auto;
-            }
-        
-            nav {
-                display: flex;
-                flex-direction: row;
-                gap: 1rem;
-            }
 
-            i {
-                margin-bottom: 1rem;
-            }
-        }
-    }
+//    nav {
+//        display: flex;
+//        flex-direction: row;
+//        gap: 0.3rem;
+//        margin-right: 0.4rem;
 
-    @include desktop {
-        .container {
-        
-            img {
-                width: 10%;
-            }
-        
-            nav {
-                gap: 4rem;
-            }
+//        ul {
+//            list-style-type: none;
+//            padding: 0;
+//            margin: 0;
+//            display: flex;
+//            gap: 1rem;
+//        }
 
-           
-        }
-    }
- 
-}
+//        a {
+//            color: var(--color-default);
+//            text-decoration: none;
+//            font-weight: 600;
 
+//            &.active {
+//                color: var(--color-active); /*Ändra till din aktiva färg */
+//                font-weight: bold; /*Gör texten fetstilad för att markera den aktiva länken */
+//            }
+//        }
+//    }
+//}
+
+//@include tablet {
+//    .container {
+
+//        img {
+//            width: 15%;
+//            height: auto;
+//        }
+
+//        nav {
+//            display: flex;
+//            flex-direction: row;
+//            gap: 1rem;
+
+//            ul {
+//                a {
+
+//                    &:hover {
+//                        text-decoration: underline;
+//                    }
+//                }
+
+//                &.active {
+//                    color: var(--color-secondary);
+//                }
+//            }
+//        }
+//    }
+
+//    i {
+//        margin-bottom: 1rem;
+//    }
+//}
+
+
+//    @include desktop {
+//        .container {
+
+//            img {
+//                width: 10%;
+//            }
+
+//            nav {
+//                /* gap: 4rem;*/
+
+//                ul {
+//                    gap: 4rem;
+//                }
+//            }
+
+//            i {
+//                margin-left: 10rem;
+//            }
+//        }
+//    }
 

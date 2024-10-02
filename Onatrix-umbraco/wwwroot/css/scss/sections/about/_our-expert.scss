@@ -1,37 +1,39 @@
 #our-expert {
     padding-top: 3rem;
+
     .container {
         text-align: center;
 
         .our-expert-large-cards {
-            
-           .our-expert-large-card {
+
+            .our-expert-large-card {
                 border: 1px solid rgba(206, 204, 204, 0.39);
                 margin-bottom: 0.5rem;
 
                 img {
                     width: 100%;
                     height: auto;
-                    object-fit: contain;  
+                    object-fit: contain;
                 }
 
                 h6 {
                     color: var(--color-dark);
                     padding-top: 1rem;
                 }
-           } 
+            }
         }
 
         .our-expert-small-cards {
-           
+            display: flex;
+
             .our-expert-small-card {
                 border: 1px solid rgba(206, 204, 204, 0.39);
                 margin-bottom: 0.5rem;
-                
+
                 img {
                     width: 100%;
                     height: auto;
-                    object-fit: contain;  
+                    object-fit: contain;
                 }
 
                 h6 {
@@ -46,46 +48,63 @@
         padding-bottom: 2rem;
 
         .container {
+            display: flex;
+            flex-direction: column;
 
-            h2 {
-                font-size: 22px;
+            .expert_headline {
+                font-size: 40px;
                 max-width: 80%;
-                margin: 0 auto;  
-                margin-bottom: 1rem;           
+                margin: 0 auto;
+                padding-bottom: 2rem;
             }
+
+            .our-expert-large-cards, .our-expert-small-cards {
+                display: flex;
+                gap: 0.8rem;
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .our-expert-large-card, .our-expert-small-card {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+                &:hover {
+                    transform: translateY(-10px) rotate(5deg);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                }
+            }
+
             .our-expert-large-cards {
-                display: flex;
-                gap: 0.8rem;
-                padding-bottom: 1rem;
-                
-               .our-expert-large-card {
+                padding-bottom: 2rem;
+
+                .our-expert-large-card {
                     text-align: left;
-    
-                    h6 {
-                        padding-left: 0.5rem;
+
+                    h4 {
+                        padding-left: 0.8rem;
                     }
 
                     p {
                         font-size: 12px;
-                        padding-left: 0.5rem;
+                        padding-left: 0.8rem;
                     }
-               } 
+                }
             }
-    
+
             .our-expert-small-cards {
-                display: flex;
-                gap: 0.8rem;
                 text-align: left;
-               
+
                 .our-expert-small-card {
-    
-                    h6 {
-                        padding-left: 0.5rem;
+                    display: flex;
+                    flex-direction: column;
+
+                    h4 {
+                        padding-left: 0.8rem;
                     }
 
                     p {
                         font-size: 12px;
-                        padding-left: 0.5rem;
+                        padding-left: 0.8rem;
                     }
                 }
             }

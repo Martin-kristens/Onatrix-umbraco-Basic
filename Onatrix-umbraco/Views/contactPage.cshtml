@@ -1,0 +1,91 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@{
+	Layout = "mainLayout.cshtml";
+	ViewBag.Title = Model?.Value("pageTitle") ?? null;
+
+	var placeholderText = Model?.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("formPlaceholder") ?? null;
+	var backgroundImage = Model?.Value<IPublishedContent>("backgroundImage")?.Url();
+
+	// Om det finns slides i den aktuella modellen
+	var slides = Model?.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("slides") ?? null;
+	var option1 = Model?.Value<string>("formOptionText1");
+	var option2 = Model?.Value<string>("formOptionText2");
+	var option3 = Model?.Value<string>("formOptionText3");
+
+	bool.TryParse(ViewData["error_name"]?.ToString()!, out bool error_name);
+	bool.TryParse(ViewData["error_phone"]?.ToString()!, out bool error_phone);
+	bool.TryParse(ViewData["error_email"]?.ToString()!, out bool error_email);
+	bool.TryParse(ViewData["error_selectOption"]?.ToString()!, out bool error_selectOption);
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.Title))
+{
+	@await Html.PartialAsync("partials/static/breadcrumb.cshtml")
+}
+
+<section class="contact-info bg-light">
+	@await Html.PartialAsync("partials/static/_contanctInformation.cshtml")
+</section> 
+
+<section class="contact-request-form">
+	<img class="contact_bgImage" src="@backgroundImage" alt="">
+	<div class="container">
+		<form class="bg-light" action="">
+			<h6 class="form_title">@Model?.Value("formTitle")</h6>
+			<h2 class="form_headline">@Model?.Value("formHeadline")</h2>
+			<p class="form_text">@Model?.Value("formText")</p>
+
+			<div class="request-form-input">
+
+				@if (TempData["success"] != null)
+				{
+					<div class="success-message">@TempData["Success"]</div>
+					@using (Html.BeginUmbracoForm("ReturnSubmit", "ContactSurface", FormMethod.Post))
+					{
+						<button type="submit" class="btn-primary redirect_button">@Model?.Value("redirectButtonText")</button>
+					}				
+				}
+				else
+				{
+					@using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post))
+					{
+						<div class="contact-request-group">
+							<input id="name" name="name" type="text" placeholder="@Model?.Value("namePlaceholder")" class="form-input" value="@ViewData["name"]"/>
+							<span class="form-input-error @((error_name) ? "form-invalid-input": null)">@Model?.Value("nameErrorText")</span>
+						</div>
+
+						<div class="contact-request-group">
+							<input id="phone" name="phone" type="tel" placeholder="@Model?.Value("phonePlaceholder")" class="form-input" value="@ViewData["phone"]" />
+							<span class="form-input-error @((error_phone) ? "form-invalid-input": null)">@Model?.Value("phoneErrorText")</span>
+						</div>
+
+						<div class="contact-request-group">
+							<input id="email" name="email" type="email" placeholder="@Model?.Value("emailPlaceholder")" class="form-input" value="@ViewData["email"]" />
+							<span class="form-input-error @((error_email) ? "form-invalid-input": null)">@Model?.Value("emailErrorText")</span>
+						</div>
+
+						<div class="contact-request-group">
+							<select name="selectOption" id="selectOption" class="selectOption">
+								<option value="@option1">@option1</option>
+								<option value="@option2">@option2</option>
+								<option value="@option3">@option3</option>
+							</select>
+							<span class="form-input-error @((error_selectOption) ? "form-invalid-input": null)">@Model?.Value("optionErrorText")</span>
+						</div>
+						<div class="form-button">
+							<button class="btn-primary ">@Model?.Value("formButtomName")</button>
+						</div>
+					
+					}
+				}				
+			</div>			
+		</form>		
+	</div>
+</section>
+
+<section class="partner-section">
+	@await Html.PartialAsync("partials/sections/home/partnersPartials.cshtml", Model)
+</section> 

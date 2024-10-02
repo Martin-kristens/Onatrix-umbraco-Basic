@@ -1,0 +1,36 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+
+@{ 
+	var selection = Umbraco.Content(Guid.Parse("ada7b1b6-8be6-4207-bf83-bcc9e75f6c3b"))
+	.ChildrenOfType("serviceItemTemplate")
+	.Where(x => x.IsVisible()); 
+}
+
+
+<div class="container">
+	<h6>@Model.Value("ourServicesSectionTitle")</h6>
+	<h2>@Model.Value("ourServicesHeadline")</h2>
+
+
+	<div class="our-services-cards">
+		@foreach (var item in selection)
+		{
+			var image = item?.Value<IPublishedContent>("thumbnalImage")?.Url() ?? "";
+			var preamble = item?.Value<string>("preamble") ?? "";
+
+			<a href="@item?.Url()">
+				<div class="our-services-card">
+					<h4 class="bg-light">@item?.Name()</h4>
+					<img class="card_image" src="@image" alt="@Model.Value("ourServicesSectionTitle")">
+					<p class="bg-light">@preamble</p>
+				</div>
+			</a>
+		}
+	</div>
+</div>
+
+		

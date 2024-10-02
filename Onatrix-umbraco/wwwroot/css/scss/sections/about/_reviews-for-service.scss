@@ -1,16 +1,99 @@
 #reviews-for-service {
+    position: relative;
+
+    .container {
+        display: flex;
+        align-items: flex-start;
+        z-index: 1;
+
+        .left {
+            max-width: 400px;
+            margin-top: 3rem;
+            /* padding-top: 3rem;*/
+
+            .review_title {
+            }
+
+            .review_headline {
+            }
+
+            .review_text {
+            }
+
+            .ratings {
+                margin-top: 1rem;
+            }
+
+            .reviewer_name {
+                padding-bottom: 0;
+                margin-top: 1rem;
+            }
+
+            .reviewer_company {
+                padding-bottom: 0;
+                margin-top: 0;
+                margin-bottom: 1rem;
+            }
+        }
+
+        .kevin-gardner {
+            margin-left: auto;
+            position: absolute; 
+            top: 0;
+            right: -388px;
+            width: 46vw; 
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+
+            .reviewSection_img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+            }
+            
+        }
+    }
+  
+}
+/*   width: calc(100% + 20%);
+                margin-left: 38.75%;
+                height: auto;
+                object-fit: cover;*/
+/*  width: calc(100% + 20%);
+                margin-left: calc(-50% + 88.75%);
+                height: auto;
+                object-fit: cover;*/
+/* .kevin-gardner {
+        flex: 0 0 auto;
+        width: 50%;
+        padding-right: 0;
+
+        .reviewSection_img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    }*/
+/*.reviewSection_img {
+                width: calc(100% + 100px);
+                margin-left: calc(-50% + 40.5rem);
+                height: auto;
+                object-fit: cover;
+            }*/
+/*#reviews-for-service {
     padding-top: 3rem;
     padding-bottom: 3rem;
 
     .container {
-        text-align: center;       
+        text-align: center;
     }
 
     .kevin-gardner {
         img {
             width: 100%;
             height: auto;
-            object-fit: contain;  
+            object-fit: contain;
         }
     }
 
@@ -18,15 +101,17 @@
         padding-top: 0;
         padding-bottom: 0;
         display: flex;
-
-        
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
 
         .container {
-            padding-top: 3rem;
-            padding-bottom: 3rem;
-            text-align: left;
+            padding: 3rem 1rem;*/
+            /*padding-top: 3rem;
+            padding-bottom: 3rem;*/
+            /*text-align: left;
 
-           .left {
+            .left {
                 text-align: left;
 
                 h6 {
@@ -43,16 +128,18 @@
                     font-size: 12px;
                     max-width: 90%;
                 }
-            }          
-        }
-        .kevin-gardner {
-
-            img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;  
             }
         }
-    }  
-}
 
+        .kevin-gardner {
+            
+
+            .reviewSection_img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                margin-top: -1rem;
+            }
+        }
+    }
+}*/

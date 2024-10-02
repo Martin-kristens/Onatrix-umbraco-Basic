@@ -1,0 +1,32 @@
+﻿<!-- dessa för att kunna hämta ut från Settings -->
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+@{
+    //hämtar roten i trädstrukturen
+    var rootContent = UmbracoHelper.ContentAtRoot();
+    // söker i rotcontent efter settings page
+    var settings = rootContent?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+    
+    var headlineTags = settings?.Value<string>("tagsHeadline") ?? null;
+    var tags = settings?.Value<IEnumerable<string>>("tagName") ?? new List<string>();
+    var formHeadline = settings?.Value<string>("formHeadline") ?? null;
+    var formText = settings?.Value<string>("formText") ?? null;
+    var formPlaceholder = settings?.Value<string>("formPlaceholder") ?? null;
+}
+
+<h4>@headlineTags</h4>
+<div class="sidebar-with-tags">
+
+    @foreach (var tag in tags)
+    {
+        <a class="sidebar_tags_links" href="#"><p class="sidebar_text">@tag</p></a> 
+    }
+</div>
+
+<div class="service-details-online-support bg-primary">
+    <h4>@formHeadline</h4>
+    <p>@formText</p>
+    <input type="text" placeholder="@formPlaceholder">
+    <i class="fa-regular fa-envelope envelope"></i>
+</div>

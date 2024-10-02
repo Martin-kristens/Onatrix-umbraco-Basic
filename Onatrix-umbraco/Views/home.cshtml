@@ -1,0 +1,55 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks;
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@{
+
+	Layout = "mainLayout.cshtml";
+	ViewBag.Title = Model?.Value("pageTitle") ?? null;
+	
+}
+
+<!-- #hero section -->
+<section id="hero" class="hero">
+	@await Html.PartialAsync("partials/sections/home/heroSectionPartials.cshtml", Model)
+</section>
+<!-- #endregion -->
+
+<!-- #about us section -->
+<section id="about-us">
+	@await Html.PartialAsync("partials/sections/home/aboutUsPartials.cshtml", Model)
+</section>
+<!-- #endregion -->
+
+<!-- #our services section -->
+<section id="our-services" class="bg-gray">
+	@await Html.PartialAsync("partials/sections/home/ourServicesPartials.cshtml", Model)
+</section>
+<!-- #endregion -->
+
+<!-- #Our story section -->
+<section id="our-story">
+	@await Html.PartialAsync("partials/sections/home/ourStoryPartials.cshtml", Model)
+</section>
+<!-- #endregion -->
+
+<!-- #Success stories section -->
+<section id="success-stories" class="bg-primary">
+	@await Html.PartialAsync("partials/sections/home/successStoriesPartials.cshtml", Model)
+</section>
+<!-- #endregion -->
+
+<!-- #Our projects section -->
+<section id="our-projects">
+	@await Html.PartialAsync("partials/sections/home/ourProjectsPartials.cshtml", Model)
+</section>
+<!-- #endregion -->
+
+<!-- #Projects partner section -->
+<section class="partner-section">
+	@await Html.PartialAsync("partials/sections/home/partnersPartials.cshtml", Model)
+</section>
+<!-- #endregion -->
+
+

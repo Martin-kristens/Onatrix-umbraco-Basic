@@ -1,0 +1,48 @@
+﻿<!-- dessa för att kunna hämta ut från Settings -->
+@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+@{
+    //hämtar roten i trädstrukturen
+    var rootContent = UmbracoHelper.ContentAtRoot();
+    // söker i rotcontent efter settings page
+    var settings = rootContent?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+    var socialMediaPlatforms = settings?.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("socialMediaPlatforms") ?? null;
+}
+
+@if(socialMediaPlatforms != null)
+{
+    <div class="social-media">
+        @foreach(var social in socialMediaPlatforms)
+        {
+            var platformName = social?.Content?.Value<string>("platformName");
+            var platformAccountUrl = social?.Content?.Value<string>("platformAccountUrl") ?? "#";
+
+            if (platformName != null && platformName.Any())
+            {
+                @switch (platformName.ToLower())
+                {
+                    case "facebook":
+                        <a href="@platformAccountUrl" title="@platformAccountUrl" target="_blank" class="social-media-link"><i class="fa-brands fa-facebook-f topbar-icon"></i></a>
+                        break;
+                    case "instagram":
+                        <a href="@platformAccountUrl" title="@platformAccountUrl" target="_blank" class="social-media-link"><i class="fa-brands fa-instagram topbar-icon"></i></a>
+                        break;
+                    case "linkedin":
+                        <a href="@platformAccountUrl" title="@platformAccountUrl" target="_blank" class="social-media-link"><i class="fa-brands fa-linkedin-in topbar-icon"></i></a>
+                        break;
+                    case "tiktok":
+                        <a href="@platformAccountUrl" title="@platformAccountUrl" target="_blank" class="social-media-link"><i class="fa-brands fa-tiktok topbar-icon"></i></a>
+                        break;
+                    case "x(formerly twitter)":
+                        <a href="@platformAccountUrl" title="@platformAccountUrl" target="_blank" class="social-media-link"><i class="fa-solid fa-x topbar-icon"></i></a>
+                        break;
+                    case "youtube":
+                        <a href="@platformAccountUrl" title="@platformAccountUrl" target="_blank" class="social-media-link"><i class="fa-brands fa-youtube topbar-icon"></i></a>
+                        break;
+                }
+            }
+         
+        }
+    </div>
+}

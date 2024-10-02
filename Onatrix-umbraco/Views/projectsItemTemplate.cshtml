@@ -1,0 +1,75 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using Umbraco.Cms.Core.Models.Blocks
+@{
+	Layout = "mainLayout.cshtml";
+	ViewBag.Title = Model?.Value("pageTitle") ?? Model?.Name;
+
+    var tags = Model?.Value<IEnumerable<string>>("tagName") ?? new List<string>();
+    var projectItems = Model?.Value<IEnumerable<string>>("projectsItemTemplate") ?? new List<string>();
+    
+    var selection = Umbraco.Content(Guid.Parse("dbc7579e-ba9d-40d7-a9bd-ca652da8b24f"))
+    .ChildrenOfType("projectsItemTemplate")
+    .Where(x => x.IsVisible());
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.Title))
+
+{
+	@await Html.PartialAsync("partials/static/breadcrumb.cshtml")
+}
+
+<section id="projects-details">
+    <div class="container">
+        <div class="projects-details-left">
+            <div class="date">
+                <p><i class="fa-regular fa-calendar-days"></i> @Model.Value("dateDescription")</p>
+            </div>
+            @Model?.Value("pageContent")
+
+            <div class="projects-details-tags">
+                <h6>@Model.Value("tagHeadline")</h6>
+                @foreach (var tag in tags)
+                {
+                    <a><p class="bg-secondary">@tag</p></a>
+                }
+            </div> 
+        </div>
+
+        <hr>
+
+        <div class="projects-details-right">
+            @if (selection != null && selection.Any())
+            {
+                <h4 class="recent-projects_title">@Model.Value("sectionTitle")</h4>
+                foreach (var item in selection)
+                {
+                    var imageUrl = item?.Value<IPublishedContent>("thumbnalImage")?.Url() ?? null;
+                    var cardHeadline = item?.Value<string>("cardHeadline") ?? "";
+                    var date = item?.Value<string>("dateDescription") ?? "";
+                    <a class="recent-projects_links" href="@item.Url()">
+                        <div class="project-details-cards">
+                            <div class="projects-card">
+                                <img src="@imageUrl" alt="@cardHeadline">
+                                <div class="projects-left-card-right">
+                                    <h6>@cardHeadline</h6>
+                                    <div class="projects-date">
+                                        <i class="fa-regular fa-calendar-days"></i>
+                                        <p>@date</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                 
+                }
+            }
+
+            @await Html.PartialAsync("partials/static/sideBarWithTags.cshtml")
+        </div>
+    </div>
+</section>
+
+<section class="contact-info bg-gray">
+	@await Html.PartialAsync("partials/static/_contanctInformation.cshtml")
+</section>

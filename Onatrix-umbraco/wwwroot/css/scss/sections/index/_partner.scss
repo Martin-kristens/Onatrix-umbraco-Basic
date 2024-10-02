@@ -1,0 +1,33 @@
+.partner-section {
+    padding-top: 1rem;
+
+    .our-projects-partners {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+
+        .partner_link {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 1rem;
+            border: none;
+
+            &:hover {
+                transform: translateY(-4px);
+                box-shadow: none;
+                background-color: transparent;
+            }
+
+            .partner_image {
+                width: 100%;
+                height: auto;
+                margin-top: 2rem;
+                transition: opacity 0.3s ease;
+
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}

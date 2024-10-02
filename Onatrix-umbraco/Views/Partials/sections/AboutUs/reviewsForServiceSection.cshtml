@@ -1,0 +1,28 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+
+@{
+    var reviewerImage = Model?.Value<IPublishedContent>("aboutReviewerImage")?.Url() ?? "";
+    var richTextContent = Model?.Value<string>("aboutReviewText");
+}
+
+<div class="container">
+    <div class="left">
+        <h6 class="review_title">@Model?.Value("aboutPageTitle")</h6>
+        <h2 class="review_headline">@Model?.Value("aboutHeading")</h2>
+        <p class="review_text">@Model?.Value("aboutReviewText")</p>
+        <div class="ratings">
+            @for(var i = 1; i < 6; i++) 
+            {
+                <i class="fa-solid fa-star"></i>
+            }
+        </div>
+        <p class="reviewer_name">@Model?.Value("aboutReviewerName")</p>
+        <p class="reviewer_company">@Model?.Value("aboutReviewerCompanyName")</p>
+    </div> 
+    <div class="kevin-gardner">
+        <img class="reviewSection_img" src="@reviewerImage" alt="@Model?.Value("aboutReviewerName")">
+    </div>
+</div>

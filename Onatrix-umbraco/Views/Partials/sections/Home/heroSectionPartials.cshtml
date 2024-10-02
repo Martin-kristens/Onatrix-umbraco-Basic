@@ -1,0 +1,19 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+
+@{
+
+	var backgroundImage = Model?.Value<IPublishedContent>("heroBackgroundImage")?.Url() ?? "";
+}
+
+
+
+<img class="hero-background" src="@backgroundImage" alt="@Model?.Value("heroHeadline")" />
+<div class="container">
+	<h1 class="hero_headline">@Model?.Value("heroHeadline")</h1>
+	<p class="hero_text">@Model?.Value("heroText")</p>
+	<a class="btn-primary hero_link" href="@Model?.Value("heroButtonUrl")">@Model?.Value("heroButtonText")</a>
+</div>

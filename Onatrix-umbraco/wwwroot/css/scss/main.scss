@@ -13,6 +13,9 @@
 @import "./sections/components/footer";
 @import "./sections/components/pagination";
 @import "./sections/components/service-online-support";
+@import "./sections/components/_sideBarWithTags.scss";
+@import "./sections/components/_messageForm.scss";
+@import "./sections/components/_scrollToTop.scss";
 
 //index
 @import "./sections/index/hero";
@@ -21,6 +24,7 @@
 @import "./sections/index/our-services";
 @import "./sections/index/success-stories";
 @import "./sections/index/our-story";
+@import "./sections/index/_partner.scss";
 
 //about us 
 @import "./sections/about/breadcrumbs";
