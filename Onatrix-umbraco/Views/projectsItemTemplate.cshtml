@@ -22,7 +22,9 @@
 <section id="projects-details">
     <div class="container">
         <div class="projects-details-left">
-            
+            <div class="date">
+                <p><i class="fa-regular fa-calendar-days"></i> @Model.Value("dateDescription")</p>
+            </div>
             @Model?.Value("pageContent")
 
             <div class="projects-details-tags">

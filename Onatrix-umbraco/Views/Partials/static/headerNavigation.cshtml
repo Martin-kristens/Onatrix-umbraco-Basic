@@ -20,21 +20,19 @@
     // söker i rotcontent efter settings page
     var settings = rootContent?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
     var siteLogoType = settings?.Value<IPublishedContent>("siteLogoType")?.Url() ?? "";
+    var altText = settings?.Value<string>("siteName") ?? "";
 }
     <div class="container">
-        <a href="/" class="nav_logo"><img src="@siteLogoType" alt="Ontarix logo" class="nav_img"></a> 
+        <a href="/" class="nav_logo"><img src="@siteLogoType" alt="@altText" class="nav_img"></a> 
         <nav class="nav_navigation">
             @if (selection?.Length > 0)
             {
                 <ul class="nav_list">
                     @foreach (var item in selection)
-                    {
-                        // check if model.id represent the active page
-                        var isActive = item.Id == Model.Id;
-                        // if isActive is true activeClass will be active 
-                        var activeClass = isActive ? "active" : "";
+                    { 
+                        var active = (item.IsAncestorOrSelf(Model) ? "active" : "");
 
-                        <a href="@item.Url(PublishedUrlProvider)" class="nav_links @activeClass">@item.Name</a>
+                        <a href="@item.Url(PublishedUrlProvider)" class="nav_links @active">@item.Name</a>
                     }
                 </ul>
             }   
