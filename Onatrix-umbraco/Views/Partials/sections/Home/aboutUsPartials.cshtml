@@ -1,0 +1,38 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+
+@{
+    var signatureImage = Model?.Value<IPublishedContent>("aboutUsSignatureImage")?.Url() ?? "";
+	var placeholderText = Model?.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("formPlaceholder") ?? null;
+}
+
+<div class="container">
+	<div class="left-side">
+		<h6>@Model?.Value("aboutUsSectionTitle")</h6>
+		<h2>@Model?.Value("aboutUsHeadline")</h2>
+		<p>@Model?.Value("aboutUsQuotes")</p>
+		<p>@Model?.Value("aboutUsText")</p>
+		<img src="@signatureImage" alt="@Model?.Value("aboutUsSignature")">
+		<p>@Model?.Value("aboutUsSignature")</p>
+	</div>
+	<form class="right-side">
+		<h5 class="bg-primary">@Model?.Value("formHeadline")</h5>
+		<p>@Model?.Value("formText")</p>
+		@if (placeholderText != null && placeholderText.Any())
+		{
+			@foreach (var item in placeholderText)
+			{
+				var placeholder = item.Content.Value<string>("placeholderText");
+				<input type="text" placeholder="@placeholder">
+			}
+		}
+		
+		<select name="" id="">
+			<option value="">@Model?.Value("formSelectPlaceholder")</option>
+		</select>
+		<button class="btn-accent">@Model?.Value("formButtomName")</button>
+	</form>
+</div>

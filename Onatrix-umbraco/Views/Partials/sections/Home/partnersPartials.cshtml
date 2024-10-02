@@ -1,0 +1,26 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+
+@{
+    // hämtar blocklist från Home
+    var slides = Model.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("slides") ?? null;
+}
+
+
+<div class="container our-projects-partners">
+    @if (slides != null && slides.Any())
+    {
+        foreach (var partner in slides)
+        {
+            //hämtar bild från Image slider item
+            var image = partner.Content.Value<IPublishedContent>("selectedImage")?.Url();
+            var alt = partner.Content.Value<string>("imageAlt") ?? "";
+
+            <a class="partner_link" href="#"><img src="@image" alt="@alt" class="partner_image" /></a>
+        }
+    }
+
+</div>

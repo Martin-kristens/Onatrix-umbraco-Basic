@@ -1,146 +1,87 @@
 .contact-request-form {
-    img {
+    padding-bottom: 8rem;
+
+    .contact_bgImage {
         width: 100%;
         height: auto;
     }
 
     .container {
+        text-align: center;
+        position: relative;
+
         form {
-            text-align: center;
-            p {
+            position: absolute;
+            bottom: -100px;
+            left: 0;
+            padding: 1rem;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 4rem 3rem;
+
+            .form-title {
+            }
+
+            .form-headline {
+            }
+
+            .form_text {
                 font-style: italic;
             }
 
             .request-form-input {
-                display: flex;
-                flex-direction: column;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
                 gap: 1rem;
-                margin-bottom: 1rem;
+                /*margin-bottom: 2rem;*/
                 z-index: 100;
 
-                input {
-                    border-radius: 4px;
-                    border: 1px solid #ececee;
-                    padding: 1rem;
-                    font-style: italic;
+                .success-message {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: blue;
+                    font-weight: 700;
                 }
 
-                select {
-                    border-radius: 4px;
-                    border: 1px solid #ececee;
-                    padding: 1rem;
-                    
-                }
-            }
-
-            button {
-                margin-bottom: 3rem;
-            }
-        }
-
-        .our-projects-partners {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-            padding-bottom: 2rem;
-
-            img {
-                width: 20%;
-                height: auto;
-            }
-        }
-    }
-
-    @include tablet {
-        img {
-            margin-bottom: 4rem;
-        }
-        .container {
-            position: relative;
-
-            form {
-                position: absolute;
-                bottom: 117px;
-                left: 0;
-                // margin-bottom: 5rem;
-                padding: 1rem;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-
-                h2 {
-                    font-size: 22px;
+                .redirect_button {
                 }
 
-                p {
-                    font-size: 14px;
-                }
-
-                .request-form-input {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                }
-
-                button {
+                .contact-request-group {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                    position: relative;
                     margin-bottom: 1rem;
-                }
-            }
 
-            .our-projects-partners {
-                padding-bottom: 0;
-                margin-top: 2rem;
-    
-                img {
-                    width: 10%;
-                    height: auto;
-                }
-            }
-           
-        }
-    }
-
-    @include desktop {
-        .container {
-            position: relative;
-            form {
-                position: absolute;
-                bottom: 180px;
-                left: 0;
-                width: 100%;
-                padding: 4rem 3rem;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-
-                h2 {
-                    font-size: 40px;
-                    text-align: center;
-                }
-
-                .request-form-input {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    
-                    input, select {
-                        width: 100%;
+                    .form-input {
+                        border-radius: 4px;
+                        border: 1px solid #ececee;
                         padding: 1rem;
-                        font-size: 14px;
+                        font-style: italic;
+                    }
+
+                    .form-input-error {
+                        display: none;
+                    }
+
+                    .form-invalid-input {
+                        display: flex;
+                        color: red;
+                        position: absolute;
+                        bottom: -27px;
+                        left: 0;
+                    }
+
+                    .selectOption {
+                        border-radius: 4px;
+                        border: 1px solid #ececee;
+                        padding: 1rem;
                     }
                 }
-
-                button {
-                    margin-bottom: 1rem;
-                }
             }
 
-            .our-projects-partners {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                gap: 1rem;
-                padding-bottom: 2rem;
-    
-                img {
-                    width: 10%;
-                    height: auto;
-                }
+            .form-button {
+                grid-column: 1 / -1;
             }
         }
     }

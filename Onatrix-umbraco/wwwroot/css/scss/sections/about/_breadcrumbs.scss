@@ -1,70 +1,43 @@
 #breadcrumbs {
-    
     .container {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-        text-align: center;
-        
-        .about-us-navigation {
-           
-            a {
-                text-decoration: none;
-            }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h2 {
+            font-size: 40px;
+        }
+
+        .breadcrumbs-navigation {
             
-            i {
-                color: #D9C3A9;
-                margin-left: 0.8rem;
-                margin-right: 0.8rem;
+            .breadcrumb {
+                display: flex;
+                margin-right: 2rem;
+               /* justify-content: center;*/
+                flex-direction: row;
+                gap: 1rem;
+                li {
+                    list-style-type: none;
+
+                    .divider {
+                        margin-left: 0.5rem;
+                    }
+
+                    a {
+                        color: var(--color-default);
+                        text-decoration: none;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+
+                    &.active {
+                        color: var(--color-secondary);
+                    }
+                }
             }
         }
-    }   
-
-    @include tablet {
-
-        .container {
-            
-           h2 {
-            font-size: 22px;
-           }
-            
-            .about-us-navigation {
-               
-                a {
-                    text-decoration: none;
-                    font-size: 10px;
-                }
-                
-                i {
-                    color: #D9C3A9;
-                    margin-left: 0.5rem;
-                    margin-right: 0.5rem;
-                    font-size: 10px;
-                }
-            }
-        } 
-    }
-
-    @include desktop {
-        .container {
-            
-            h2 {
-             font-size: 40px;
-            }
-             
-             .about-us-navigation {
-                
-                 a {
-                     text-decoration: none;
-                     font-size: 14px;
-                 }
-                 
-                 i {
-                     color: #D9C3A9;
-                     margin-left: 0.5rem;
-                     margin-right: 0.5rem;
-                     font-size: 10px;
-                 }
-             }
-         } 
     }
 }

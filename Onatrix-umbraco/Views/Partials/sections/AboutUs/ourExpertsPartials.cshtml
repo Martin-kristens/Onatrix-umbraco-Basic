@@ -1,0 +1,57 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+
+@{
+    // hämtar blocklist från about 
+    var expertCard = Model.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("expertCard") ?? null;
+
+    // Filtrera de stora och små korten baserat på blocktypen (alias)
+    var largeCards = expertCard?.Where(x => x.Content.ContentType.Alias == "largeCardItem") ?? null;
+    var smallCards = expertCard?.Where(x => x.Content.ContentType.Alias == "smallCardItem") ?? null;
+}
+
+<div class="container">
+    <h6>@Model.Value("expertTitle")</h6>
+    <h2 class="expert_headline">@Model.Value("expertHeadline")</h2>
+
+    <a href="" class="our-expert-large-cards">
+        @foreach (var item in largeCards!)
+        {
+            // hämtar block types från large card item
+            var largeImage = item.Content.Value<IPublishedContent>("largeImage")?.Url();
+            var nameLarge = item.Content.Value<string>("largeImageName");
+            var positionLarge = item.Content.Value<string>("largeImageWorkPosition");
+
+            <div class="our-expert-large-card">
+                @if (!string.IsNullOrEmpty(largeImage))
+                {
+                    <img src="@largeImage" alt="@nameLarge">
+                }
+                <h4 class="bg-light">@nameLarge</h4>
+                <p class="bg-light">@positionLarge</p>
+            </div>
+        }
+    </a>
+             
+    <a class="our-expert-small-cards"> 
+        @foreach (var item in smallCards)
+        {
+            // hämtar block types från small card item
+            var smallImage = item.Content.Value<IPublishedContent>("smallImage")?.Url();
+            var nameSmall = item.Content.Value<string>("expertNameSmall");
+            var positionSmall = item.Content.Value<string>("expertPositionSmall");
+
+            <div class="our-expert-small-card">
+                @if (!string.IsNullOrEmpty(smallImage))
+                {
+                    <img src="@smallImage" alt="@nameSmall">
+                }
+                <h4 class="bg-light">@nameSmall</h4>
+                <p class="bg-light">@positionSmall</p>
+            </div>
+        }      
+    </a>
+</div> 

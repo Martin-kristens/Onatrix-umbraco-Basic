@@ -1,0 +1,33 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@using Umbraco.Cms.Core.Models.Blocks;
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+@{
+	Layout = "mainLayout.cshtml";
+	ViewBag.Title = Model?.Value("pageTitle") ?? Model?.Name;
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.Title))
+{
+	@await Html.PartialAsync("partials/static/breadcrumb.cshtml")
+}
+
+<section id="services-details">
+	<div class="container">
+        @await Html.PartialAsync("partials/static/sideBar.cshtml")
+
+        <hr class="separator">
+        <div class="right-side">
+            @Model?.Value("pageContent")
+        </div>
+	
+    </div>
+</section>
+
+@await Html.PartialAsync("partials/static/messageForm.cshtml");
+	
+<section class="contact-info bg-gray">
+    @await Html.PartialAsync("partials/static/_contanctInformation.cshtml")
+</section>
+
