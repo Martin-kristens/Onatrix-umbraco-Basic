@@ -7,6 +7,15 @@
 @{
     var signatureImage = Model?.Value<IPublishedContent>("aboutUsSignatureImage")?.Url() ?? "";
 	var placeholderText = Model?.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("formPlaceholder") ?? null;
+
+	var option1 = Model?.Value<string>("formOptionText1");
+	var option2 = Model?.Value<string>("formOptionText2");
+	var option3 = Model?.Value<string>("formOptionText3");
+
+	bool.TryParse(ViewData["error_name"]?.ToString()!, out bool error_name);
+	bool.TryParse(ViewData["error_phone"]?.ToString()!, out bool error_phone);
+	bool.TryParse(ViewData["error_email"]?.ToString()!, out bool error_email);
+	bool.TryParse(ViewData["error_selectOption"]?.ToString()!, out bool error_selectOption);
 }
 
 <div class="container">
@@ -18,10 +27,56 @@
 		<img src="@signatureImage" alt="@Model?.Value("aboutUsSignature")">
 		<p>@Model?.Value("aboutUsSignature")</p>
 	</div>
+
 	<form class="right-side">
 		<h5 class="bg-primary">@Model?.Value("formHeadline")</h5>
 		<p>@Model?.Value("formText")</p>
-		@if (placeholderText != null && placeholderText.Any())
+
+		<div class="right-side_form">
+			@if (TempData["success"] != null)
+			{
+				<div class="success-message">@TempData["Success"]</div>
+				@using (Html.BeginUmbracoForm("ReturnSubmit", "ContactSurface", FormMethod.Post))
+				{
+					<button type="submit" class="btn-primary redirect_button">@Model?.Value("redirectButtonText")</button>
+				}
+			}
+			else
+			{
+				@using (Html.BeginUmbracoForm("HandleSubmit", "ContactSurface", FormMethod.Post))
+				{
+					<div class="contact-request-group">
+						<input id="name" name="name" type="text" placeholder="@Model?.Value("namePlaceholder")" class="form-input" value="@ViewData["name"]" />
+						<span class="form-input-error @((error_name) ? "form-invalid-input": null)">@Model?.Value("nameErrorText")</span>
+					</div>
+
+					<div class="contact-request-group">
+						<input id="email" name="email" type="email" placeholder="@Model?.Value("emailPlaceholder")" class="form-input" value="@ViewData["email"]" />
+						<span class="form-input-error @((error_email) ? "form-invalid-input": null)">@Model?.Value("emailErrorText")</span>
+					</div>
+
+					<div class="contact-request-group">
+						<input id="phone" name="phone" type="tel" placeholder="@Model?.Value("phonePlaceholder")" class="form-input" value="@ViewData["phone"]" />
+						<span class="form-input-error @((error_phone) ? "form-invalid-input": null)">@Model?.Value("phoneErrorText")</span>
+					</div>
+
+					<div class="contact-request-group">
+						<select name="selectOption" id="selectOption" class="selectOption">
+							<option value="@option1">@option1</option>
+							<option value="@option2">@option2</option>
+							<option value="@option3">@option3</option>
+						</select>
+						<span class="form-input-error @((error_selectOption) ? "form-invalid-input": null)">@Model?.Value("optionErrorText")</span>
+					</div>
+					<div class="form-button">
+						<button class="btn-primary form-button">@Model?.Value("formButtomName")</button>
+					</div>
+
+				}
+			}
+		</div>
+		
+		@* @if (placeholderText != null && placeholderText.Any())
 		{
 			@foreach (var item in placeholderText)
 			{
@@ -33,6 +88,6 @@
 		<select name="" id="">
 			<option value="">@Model?.Value("formSelectPlaceholder")</option>
 		</select>
-		<button class="btn-accent">@Model?.Value("formButtomName")</button>
+		<button class="btn-accent">@Model?.Value("formButtomName")</button> *@
 	</form>
 </div>

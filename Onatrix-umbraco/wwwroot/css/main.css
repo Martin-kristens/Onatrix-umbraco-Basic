@@ -650,11 +650,11 @@ nav {
     font-size: 14px;
   }
   #about-us .container .right-side {
-    display: inline;
+    /*display: inline;*/
     background-color: #fff;
     border: 1px solid rgba(204, 204, 204, 0.231372549);
     border-radius: 1px;
-    width: 40%;
+    width: 35%;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     position: absolute;
     top: -70px;
@@ -662,39 +662,84 @@ nav {
     text-align: left;
     padding-bottom: 2rem;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    /*  input {
+        margin-left: 1rem;
+        margin-bottom: 0.5rem;
+        width: 90%;
+        padding: 0.5rem;
+        row-gap: 1rem;
+        border: 1px solid #ececee;
+
+        &::placeholder {
+            font-style: italic;
+        }
+    }
+
+    select {
+        margin-left: 1rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        width: 90%;
+        padding: 0.5rem;
+        border: 1px solid #ececee;
+    }
+
+    button {
+        margin-left: 1rem;
+        width: 90%;
+        padding: 0.5rem;
+    }*/
   }
   #about-us .container .right-side h5 {
     width: 100%;
     padding: 1rem;
+    color: var(--color-secondary);
   }
   #about-us .container .right-side p {
     font-style: italic;
     font-size: 10px;
     padding: 1rem;
   }
-  #about-us .container .right-side input {
-    margin-left: 1rem;
+  #about-us .container .right-side .right-side_form .success-message {
+    color: var(--color-primary);
+    margin-left: 0.5rem;
     margin-bottom: 0.5rem;
-    width: 90%;
-    padding: 0.5rem;
-    row-gap: 1rem;
-    border: 1px solid #ececee;
   }
-  #about-us .container .right-side input::placeholder {
+  #about-us .container .right-side .right-side_form .redirect_button {
+    margin-left: 0.5rem;
+    width: 90%;
+    display: block;
+  }
+  #about-us .container .right-side .right-side_form .contact-request-group {
+    position: relative;
+    width: 90%;
+  }
+  #about-us .container .right-side .right-side_form .contact-request-group .form-input {
+    padding: 1rem;
+    margin-left: 1rem;
+    border: 1px solid #ececee;
+    border-radius: 0.1rem;
     font-style: italic;
   }
-  #about-us .container .right-side select {
+  #about-us .container .right-side .right-side_form .contact-request-group .form-input-error {
+    display: none;
+  }
+  #about-us .container .right-side .right-side_form .contact-request-group .form-invalid-input {
+    display: flex;
+    color: red;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  #about-us .container .right-side .right-side_form .contact-request-group .selectOption {
     margin-left: 1rem;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    width: 90%;
     padding: 0.5rem;
     border: 1px solid #ececee;
   }
-  #about-us .container .right-side button {
-    margin-left: 1rem;
-    width: 90%;
-    padding: 0.5rem;
+  #about-us .container .right-side .right-side_form .form-button {
+    margin-left: 0.5rem;
+    width: 100%;
+    display: block;
   }
 }
 @media (min-width: 1200px) {
@@ -721,19 +766,41 @@ nav {
   }
   #about-us .container .right-side {
     display: inline;
-    width: 30%;
+    width: 35%;
     top: -80px;
-    right: 60px;
+    right: 0px;
   }
   #about-us .container .right-side p {
     font-size: 13px;
     padding: 1rem;
   }
-  #about-us .container .right-side input {
-    margin-bottom: 1.5rem;
+  #about-us .container .right-side .right-side_form {
+    width: 100%;
   }
-  #about-us .container .right-side select {
+  #about-us .container .right-side .right-side_form .contact-request-group {
+    position: relative;
+    width: 90%;
+  }
+  #about-us .container .right-side .right-side_form .contact-request-group .form-input, #about-us .container .right-side .right-side_form .contact-request-group .selectOption {
+    padding: 0.8rem;
+    margin-left: 1rem;
     margin-bottom: 1.5rem;
+    width: 100%;
+  }
+  #about-us .container .right-side .right-side_form .contact-request-group .form-input-error {
+    display: none;
+  }
+  #about-us .container .right-side .right-side_form .contact-request-group .form-invalid-input {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+  }
+  #about-us .container .right-side .right-side_form .form-button {
+    display: block;
+  }
+  #about-us .container .right-side .right-side_form .form-button .form-button {
+    width: 90%;
   }
 }
 
